@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Saas | Fred Yan Blog]]></title>
   <link href="http://ywllx.github.com/blog/categories/saas/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-03-09T01:48:12+08:00</updated>
+  <updated>2013-03-09T02:04:16+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -45,7 +45,7 @@ return 0;
 
 <p>}
 ```
-<img src="/source/images/pic.jpg" width="300" height="300" title="beautiful girl" ></p>
+<img src="/source/images/pic.jpg" title="beautiful girl" ></p>
 
 <blockquote><p>这是区块中引用Blockquotes,
 的简单示例</p>
