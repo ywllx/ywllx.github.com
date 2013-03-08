@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Saas | Fred Yan Blog]]></title>
   <link href="http://ywllx.github.com/blog/categories/saas/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-03-09T00:42:13+08:00</updated>
+  <updated>2013-03-09T00:51:11+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -31,6 +31,19 @@ class Fixnum
 
 <p>  end
 end
+<code>
+</code>c Hello World Program</p>
+
+<h1>include &lt;stdio.h></h1>
+
+<p>int main()
+{</p>
+
+<pre><code>printf("Hello World\n");
+return 0;
+</code></pre>
+
+<p>}
 ```</p>
 
 <blockquote><p>这是区块中引用Blockquotes,
