@@ -4,7 +4,7 @@
   <title><![CDATA[Fred Yan Blog]]></title>
   <link href="http://ywllx.github.com/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-03-08T23:48:11+08:00</updated>
+  <updated>2013-03-08T23:51:03+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -78,7 +78,7 @@ Here is an example of AppleScript:
     end tell
 </code></pre>
 
-<p>行里嵌入小段代码&#8217;printf()&#8217;.</p>
+<p>行里嵌入小段代码<code>printf()</code>.</p>
 
 <h4>分割线</h4>
 
