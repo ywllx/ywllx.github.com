@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Saas | Fred Yan Blog]]></title>
   <link href="http://ywllx.github.com/blog/categories/saas/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-03-09T00:22:18+08:00</updated>
+  <updated>2013-03-09T00:42:13+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -21,6 +21,17 @@
     <content type="html"><![CDATA[<h4>这是Head4</h4>
 
 <p>print和许多GDB的命令一样，可以接受一个表达式，GDB会根据当前的程序运行的数据来计算这个表达式，既然是表达式，那么就可以是当前程序运行中的const常量、变量、函数等内容。可惜的是GDB不能使用你在程序中所定义的宏。</p>
+
+<p>```ruby Discover if a number is prime
+class Fixnum
+  def prime?</p>
+
+<pre><code>('1' * self) !~ /^1?$|^(11+?)\1+$/
+</code></pre>
+
+<p>  end
+end
+```</p>
 
 <blockquote><p>这是区块中引用Blockquotes,
 的简单示例</p>
