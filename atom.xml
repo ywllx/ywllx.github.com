@@ -4,7 +4,7 @@
   <title><![CDATA[Fred Yan Blog]]></title>
   <link href="http://ywllx.github.com/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-03-08T23:14:01+08:00</updated>
+  <updated>2013-03-08T23:28:59+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -65,6 +65,35 @@
 被包含的区块</p></blockquote></li>
 </ul>
 
+
+<h4>代码区块</h4>
+
+<p>这是一个普通段落</p>
+
+<pre><code>这是一个代码区段
+Here is an example of AppleScript:
+
+    tell application "Foo"
+        beep
+    end tell
+</code></pre>
+
+<h4>分割线</h4>
+
+<hr />
+
+<hr />
+
+<h4>区段元素</h4>
+
+<h5>链接</h5>
+
+<p>这是一个链接
+This is <a href="http://www.sina.com.cn/" title="Title">an example</a> inline link.
+<a href="http://www.sina.com.cn">This linkk</a> has no title attribute.</p>
+
+<p>I get 10 times more traffic from <a href="http://www.baidu.com/" title="Baidu">baidu</a> than from
+<a href="http://www.sina.com.cn/" title="Sina">sina</a> or <a href="http://www.sohu.com.cn/" title="Sohu">sohu</a>.</p>
 ]]></content>
   </entry>
   
