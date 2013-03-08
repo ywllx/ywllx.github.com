@@ -4,7 +4,7 @@
   <title><![CDATA[Fred Yan Blog]]></title>
   <link href="http://ywllx.github.com/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-03-08T17:23:35+08:00</updated>
+  <updated>2013-03-08T22:57:05+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -12,5 +12,30 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[如何使用octopress编写我的第一个博客]]></title>
+    <link href="http://ywllx.github.com/blog/2013/03/08/ru-he-shi-yong-octopressbian-xie-wo-de-di-%5B%3F%5D-ge-bo-ke/"/>
+    <updated>2013-03-08T22:35:00+08:00</updated>
+    <id>http://ywllx.github.com/blog/2013/03/08/ru-he-shi-yong-octopressbian-xie-wo-de-di-[?]-ge-bo-ke</id>
+    <content type="html"><![CDATA[<h1>这是 Head1</h1>
+
+<h2>这是 Head2</h2>
+
+<h5>这是Head5</h5>
+
+<blockquote><p>这是区块中引用Blockquotes,
+的简单示例</p>
+
+<p>这是区块中引用Blockquotes,
+的简单示例</p>
+
+<p>区块内使用嵌套的示例</p>
+
+<blockquote><p>区块内使用嵌套的示例</p></blockquote>
+
+<p>区块内使用嵌套的示例</p></blockquote>
+]]></content>
+  </entry>
   
 </feed>
