@@ -4,7 +4,7 @@
   <title><![CDATA[其实很简单]]></title>
   <link href="http://ywllx.github.com/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-03-11T01:10:33+08:00</updated>
+  <updated>2013-03-11T01:18:45+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -15,120 +15,92 @@
   
   <entry>
     <title type="html"><![CDATA[如何使用octopress编写我的第一个博客]]></title>
-    <link href="http://ywllx.github.com/blog/2013/03/08/ru-he-shi-yong-octopressbian-xie-wo-de-di-%5B%3F%5D-ge-bo-ke/"/>
+    <link href="http://ywllx.github.com/blog/2013/03/08/ru-he-shi-yong-octopressbian-xie-wo-de-di-%5B%3F%5D-ge-bo-ke.markdown/"/>
     <updated>2013-03-08T22:35:00+08:00</updated>
-    <id>http://ywllx.github.com/blog/2013/03/08/ru-he-shi-yong-octopressbian-xie-wo-de-di-[?]-ge-bo-ke</id>
-    <content type="html"><![CDATA[<h4>这是Head4</h4>
-
-<p>print和许多GDB的命令一样，可以接受一个表达式，GDB会根据当前的程序运行的数据来计算这个表达式，既然是表达式，那么就可以是当前程序运行中的const常量、变量、函数等内容。可惜的是GDB不能使用你在程序中所定义的宏。</p>
-
-<figure class='code'><figcaption><span>Discover if a number is prime </span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Fixnum</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">prime?</span>
-</span><span class='line'>    <span class="p">(</span><span class="s1">&#39;1&#39;</span> <span class="o">*</span> <span class="nb">self</span><span class="p">)</span> <span class="o">!~</span> <span class="sr">/^1?$|^(11+?)\1+$/</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
+    <id>http://ywllx.github.com/blog/2013/03/08/ru-he-shi-yong-octopressbian-xie-wo-de-di-[?]-ge-bo-ke.markdown</id>
+    <content type="html"><![CDATA[#### 这是Head4
+print和许多GDB的命令一样，可以接受一个表达式，GDB会根据当前的程序运行的数据来计算这个表达式，既然是表达式，那么就可以是当前程序运行中的const常量、变量、函数等内容。可惜的是GDB不能使用你在程序中所定义的宏。
 
 
-<figure class='code'><figcaption><span>Hello World Program</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cp">#include &lt;stdio.h&gt;</span>
-</span><span class='line'><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-</span><span class='line'>  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
+```ruby Discover if a number is prime 
+class Fixnum
+  def prime?
+    ('1' * self) !~ /^1?$|^(11+?)\1+$/
+  end
+end
+```
+```c Hello World Program
+#include <stdio.h>
+int main()
+{
+	printf(&#8220;Hello World\n&#8221;);
+	return 0;
+}
+&#8220;`
+<img src="http://ywllx.github.com/images/pic.jpg" title="beautiful girl" >
 
 
-<p><img src="http://ywllx.github.com/images/pic.jpg" title="beautiful girl" ></p>
-
-<blockquote><p>这是区块中引用Blockquotes,
-的简单示例</p>
-
-<p>这是区块中引用Blockquotes,
-的简单示例</p>
-
-<p>区块内使用嵌套的示例</p>
-
-<blockquote><p>区块内使用嵌套的示例</p></blockquote>
-
-<p>区块内使用嵌套的示例</p></blockquote>
-
-<h3>列表使用示例</h3>
-
-<h4>无序列表</h4>
-
-<ul>
-<li>Red</li>
-<li>Green</li>
-<li>Blue</li>
-</ul>
 
 
-<h4>有序列表</h4>
+>这是区块中引用Blockquotes,
+的简单示例
 
-<ol>
-<li>Red</li>
-<li>Green</li>
-<li>Blue</li>
-</ol>
+>这是区块中引用Blockquotes,
+>的简单示例
 
+>区块内使用嵌套的示例
+>
+>>区块内使用嵌套的示例
+>
+>区块内使用嵌套的示例
 
-<h4>列表中嵌入区块</h4>
+### 列表使用示例
+#### 无序列表
++ Red
++ Green
++ Blue
 
-<ul>
-<li>一列表包含一个列表区块
+#### 有序列表
+1. Red
+2. Green
+3. Blue
 
-<blockquote><p>被包含的区块
-被包含的区块</p></blockquote></li>
-</ul>
+#### 列表中嵌入区块
++  一列表包含一个列表区块
+	>被包含的区块
+	>被包含的区块
 
+#### 代码区块
+这是一个普通段落
+	这是一个代码区段
+	Here is an example of AppleScript:
 
-<h4>代码区块</h4>
+		tell application &#8220;Foo&#8221;
+			beep
+		end tell
+行里嵌入小段代码`printf()`.
 
-<p>这是一个普通段落</p>
+#### 分割线
+**********
+&#8212;&#8212;&#8212;-
 
-<pre><code>这是一个代码区段
-Here is an example of AppleScript:
+#### 区段元素
+##### 链接
+这是一个链接
+This is [an example](http://www.sina.com.cn/ &#8220;Title&#8221;) inline link.
+[This link](http://www.sina.com.cn) has no title attribute.
 
-    tell application "Foo"
-        beep
-    end tell
-</code></pre>
+I get 10 times more traffic from [baidu] [1] than from
+[sina] [2] or [sohu] [3].
 
-<p>行里嵌入小段代码<code>printf()</code>.</p>
+[1]: http://www.baidu.com/      &#8220;Baidu&#8221;
+[2]: http://www.sina.com.cn/  	&#8220;Sina&#8221;
+[3]: http://www.sohu.com.cn/    &#8220;Sohu&#8221;
 
-<h4>分割线</h4>
+#### 强调
+这是一个*简单强调*的字段
+这是一个**更加强调**的字段
 
-<hr />
-
-<hr />
-
-<h4>区段元素</h4>
-
-<h5>链接</h5>
-
-<p>这是一个链接
-This is <a href="http://www.sina.com.cn/" title="Title">an example</a> inline link.
-<a href="http://www.sina.com.cn">This link</a> has no title attribute.</p>
-
-<p>I get 10 times more traffic from <a href="http://www.baidu.com/" title="Baidu">baidu</a> than from
-<a href="http://www.sina.com.cn/" title="Sina">sina</a> or <a href="http://www.sohu.com.cn/" title="Sohu">sohu</a>.</p>
-
-<h4>强调</h4>
-
-<p>这是一个<em>简单强调</em>的字段
-这是一个<strong>更加强调</strong>的字段</p>
 ]]></content>
   </entry>
   
