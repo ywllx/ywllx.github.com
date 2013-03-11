@@ -4,7 +4,7 @@
   <title><![CDATA[其实很简单]]></title>
   <link href="http://ywllx.github.com/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-03-12T00:48:29+08:00</updated>
+  <updated>2013-03-12T00:53:46+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -37,7 +37,7 @@
 </ul>
 
 
-<p>&lt; img /images/version0.JPEG &#8220;初始博客&#8221; ></p>
+<p><img src=/images/version0.JPEG title="初始博客"></p>
 ]]></content>
   </entry>
   
