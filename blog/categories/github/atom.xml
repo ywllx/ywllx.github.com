@@ -4,7 +4,7 @@
   <title><![CDATA[Category: github | 其实很简单]]></title>
   <link href="http://ywllx.github.com/blog/categories/github/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-03-12T02:01:44+08:00</updated>
+  <updated>2013-03-12T02:07:14+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -46,15 +46,15 @@
 
 <h4>个性化设置</h4>
 
-<h5>更改背景颜色：</h5>
+<p><em>更改背景颜色</em></p>
 
-<h5>导航栏修改</h5>
+<p><em>导航栏修改</em></p>
 
-<h5>增加分享和评论</h5>
+<p><em>增加分享和评论</em></p>
 
-<h5>增加文章分类标签</h5>
+<p><em>增加文章分类标签</em></p>
 
-<h5>侧栏增加微博秀</h5>
+<p><em>侧栏增加微博秀</em></p>
 
 <ol>
 <li>首先到先到<a href="http://weibo.com/tool/weiboshow">微博秀</a>里面生成自己的微博秀嵌入代码，找出最后的uid和verifier</li>
