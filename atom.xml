@@ -4,7 +4,7 @@
   <title><![CDATA[其实很简单]]></title>
   <link href="http://ywllx.github.com/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-03-12T02:18:39+08:00</updated>
+  <updated>2013-03-12T02:19:59+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -54,13 +54,9 @@
 
 <p><em>增加文章分类标签</em></p>
 
-<p><em>侧栏增加微博秀</em></p>
-
-<ol>
-<li>首先到先到<a href="http://weibo.com/tool/weiboshow">微博秀</a>里面生成自己的微博秀嵌入代码，找出最后的uid和verifier</li>
-<li>新建一个weiboxiu.html放置到source/_includes/asides下</li>
-</ol>
-
+<p><em>侧栏增加微博秀</em>
+1. 首先到先到<a href="http://weibo.com/tool/weiboshow">微博秀</a>里面生成自己的微博秀嵌入代码，找出最后的uid和verifier
+2. 新建一个weiboxiu.html放置到source/_includes/asides下</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -93,12 +89,8 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p></p>
-
-<ol>
-<li>在_config.yml中增加相关设定</li>
-</ol>
-
+<p>
+3. 在_config.yml中增加相关设定</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
