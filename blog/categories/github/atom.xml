@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[其实很简单]]></title>
-  <link href="http://ywllx.github.com/atom.xml" rel="self"/>
+  <title><![CDATA[Category: github | 其实很简单]]></title>
+  <link href="http://ywllx.github.com/blog/categories/github/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
   <updated>2013-03-12T00:08:25+08:00</updated>
   <id>http://ywllx.github.com/</id>
