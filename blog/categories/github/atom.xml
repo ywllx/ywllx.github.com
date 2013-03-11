@@ -4,7 +4,7 @@
   <title><![CDATA[Category: github | 其实很简单]]></title>
   <link href="http://ywllx.github.com/blog/categories/github/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-03-12T00:53:46+08:00</updated>
+  <updated>2013-03-12T00:57:44+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -33,11 +33,10 @@
 
 <h4>如何搭建</h4>
 
-<p>知道搭建博客主要用到的工具后，搭建一个基本的博客就很简单了，<a href="">这篇文章</a>则详细介绍了在windows环境下搭建博客的详细步骤，在linux环境下基本过程也差不多，另外Octopress的<a href="">官方文档</a>也有详细的介绍。完成这些操作后你应该得到如下图所示的一个博客。</p></li>
+<p>知道搭建博客主要用到的工具后，搭建一个基本的博客就很简单了，<a href="http://xuhehuan.com/783.html">这篇文章</a>则详细介绍了在windows环境下搭建博客的详细步骤，在linux环境下基本过程也差不多，另外Octopress的<a href="http://octopress.org/docs/">官方文档</a>也有详细的介绍。完成这些操作后你应该得到如下图所示的一个博客。
+<img src=/images/version0.JPEG title="初始博客"></p></li>
 </ul>
 
-
-<p><img src=/images/version0.JPEG title="初始博客"></p>
 ]]></content>
   </entry>
   
