@@ -4,7 +4,7 @@
   <title><![CDATA[Category: github | 其实很简单]]></title>
   <link href="http://ywllx.github.com/blog/categories/github/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-03-12T02:13:35+08:00</updated>
+  <updated>2013-03-12T02:18:39+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -18,8 +18,7 @@
     <link href="http://ywllx.github.com/blog/2013/03/11/how-to-build-blog-with-octopress-on-github/"/>
     <updated>2013-03-11T22:26:00+08:00</updated>
     <id>http://ywllx.github.com/blog/2013/03/11/how-to-build-blog-with-octopress-on-github</id>
-    <content type="html"><![CDATA[<p>&lt;!– more –>
-早就想着自己动手利用github搭建一个能自己控制的博客，上个周末，终于把想法变成行动了，google了一把之后，打开了<a href="http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html">一篇文章</a>，介绍如何利用github Pages和Jekyll搭建一个免费的，无限流量的Blog，这不正是我所需要的吗！但是对jekll并不熟，文章也没有详细介绍如何利用它。继续google，发现了octopress这个工具，而且网上对介绍如何利用它搭建博客的文章很多，于是参考这些文章，开始搭建自己的博客了。下面则主要是这个过程的一个简单记录。</p>
+    <content type="html"><![CDATA[<p>早就想着自己动手利用github搭建一个能自己控制的博客，上个周末，终于把想法变成行动了，google了一把之后，打开了<a href="http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html">一篇文章</a>，介绍如何利用github Pages和Jekyll搭建一个免费的，无限流量的Blog，这不正是我所需要的吗！但是对jekll并不熟，文章也没有详细介绍如何利用它。继续google，发现了octopress这个工具，而且网上对介绍如何利用它搭建博客的文章很多，于是参考这些文章，开始搭建自己的博客了。下面则主要是这个过程的一个简单记录。</p>
 
 <hr />
 
@@ -59,29 +58,29 @@
 
 <ol>
 <li>首先到先到<a href="http://weibo.com/tool/weiboshow">微博秀</a>里面生成自己的微博秀嵌入代码，找出最后的uid和verifier</li>
-<li>新建一个weiboxiu.html放置到source/_includes/asides下
+<li><p>新建一个weiboxiu.html放置到source/_includes/asides下
 ```html
 <section><br/>
 <ul id="weibo"><br/>
-<li><br/>
-  &lt;iframe
+ <li><br/>
+   &lt;iframe</p>
 
-<pre><code>width="100%"   
-height="550"   
-class="share_self"   
-frameborder="0"   
-scrolling="no"   
-src="http://widget.weibo.com/weiboshow/index.php?width=0&amp;height=550&amp;ptype=0&amp;speed=0&amp;skin=&amp;isTitle=0&amp;noborder=1&amp;isWeibo=0&amp;isFans=&amp;uid=2249429451&amp;verifier=4fc57bc7"&gt;  
+<pre><code> width="100%"   
+ height="550"   
+ class="share_self"   
+ frameborder="0"   
+ scrolling="no"   
+ src="http://widget.weibo.com/weiboshow/index.php?width=0&amp;height=550&amp;ptype=0&amp;speed=0&amp;skin=&amp;isTitle=0&amp;noborder=1&amp;isWeibo=0&amp;isFans=&amp;uid=2249429451&amp;verifier=4fc57bc7"&gt;  
 </code></pre>
 
-<p>  </iframe><br/>
-</li><br/>
+<p>   </iframe><br/>
+ </li><br/>
 </ul><br/>
 </section> <br/>
 ```</p></li>
-<li>在_config.yml中增加相关设定
+<li><p>在_config.yml中增加相关设定
 ```ruby
-default_asides: [asides/recent_posts.html, asides/weibo.html, asides/github.html]
+default_asides: [asides/recent_posts.html, asides/weiboxiu.html]</p>
 
 <h1>....</h1>
 
