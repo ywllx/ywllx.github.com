@@ -4,7 +4,7 @@
   <title><![CDATA[Category: github | 其实很简单]]></title>
   <link href="http://ywllx.github.com/blog/categories/github/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-03-12T01:14:37+08:00</updated>
+  <updated>2013-03-12T01:52:21+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -47,11 +47,53 @@
 <h4>个性化设置</h4>
 
 <ul>
-<li>更改背景颜色</li>
+<li>更改背景颜色：</li>
 <li>导航栏修改</li>
 <li>增加分享和评论</li>
 <li>增加文章分类标签</li>
-<li>侧栏增加微博秀</li>
+<li>侧栏增加微博秀
+
+<blockquote><ol>
+<li>首先到先到<a href="">微博秀</a>里面生成自己的微博秀嵌入代码，找出最后的uid和verifier</li>
+<li>新建一个weiboxiu.html放置到source/_includes/asides下
+<code>html
+  
+&lt;section&gt;  
+&lt;h1&gt;新浪微博&lt;/h1&gt;  
+&lt;ul id="weibo"&gt;  
+&lt;li&gt;  
+ &lt;iframe   
+   width="100%"   
+   height="550"   
+   class="share_self"   
+   frameborder="0"   
+   scrolling="no"   
+   src="http://widget.weibo.com/weiboshow/index.php?width=0&amp;height=550&amp;ptype=0&amp;speed=0&amp;skin=&amp;isTitle=0&amp;noborder=1&amp;isWeibo=0&amp;isFans=&amp;uid=2249429451&amp;verifier=4fc57bc7"&gt;  
+ &lt;/iframe&gt;  
+&lt;/li&gt;  
+&lt;/ul&gt;  
+&lt;/section&gt;  
+
+</code></li>
+<li>在_config.yml中增加相关设定
+```ruby
+default_asides: [asides/recent_posts.html, asides/weibo.html, asides/github.html]
+
+<h1>....</h1>
+
+<h1>WeiboXiu</h1>
+
+<h1>Please refer to http://weibo.com/tool/weiboshow to get your uid and verifier.</h1>
+
+<p>weibo_uid:                # 填入uid<br/>
+weibo_verifier:           # 填入verifier<br/>
+weibo_fansline: 2         # 粉丝显示多少行<br/>
+weibo_show: true          # 是否显示最近微博内容<br/>
+weibo_pic: true           # 是否显示微博中的图片<br/>
+weibo_skin: 3             # 使用哪种配色风格，数字为从1开始的微博秀风格序号<br/>
+```</p></li>
+</ol>
+</blockquote></li>
 </ul>
 
 ]]></content>
