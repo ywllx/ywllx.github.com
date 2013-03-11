@@ -4,7 +4,7 @@
   <title><![CDATA[其实很简单]]></title>
   <link href="http://ywllx.github.com/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-03-12T00:04:01+08:00</updated>
+  <updated>2013-03-12T00:06:17+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -14,20 +14,26 @@
 
   
   <entry>
-    <title type="html"><![CDATA[利用octopress在github构建自己的博客]]></title>
+    <title type="html"><![CDATA[How To Build Blog With Octopress On Github]]></title>
     <link href="http://ywllx.github.com/blog/2013/03/11/how-to-build-blog-with-octopress-on-github/"/>
-    <updated>2013-03-11T22:26:00+08:00</updated>
+    <updated>2013-03-11T00:00:00+08:00</updated>
     <id>http://ywllx.github.com/blog/2013/03/11/how-to-build-blog-with-octopress-on-github</id>
-    <content type="html"><![CDATA[<h4>开始</h4>
+    <content type="html"><![CDATA[<hr />
 
-<h2>早就想着自己动手利用github搭建一个能自己控制的博客，上个周末，终于把想法变成行动了，google了一把之后，打开了<a href="http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html">一篇文章</a>，介绍如何利用github Pages和Jekyll搭建一个免费的，无限流量的Blog，这不正是我所需要的吗！但是对jekll并不熟，文章也没有详细介绍如何利用它。继续google，发现了octopress这个工具，而且网上对介绍如何利用它搭建博客的文章很多，于是参考这些文章，开始搭建自己的博客了。下面则主要是这个过程的一个简单记录。</h2>
+<p>layout: post
+title: &#8220;利用octopress在github构建自己的博客&#8221;
+date: 2013-03-11 22:26
+comments: true
+categories: octopress, github</p>
+
+<p>早就想着自己动手利用github搭建一个能自己控制的博客，上个周末，终于把想法变成行动了，google了一把之后，打开了<a href="http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html">一篇文章</a>，介绍如何利用github Pages和Jekyll搭建一个免费的，无限流量的Blog，这不正是我所需要的吗！但是对jekll并不熟，文章也没有详细介绍如何利用它。继续google，发现了octopress这个工具，而且网上对介绍如何利用它搭建博客的文章很多，于是参考这些文章，开始搭建自己的博客了。下面则主要是这个过程的一个简单记录。</p>
 
 <h4>环境准备</h4>
 
 <p>搭建博客主要用到了下面这些技术和工具，首先对它们进行一些简单的介绍：</p>
 
 <ul>
-<li><a href="http://pages.github.com/">github</a>：GitHub 是一个用于使用Git版本控制系统项目的共享虚拟主机服务。它由GitHub公司（曾称Logical Awesome）的开发者Chris Wanstrath、PJ Hyett和Tom Preston-Werner使用Ruby on Rails编写而成。GitHub同时提供付费账户和为开源项目提供的免费账户。Git是一个分布式的版本控制系统，最初由Linus Torvalds编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功。有人把github比作程序员中的facebook，在上面，我们可以很容易构建自己的开源项目。</li>
+<li><a href="http://pages.github.com/">Github</a>：GitHub 是一个用于使用Git版本控制系统项目的共享虚拟主机服务。它由GitHub公司（曾称Logical Awesome）的开发者Chris Wanstrath、PJ Hyett和Tom Preston-Werner使用Ruby on Rails编写而成。GitHub同时提供付费账户和为开源项目提供的免费账户。Git是一个分布式的版本控制系统，最初由Linus Torvalds编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功。有人把github比作程序员中的facebook，在上面，我们可以很容易构建自己的开源项目。</li>
 </ul>
 
 
