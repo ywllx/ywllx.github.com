@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress, | 其实很简单]]></title>
   <link href="http://ywllx.github.com/blog/categories/octopress-/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-03-12T00:22:52+08:00</updated>
+  <updated>2013-03-12T00:25:01+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -22,7 +22,7 @@
 
 <h4>环境准备</h4>
 
-<p>搭建博客主要用到了下面这些技术和工具，首先对它们进行一些简单的介绍：<br/></p>
+<p>搭建博客主要用到了下面这些技术和工具，首先对它们进行一些简单的介绍：</p>
 
 <ul>
 <li><a href="http://pages.github.com/">Github</a>：GitHub 是一个用于使用Git版本控制系统项目的共享虚拟主机服务。它由GitHub公司（曾称Logical Awesome）的开发者Chris Wanstrath、PJ Hyett和Tom Preston-Werner使用Ruby on Rails编写而成。GitHub同时提供付费账户和为开源项目提供的免费账户。Git是一个分布式的版本控制系统，最初由Linus Torvalds编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功。有人把github比作程序员中的facebook，在上面，我们可以很容易构建自己的开源项目。
