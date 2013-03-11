@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | 其实很简单]]></title>
   <link href="http://ywllx.github.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-03-12T02:19:59+08:00</updated>
+  <updated>2013-03-12T02:21:24+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -54,31 +54,33 @@
 
 <p><em>增加文章分类标签</em></p>
 
-<p><em>侧栏增加微博秀</em>
-1. 首先到先到<a href="http://weibo.com/tool/weiboshow">微博秀</a>里面生成自己的微博秀嵌入代码，找出最后的uid和verifier
-2. 新建一个weiboxiu.html放置到source/_includes/asides下
-```html
- <section><br/>
-  <ul id="weibo"></p>
+<p><em>侧栏增加微博秀</em></p>
 
-<pre><code>&lt;li&gt;  
-  &lt;iframe   
-    width="100%"   
-    height="550"   
-    class="share_self"   
-    frameborder="0"   
-    scrolling="no"   
-    src="http://widget.weibo.com/weiboshow/index.php?width=0&amp;height=550&amp;ptype=0&amp;speed=0&amp;skin=&amp;isTitle=0&amp;noborder=1&amp;isWeibo=0&amp;isFans=&amp;uid=2249429451&amp;verifier=4fc57bc7"&gt;  
-  &lt;/iframe&gt;  
-&lt;/li&gt;  
+<ol>
+<li>首先到先到<a href="http://weibo.com/tool/weiboshow">微博秀</a>里面生成自己的微博秀嵌入代码，找出最后的uid和verifier</li>
+<li>新建一个weiboxiu.html放置到source/_includes/asides下
+```html
+<section><br/>
+<ul id="weibo"><br/>
+ <li><br/>
+   &lt;iframe
+
+<pre><code> width="100%"   
+ height="550"   
+ class="share_self"   
+ frameborder="0"   
+ scrolling="no"   
+ src="http://widget.weibo.com/weiboshow/index.php?width=0&amp;height=550&amp;ptype=0&amp;speed=0&amp;skin=&amp;isTitle=0&amp;noborder=1&amp;isWeibo=0&amp;isFans=&amp;uid=2249429451&amp;verifier=4fc57bc7"&gt;  
 </code></pre>
 
-<p>  </ul><br/>
+<p>   </iframe><br/>
+ </li><br/>
+</ul><br/>
 </section> <br/>
-<code>  
-3. 在_config.yml中增加相关设定
-</code>ruby
-default_asides: [asides/recent_posts.html, asides/weiboxiu.html]</p>
+```</p></li>
+<li>在_config.yml中增加相关设定
+```ruby
+default_asides: [asides/recent_posts.html, asides/weiboxiu.html]
 
 <h1>....</h1>
 
@@ -92,7 +94,9 @@ weibo_fansline: 2         # 粉丝显示多少行<br/>
 weibo_show: true          # 是否显示最近微博内容<br/>
 weibo_pic: true           # 是否显示微博中的图片<br/>
 weibo_skin: 3             # 使用哪种配色风格，数字为从1开始的微博秀风格序号<br/>
-```</p>
+```</p></li>
+</ol>
+
 ]]></content>
   </entry>
   
