@@ -2,6 +2,24 @@
 // To give it a try, uncomment some of the lines below rebuild your blog, and see how it works.
 // If you need a handy color picker try http://hslpicker.com
 
+// ////////////////////////////////////////
+// change the background colors
+//
+html {
+  background: #d8d8d8 !important;
+}
+body {
+  > div {
+    background: #fff !important;
+    > div {
+      background: #fff !important;
+      }
+  }
+}
+$main-bg: #ffffff!default;
+$page-bg: #ffffff !default;
+
+
 $header-bg: #81BEF7;
 $subtitle-color: lighten($header-bg, 58);
 $nav-bg: desaturate(lighten(#8fc17a, 18), 5);

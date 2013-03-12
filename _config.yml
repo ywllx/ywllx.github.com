@@ -64,13 +64,13 @@ default_asides: [asides/recent_posts.html, asides/category_list.html, asides/wei
 weibo_uid: 2249429451                 # 填入uid  
 weibo_verifier: 4fc57bc7 # 填入verifier  
 weibo_fansline: 0      # 粉丝显示多少行  
-weibo_show: false     # 是否显示最近微博内容  
-weibo_pic: false          # 是否显示微博中的图片  
-weibo_skin: 1          # 使用哪种配色风格，数字为从1开始的微博秀风格序号  
+weibo_show: true     # 是否显示最近微博内容  
+weibo_pic: true          # 是否显示微博中的图片  
+weibo_skin: 3         # 使用哪种配色风格，数字为从1开始的微博秀风格序号  
   
 
 # Microblog share
-weibo_share: true
+share_and_comment: true
 
 # Github repositories
 github_user:
