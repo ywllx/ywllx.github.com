@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | 其实很简单]]></title>
   <link href="http://ywllx.github.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-03-13T03:22:05+08:00</updated>
+  <updated>2013-03-13T03:23:34+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -51,7 +51,7 @@
 <p><em>更改背景颜色与正文字体</em></p>
 
 <p>在Octopress安装完成之后，在sass/custom/下面有一些特殊的文件，根据命名可以猜到它是用来设置你的博客字体，颜色，布局的配置文件，这些配置文件一般会在最后载入。我们将它做一些修改，就可以对你博客的背景色，字体，布局等做出你个性化的设置。这里我参考<a href="http://aijazansari.com/2012/08/27/how-to-customize-octopress-theme/">这个博客</a>修改_colors.scss文件如下：
-```
+```scss
 html {
    background: #d8d8d8 !important;
  }

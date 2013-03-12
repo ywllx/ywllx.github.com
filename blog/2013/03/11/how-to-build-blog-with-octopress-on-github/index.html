@@ -125,7 +125,7 @@
 
 <p>在Octopress安装完成之后，在sass/custom/下面有一些特殊的文件，根据命名可以猜到它是用来设置你的博客字体，颜色，布局的配置文件，这些配置文件一般会在最后载入。我们将它做一些修改，就可以对你博客的背景色，字体，布局等做出你个性化的设置。这里我参考<a href="http://aijazansari.com/2012/08/27/how-to-customize-octopress-theme/">这个博客</a>修改_colors.scss文件如下：</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -150,31 +150,32 @@
 <span class='line-number'>23</span>
 <span class='line-number'>24</span>
 <span class='line-number'>25</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>html {
-</span><span class='line'>   background: #d8d8d8 !important;
-</span><span class='line'> }
-</span><span class='line'> body {
-</span><span class='line'>   &gt; div {
-</span><span class='line'>     background: #fff !important;
-</span><span class='line'>     &gt; div {
-</span><span class='line'>       background: #fff !important;
-</span><span class='line'>       }
-</span><span class='line'>   }
-</span><span class='line'>}
-</span><span class='line'>$main-bg: #ffffff!default;
-</span><span class='line'>$page-bg: #ffffff !default;
-</span><span class='line'>  
-</span><span class='line'>$header-bg: #81BEF7;
-</span><span class='line'>$subtitle-color: lighten($header-bg, 58);
-</span><span class='line'>$nav-bg: desaturate(lighten(#8fc17a, 18), 5);
-</span><span class='line'>$nav-bg-front: image-url('noise.png');
-</span><span class='line'>$nav-bg-back: linear-gradient(lighten($nav-bg, 8), $nav-bg, darken($nav-bg, 11));
-</span><span class='line'>$sidebar-bg: desaturate(#eceff5, 8);
-</span><span class='line'>$sidebar-link-color: saturate(#526f9a, 10);
-</span><span class='line'>$sidebar-link-color-hover: darken(#7ab662, 9);
-</span><span class='line'>$footer-bg: #ccc !default;
-</span><span class='line'>$footer-bg-front: image-url('noise.png');
-</span><span class='line'>$footer-bg-back: linear-gradient(lighten($footer-bg, 8), $footer-bg, darken($footer-bg, 11));</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='scss'><span class='line'><span class="nt">html</span> <span class="p">{</span>
+</span><span class='line'>   <span class="na">background</span><span class="o">:</span> <span class="mh">#d8d8d8</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'> <span class="p">}</span>
+</span><span class='line'> <span class="nt">body</span> <span class="p">{</span>
+</span><span class='line'>   <span class="o">&gt;</span> <span class="nt">div</span> <span class="p">{</span>
+</span><span class='line'>     <span class="na">background</span><span class="o">:</span> <span class="mh">#fff</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>     <span class="o">&gt;</span> <span class="nt">div</span> <span class="p">{</span>
+</span><span class='line'>       <span class="na">background</span><span class="o">:</span> <span class="mh">#fff</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'>       <span class="p">}</span>
+</span><span class='line'>   <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="na">$main-bg</span><span class="o">:</span> <span class="mh">#ffffff</span><span class="nv">!default</span><span class="p">;</span>
+</span><span class='line'><span class="na">$page-bg</span><span class="o">:</span> <span class="mh">#ffffff</span> <span class="nv">!default</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="na">$header-bg</span><span class="o">:</span> <span class="mh">#81BEF7</span><span class="p">;</span>
+</span><span class='line'><span class="na">$subtitle-color</span><span class="o">:</span> <span class="nf">lighten</span><span class="p">(</span><span class="nv">$header-bg</span><span class="o">,</span> <span class="mi">58</span><span class="p">);</span>
+</span><span class='line'><span class="na">$nav-bg</span><span class="o">:</span> <span class="nf">desaturate</span><span class="p">(</span><span class="nf">lighten</span><span class="p">(</span><span class="mh">#8fc17a</span><span class="o">,</span> <span class="mi">18</span><span class="p">)</span><span class="o">,</span> <span class="mi">5</span><span class="p">);</span>
+</span><span class='line'><span class="na">$nav-bg-front</span><span class="o">:</span> <span class="nf">image-url</span><span class="p">(</span><span class="s1">&#39;</span><span class="s2">noise.png&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="na">$nav-bg-back</span><span class="o">:</span> <span class="nf">linear-gradient</span><span class="p">(</span><span class="nf">lighten</span><span class="p">(</span><span class="nv">$nav-bg</span><span class="o">,</span> <span class="mi">8</span><span class="p">)</span><span class="o">,</span> <span class="nv">$nav-bg</span><span class="o">,</span> <span class="nf">darken</span><span class="p">(</span><span class="nv">$nav-bg</span><span class="o">,</span> <span class="mi">11</span><span class="p">));</span>
+</span><span class='line'><span class="na">$sidebar-bg</span><span class="o">:</span> <span class="nf">desaturate</span><span class="p">(</span><span class="mh">#eceff5</span><span class="o">,</span> <span class="mi">8</span><span class="p">);</span>
+</span><span class='line'><span class="na">$sidebar-link-color</span><span class="o">:</span> <span class="nf">saturate</span><span class="p">(</span><span class="mh">#526f9a</span><span class="o">,</span> <span class="mi">10</span><span class="p">);</span>
+</span><span class='line'><span class="na">$sidebar-link-color-hover</span><span class="o">:</span> <span class="nf">darken</span><span class="p">(</span><span class="mh">#7ab662</span><span class="o">,</span> <span class="mi">9</span><span class="p">);</span>
+</span><span class='line'><span class="na">$footer-bg</span><span class="o">:</span> <span class="mh">#ccc</span> <span class="nv">!default</span><span class="p">;</span>
+</span><span class='line'><span class="na">$footer-bg-front</span><span class="o">:</span> <span class="nf">image-url</span><span class="p">(</span><span class="s1">&#39;</span><span class="s2">noise.png&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="na">$footer-bg-back</span><span class="o">:</span> <span class="nf">linear-gradient</span><span class="p">(</span><span class="nf">lighten</span><span class="p">(</span><span class="nv">$footer-bg</span><span class="o">,</span> <span class="mi">8</span><span class="p">)</span><span class="o">,</span> <span class="nv">$footer-bg</span><span class="o">,</span> <span class="nf">darken</span><span class="p">(</span><span class="nv">$footer-bg</span><span class="o">,</span> <span class="mi">11</span><span class="p">));</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>参考<a href="http://melandri.net/2012/02/14/octopress-theme-customization/">这个博客</a>修改样式配置文件_styles.scss文件如下：</p>
