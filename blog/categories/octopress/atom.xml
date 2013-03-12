@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | 其实很简单]]></title>
   <link href="http://ywllx.github.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-03-13T01:03:40+08:00</updated>
+  <updated>2013-03-13T01:53:31+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -82,7 +82,7 @@ $footer-bg: #ccc !default;
 $footer-bg-front: image-url('noise.png');
 $footer-bg-back: linear-gradient(lighten($footer-bg, 8), $footer-bg, darken($footer-bg, 11));
 <code>
-参考这个博客修改样式配置文件_styles.scss文件如下：
+参考[这个博客](http://melandri.net/2012/02/14/octopress-theme-customization/)修改样式配置文件_styles.scss文件如下：
 </code>
 body { font-size: 1em; }
 body > div { background-image: none; }
@@ -131,11 +131,76 @@ margin-bottom: 1em;
 </code></pre>
 
 <p>}
-```</p>
-
-<p><em>导航栏修改</em></p>
+```
+<em>导航栏修改</em></p>
 
 <p><em>增加分享和评论</em></p>
+
+<p>是否希望自己的博客能被大家分享呢，或者希望能够和自己博客的读者有所互动，Octopress本身是默认带有国外facebook，twitter的分享功能的插件的，而且也带有Disqus评论功能插件，但一则因为墙的原因，二则为了真正地接地气，我们可以自己加入中国本地化的类似功能的插件，首先在/source/<em>includes/post目录下修改sharing.html文件如下：
+<code>
+
+<!-- JiaThis Button BEGIN -->
+<div class="jiathis_style_24x24">
+	<a class="jiathis_button_qzone"></a>
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_tqq"></a>
+	<a class="jiathis_button_renren"></a>
+	<a class="jiathis_button_kaixin001"></a>
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1357227497148830" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+<!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" id="UYScript" src="http://v1.uyan.cc/js/iframe.js?UYUserId=0" async=""></script>
+<!-- UY END -->
+
+
+</code>
+然后到<a href="http://www.jiathis.com/">加网</a>和<a href="http://www.uyan.cc/">友言</a>分别获得分享代码和评论代码（如下），放入新建的share_and_comment.html的文件中，将此文件存放在/source/</em>includes/post目录下
+```</p>
+
+<!-- JiaThis Button BEGIN -->
+
+
+<div class="jiathis_style_24x24">
+    <a class="jiathis_button_qzone"></a>
+    <a class="jiathis_button_tsina"></a>
+    <a class="jiathis_button_tqq"></a>
+    <a class="jiathis_button_renren"></a>
+    <a class="jiathis_button_kaixin001"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+    <a class="jiathis_counter_style"></a>
+</div>
+
+
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1357227497148830" charset="utf-8"></script>
+
+
+<!-- JiaThis Button END -->
+
+
+
+
+<!-- UY BEGIN -->
+
+
+<div id="uyan_frame"></div>
+
+
+<script type="text/javascript" id="UYScript" src="http://v1.uyan.cc/js/iframe.js?UYUserId=0" async=""></script>
+
+
+<!-- UY END -->
+
+
+<p><code>
+最后修改_config.yml文件，设置share_and_comment为true，如下：
+</code>
+share_and_comment: true
+```</p>
 
 <p><em>增加文章分类标签</em></p>
 
