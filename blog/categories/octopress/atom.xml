@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | 其实很简单]]></title>
   <link href="http://ywllx.github.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-03-13T03:19:39+08:00</updated>
+  <updated>2013-03-13T03:22:05+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -83,7 +83,7 @@ $footer-bg-front: image-url('noise.png');
 $footer-bg-back: linear-gradient(lighten($footer-bg, 8), $footer-bg, darken($footer-bg, 11));
 <code>
 参考[这个博客](http://melandri.net/2012/02/14/octopress-theme-customization/)修改样式配置文件_styles.scss文件如下：
-</code>
+</code> scss
 body { font-size: 1em; }
 body > div { background-image: none; }
 body > div > div { background-image: none; }</p>
@@ -149,7 +149,7 @@ margin-bottom: 1em;
 {_% endif %}
 </code>
 然后到<a href="http://www.jiathis.com/">加网</a>和<a href="http://www.uyan.cc/">友言</a>分别获得分享代码和评论代码（如下），放入新建的share_and_comment.html的文件中，将此文件存放在/source/</em>includes/post目录下
-```</p>
+``` html</p>
 
 <!-- JiaThis Button BEGIN -->
 

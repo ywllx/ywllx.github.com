@@ -4,7 +4,7 @@
   <title><![CDATA[其实很简单]]></title>
   <link href="http://ywllx.github.com/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-03-13T03:19:39+08:00</updated>
+  <updated>2013-03-13T03:22:05+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -106,7 +106,7 @@
 
 <p>参考<a href="http://melandri.net/2012/02/14/octopress-theme-customization/">这个博客</a>修改样式配置文件_styles.scss文件如下：</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -137,37 +137,38 @@
 <span class='line-number'>29</span>
 <span class='line-number'>30</span>
 <span class='line-number'>31</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>body { font-size: 1em; }
-</span><span class='line'>body &gt; div { background-image: none; }
-</span><span class='line'>body &gt; div &gt; div { background-image: none; }
+</pre></td><td class='code'><pre><code class='scss'><span class='line'><span class="nt">body</span> <span class="p">{</span> <span class="na">font-size</span><span class="o">:</span> <span class="mi">1</span><span class="kt">em</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'><span class="nt">body</span> <span class="o">&gt;</span> <span class="nt">div</span> <span class="p">{</span> <span class="na">background-image</span><span class="o">:</span> <span class="no">none</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'><span class="nt">body</span> <span class="o">&gt;</span> <span class="nt">div</span> <span class="o">&gt;</span> <span class="nt">div</span> <span class="p">{</span> <span class="na">background-image</span><span class="o">:</span> <span class="no">none</span><span class="p">;</span> <span class="p">}</span>
 </span><span class='line'>
-</span><span class='line'>/* ----- Content ----- */
-</span><span class='line'>#content .blog-index article h1 {
-</span><span class='line'>    font-size: 1.8em;
-</span><span class='line'>    font-weight: normal;
-</span><span class='line'>}
+</span><span class='line'><span class="cm">/* ----- Content ----- */</span>
+</span><span class='line'><span class="nn">#content</span> <span class="nc">.blog-index</span> <span class="nt">article</span> <span class="nt">h1</span> <span class="p">{</span>
+</span><span class='line'>    <span class="na">font-size</span><span class="o">:</span> <span class="mi">1</span><span class="mf">.8</span><span class="kt">em</span><span class="p">;</span>
+</span><span class='line'>    <span class="na">font-weight</span><span class="o">:</span> <span class="no">normal</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
 </span><span class='line'>
-</span><span class='line'>#content .blog-index article h1, #content .blog-index article h1 a, article header h1, article header h1 a{
-</span><span class='line'>    color: #555555 !important;
-</span><span class='line'>}
+</span><span class='line'><span class="nn">#content</span> <span class="nc">.blog-index</span> <span class="nt">article</span> <span class="nt">h1</span><span class="o">,</span> <span class="nn">#content</span> <span class="nc">.blog-index</span> <span class="nt">article</span> <span class="nt">h1</span> <span class="nt">a</span><span class="o">,</span> <span class="nt">article</span> <span class="nt">header</span> <span class="nt">h1</span><span class="o">,</span> <span class="nt">article</span> <span class="nt">header</span> <span class="nt">h1</span> <span class="nt">a</span><span class="p">{</span>
+</span><span class='line'>    <span class="na">color</span><span class="o">:</span> <span class="mh">#555555</span> <span class="nv">!important</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
 </span><span class='line'>
-</span><span class='line'>h1 { font-size: 1.8em; }
+</span><span class='line'><span class="nt">h1</span> <span class="p">{</span> <span class="na">font-size</span><span class="o">:</span> <span class="mi">1</span><span class="mf">.8</span><span class="kt">em</span><span class="p">;</span> <span class="p">}</span>
 </span><span class='line'>
-</span><span class='line'>h1 span{
-</span><span class='line'>    font-weight: normal;
-</span><span class='line'>    color: #E0841B;
-</span><span class='line'>}
+</span><span class='line'><span class="nt">h1</span> <span class="nt">span</span><span class="p">{</span>
+</span><span class='line'>    <span class="na">font-weight</span><span class="o">:</span> <span class="no">normal</span><span class="p">;</span>
+</span><span class='line'>    <span class="na">color</span><span class="o">:</span> <span class="mh">#E0841B</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
 </span><span class='line'>
-</span><span class='line'>article h2, article h3, article header h1{
-</span><span class='line'>    font-weight: normal;
-</span><span class='line'>}
+</span><span class='line'><span class="nt">article</span> <span class="nt">h2</span><span class="o">,</span> <span class="nt">article</span> <span class="nt">h3</span><span class="o">,</span> <span class="nt">article</span> <span class="nt">header</span> <span class="nt">h1</span><span class="p">{</span>
+</span><span class='line'>    <span class="na">font-weight</span><span class="o">:</span> <span class="no">normal</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
 </span><span class='line'>
-</span><span class='line'>.blog-index article h1 a:hover{ text-decoration: none; }
+</span><span class='line'><span class="nc">.blog-index</span> <span class="nt">article</span> <span class="nt">h1</span> <span class="nt">a</span><span class="nd">:hover</span><span class="p">{</span> <span class="na">text-decoration</span><span class="o">:</span> <span class="no">none</span><span class="p">;</span> <span class="p">}</span>
 </span><span class='line'>
-</span><span class='line'>article p {
-</span><span class='line'>    text-align:justify;
-</span><span class='line'>    margin-bottom: 1em;
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'><span class="nt">article</span> <span class="nt">p</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nt">text-align</span><span class="nd">:justify</span><span class="o">;</span>
+</span><span class='line'>    <span class="nt">margin-bottom</span><span class="nd">:</span> <span class="nt">1em</span><span class="o">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p><em>导航栏修改</em></p>
@@ -182,17 +183,18 @@
 
 <p>是否希望自己的博客能被大家分享呢，或者希望能够和自己博客的读者有所互动，Octopress本身是默认带有国外facebook，twitter的分享功能的插件的，而且也带有Disqus评论功能插件，但一则因为墙的原因，二则为了真正地接地气，我们可以自己加入中国本地化的类似功能的插件，首先在/source/_includes/post目录下修改sharing.html文件如下：(目前不知道为什么，在octopress中输入{ %的方式都会进行代码解析，所以上面的{ %都进行了添加了来取消，在实际文章中输入的时候，将取消掉）</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>{_% if site.share_and_comment %}
-</span><span class='line'>{_% include post/share_and_comment.html %}
-</span><span class='line'>{_% endif %}</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class='scss'><span class='line'><span class="p">{</span><span class="nt">_</span><span class="err">%</span> <span class="nt">if</span> <span class="nt">site</span><span class="nc">.share_and_comment</span> <span class="err">%</span><span class="p">}</span>
+</span><span class='line'><span class="p">{</span><span class="nt">_</span><span class="err">%</span> <span class="nt">include</span> <span class="nt">post</span><span class="o">/</span><span class="nt">share_and_comment</span><span class="nc">.html</span> <span class="err">%</span><span class="p">}</span>
+</span><span class='line'><span class="p">{</span><span class="nt">_</span><span class="err">%</span> <span class="nt">endif</span> <span class="err">%</span><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>然后到<a href="http://www.jiathis.com/">加网</a>和<a href="http://www.uyan.cc/">友言</a>分别获得分享代码和评论代码（如下），放入新建的share_and_comment.html的文件中，将此文件存放在/source/_includes/post目录下</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -209,45 +211,48 @@
 <span class='line-number'>15</span>
 <span class='line-number'>16</span>
 <span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;!-- JiaThis Button BEGIN --&gt;
-</span><span class='line'>&lt;div class="jiathis_style_24x24"&gt;
-</span><span class='line'>    &lt;a class="jiathis_button_qzone"&gt;&lt;/a&gt;
-</span><span class='line'>    &lt;a class="jiathis_button_tsina"&gt;&lt;/a&gt;
-</span><span class='line'>    &lt;a class="jiathis_button_tqq"&gt;&lt;/a&gt;
-</span><span class='line'>    &lt;a class="jiathis_button_renren"&gt;&lt;/a&gt;
-</span><span class='line'>    &lt;a class="jiathis_button_kaixin001"&gt;&lt;/a&gt;
-</span><span class='line'>    &lt;a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"&gt;&lt;/a&gt;
-</span><span class='line'>    &lt;a class="jiathis_counter_style"&gt;&lt;/a&gt;
-</span><span class='line'>&lt;/div&gt;
-</span><span class='line'>&lt;script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1357227497148830" charset="utf-8"&gt;&lt;/script&gt;
-</span><span class='line'>&lt;!-- JiaThis Button END --&gt;
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="c">&lt;!-- JiaThis Button BEGIN --&gt;</span>
+</span><span class='line'><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;jiathis_style_24x24&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;jiathis_button_qzone&quot;</span><span class="nt">&gt;&lt;/a&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;jiathis_button_tsina&quot;</span><span class="nt">&gt;&lt;/a&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;jiathis_button_tqq&quot;</span><span class="nt">&gt;&lt;/a&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;jiathis_button_renren&quot;</span><span class="nt">&gt;&lt;/a&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;jiathis_button_kaixin001&quot;</span><span class="nt">&gt;&lt;/a&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://www.jiathis.com/share&quot;</span> <span class="na">class=</span><span class="s">&quot;jiathis jiathis_txt jtico jtico_jiathis&quot;</span> <span class="na">target=</span><span class="s">&quot;_blank&quot;</span><span class="nt">&gt;&lt;/a&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;jiathis_counter_style&quot;</span><span class="nt">&gt;&lt;/a&gt;</span>
+</span><span class='line'><span class="nt">&lt;/div&gt;</span>
+</span><span class='line'><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;http://v3.jiathis.com/code/jia.js?uid=1357227497148830&quot;</span> <span class="na">charset=</span><span class="s">&quot;utf-8&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'><span class="c">&lt;!-- JiaThis Button END --&gt;</span>
 </span><span class='line'>
-</span><span class='line'>&lt;!-- UY BEGIN --&gt;
-</span><span class='line'>&lt;div id="uyan_frame"&gt;&lt;/div&gt;
-</span><span class='line'>&lt;script type="text/javascript" id="UYScript" src="http://v1.uyan.cc/js/iframe.js?UYUserId=0" async=""&gt;&lt;/script&gt;
-</span><span class='line'>&lt;!-- UY END --&gt;</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'><span class="c">&lt;!-- UY BEGIN --&gt;</span>
+</span><span class='line'><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;uyan_frame&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+</span><span class='line'><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">id=</span><span class="s">&quot;UYScript&quot;</span> <span class="na">src=</span><span class="s">&quot;http://v1.uyan.cc/js/iframe.js?UYUserId=0&quot;</span> <span class="na">async=</span><span class="s">&quot;&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+</span><span class='line'><span class="c">&lt;!-- UY END --&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>最后修改_config.yml文件，设置share_and_comment为true，如下：</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>share_and_comment: true</span></code></pre></td></tr></table></div></figure>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>share_and_comment: true
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p><em>增加文章分类标签</em></p>
 
 <p>我们利用rake new_post[&#8220;Title&#8221;]`命令生成一个新的博客markdown文件之后，一般来说开头会默认包含以下几行代码：</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>layout: post
-</span><span class='line'>title: "利用octopress在github构建自己的博客"
+</pre></td><td class='code'><pre><code class='html'><span class='line'>layout: post
+</span><span class='line'>title: &quot;利用octopress在github构建自己的博客&quot;
 </span><span class='line'>date: 2013-03-11 22:26
 </span><span class='line'>comments: true
-</span><span class='line'>categories: octopress github</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>categories: octopress github
+</span></code></pre></td></tr></table></div></figure>
 
 
 <p>其中categories便是你对这篇文章的分类标签，如何利用这些标签，找到我们想看的文章，便可以利用以下插件实现，具体参考的博客文章我一时找不到了，对原作者先表示抱歉。首先在plugins新建一个ruby文件category_list_tag.rb，增加一下代码：</p>
