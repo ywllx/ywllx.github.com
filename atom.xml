@@ -4,7 +4,7 @@
   <title><![CDATA[其实很简单]]></title>
   <link href="http://ywllx.github.com/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-03-13T02:14:03+08:00</updated>
+  <updated>2013-03-13T02:20:29+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -179,9 +179,37 @@
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>{_% if site.share_and_comment %}
-</span><span class='line'>{_% include post/share_and_comment.html %}
-</span><span class='line'>{_% endif %}</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;!-- JiaThis Button BEGIN -->
+</span><span class='line'>&lt;div class="jiathis_style_24x24">
+</span><span class='line'>  &lt;a class="jiathis_button_qzone">&lt;/a>
+</span><span class='line'>  &lt;a class="jiathis_button_tsina">&lt;/a>
+</span><span class='line'>  &lt;a class="jiathis_button_tqq">&lt;/a>
+</span><span class='line'>  &lt;a class="jiathis_button_renren">&lt;/a>
+</span><span class='line'>  &lt;a class="jiathis_button_kaixin001">&lt;/a>
+</span><span class='line'>  &lt;a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank">&lt;/a>
+</span><span class='line'>  &lt;a class="jiathis_counter_style">&lt;/a>
+</span><span class='line'>&lt;/div>
+</span><span class='line'>&lt;script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1357227497148830" charset="utf-8">&lt;/script>
+</span><span class='line'>&lt;!-- JiaThis Button END -->
+</span><span class='line'>
+</span><span class='line'>&lt;!-- UY BEGIN -->
+</span><span class='line'>&lt;div id="uyan_frame">&lt;/div>
+</span><span class='line'>&lt;script type="text/javascript" id="UYScript" src="http://v1.uyan.cc/js/iframe.js?UYUserId=0" async="">&lt;/script>
+</span><span class='line'>&lt;!-- UY END --></span></code></pre></td></tr></table></div></figure>
 
 
 <p>然后到<a href="http://www.jiathis.com/">加网</a>和<a href="http://www.uyan.cc/">友言</a>分别获得分享代码和评论代码（如下），放入新建的share_and_comment.html的文件中，将此文件存放在/source/_includes/post目录下</p>
