@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | 其实很简单]]></title>
   <link href="http://ywllx.github.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-03-13T02:21:05+08:00</updated>
+  <updated>2013-03-13T02:23:14+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -136,16 +136,13 @@ margin-bottom: 1em;
 
 <p><em>增加分享和评论</em></p>
 
-<p>是否希望自己的博客能被大家分享呢，或者希望能够和自己博客的读者有所互动，Octopress本身是默认带有国外facebook，twitter的分享功能的插件的，而且也带有Disqus评论功能插件，但一则因为墙的原因，二则为了真正地接地气，我们可以自己加入中国本地化的类似功能的插件，首先在/source/_includes/post目录下修改sharing.html文件如下：</p>
-
-<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>{&lt;em>% if site.share_and_comment %}
-</span><span class='line'>{&lt;/em>% include post/share_and_comment.html %}
-</span><span class='line'>{_% endif %}</span></code></pre></td></tr></table></div></figure></notextile></div></p>
-
-<p>然后到<a href="http://www.jiathis.com/">加网</a>和<a href="http://www.uyan.cc/">友言</a>分别获得分享代码和评论代码（如下），放入新建的share_and_comment.html的文件中，将此文件存放在/source/_includes/post目录下
+<p>是否希望自己的博客能被大家分享呢，或者希望能够和自己博客的读者有所互动，Octopress本身是默认带有国外facebook，twitter的分享功能的插件的，而且也带有Disqus评论功能插件，但一则因为墙的原因，二则为了真正地接地气，我们可以自己加入中国本地化的类似功能的插件，首先在/source/<em>includes/post目录下修改sharing.html文件如下：(目前不知道为什么，在octopress中输入{ %的方式都会进行代码解析，所以上面的{ %都进行了添加了来取消，在实际文章中输入的时候，将取消掉）
+<code>
+{_% if site.share_and_comment %}
+{_% include post/share_and_comment.html %}
+{_% endif %}
+</code>
+然后到<a href="http://www.jiathis.com/">加网</a>和<a href="http://www.uyan.cc/">友言</a>分别获得分享代码和评论代码（如下），放入新建的share_and_comment.html的文件中，将此文件存放在/source/</em>includes/post目录下
 ```</p>
 
 <!-- JiaThis Button BEGIN -->
