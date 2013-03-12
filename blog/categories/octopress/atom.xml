@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | 其实很简单]]></title>
   <link href="http://ywllx.github.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-03-13T02:46:54+08:00</updated>
+  <updated>2013-03-13T03:14:37+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -134,6 +134,12 @@ margin-bottom: 1em;
 ```
 <em>导航栏修改</em></p>
 
+<p> 实际上导航栏，标题等的修改都可通过编辑 /source/<em>includes/custom/里的每个文件来更新你的博客，具体可以参考<a href="http://yanping.me/cn/blog/2012/01/07/theming-and-customization/">这篇博客</a>或者<a href="http://octopress.org/docs/">官方文档</a>，这里不再详述，需要注意的一点是每个链接的href都以 开始 (如果网站部署到子目录里，这可以帮助Octopress采用不同的链接). 如果你想把你的网站部署到像 yoursite.com/octopress 这样的子目录，你必须把它加到你添加的任何链接里。例如我在</em>includes/custom/navigation.html增加了如下一行代码：
+ <code>
+ &lt;li&gt;&lt;a href="/blog/about"&gt;关于&lt;/a&gt;&lt;/li&gt;
+</code>
+ 则需要在/blog/目录下新建一个about目录，然后下面新建了一个index.html文件，当你点击<code>关于本人</code>这个导航时连接到此html构建的网页。</p>
+
 <p><em>增加分享和评论</em></p>
 
 <p>是否希望自己的博客能被大家分享呢，或者希望能够和自己博客的读者有所互动，Octopress本身是默认带有国外facebook，twitter的分享功能的插件的，而且也带有Disqus评论功能插件，但一则因为墙的原因，二则为了真正地接地气，我们可以自己加入中国本地化的类似功能的插件，首先在/source/<em>includes/post目录下修改sharing.html文件如下：(目前不知道为什么，在octopress中输入{ %的方式都会进行代码解析，所以上面的{ %都进行了添加了来取消，在实际文章中输入的时候，将取消掉）
@@ -217,9 +223,11 @@ end
 end</p>
 
 <p>Liquid::Template.register_tag('category_list', Jekyll::CategoryListTag)
-<code>
-然后在/source/_includes/asides/目录下新建category_list.html文件，增加以下代码（记得去掉{_%中的_）：
-</code>html
+```</p>
+
+<p>然后在/source/<em>includes/asides/目录下新建category_list.html文件，增加以下代码（记得去掉{</em>%中的_）：</p>
+
+<p>```html
 <section>
   <h1>文章分类</h1>
   <ul id="categories"></p>
@@ -230,7 +238,7 @@ end</p>
 <p>  </ul>
 </section>
 <code>
-在_config.yml中增加相关设定
+在_config.yml中增加相关设置
 </code>ruby
 default_asides: [asides/recent_posts.html, asides/category_list.html]
 ```</p>
@@ -249,12 +257,22 @@ default_asides: [asides/recent_posts.html, asides/category_list.html]
 &lt;/ul&gt;  
 &lt;/section&gt;   
 </code></li>
-<li>在_config.yml中增加相关设定
+<li>在_config.yml中增加相关设置
 <code>ruby
 default_asides: [asides/recent_posts.html, asides/category_list.html, asides/weiboxiu.html]  
 </code></li>
 </ol>
 
+
+<h4>结束感言</h4>
+
+<p>首先先介绍一个实用的方法，那就是当你想删掉某篇博客时，应该采用<a href="http://wywon.com/blog/2012/07/08/octopress-github/">这篇文章</a>介绍的方法，首先删除相应的markdown文件，然后把source分支里相应的文件也删除，可以使用下面命令：
+<code>
+git add -u
+git commit -m 'delete post'
+git push origin source
+</code>
+至此，我的第一篇博客算完成了，花的时间几乎跟搭建这个博客花的时间一样多，深深感叹，要想像黑客一样写博客玩酷写博客可真不容易啊，真是辛苦。。。熬了几个晚上。。。</p>
 ]]></content>
   </entry>
   

@@ -248,6 +248,12 @@
 
 <p><em>导航栏修改</em></p>
 
+<p> 实际上导航栏，标题等的修改都可通过编辑 /source/<em>includes/custom/里的每个文件来更新你的博客，具体可以参考<a href="http://yanping.me/cn/blog/2012/01/07/theming-and-customization/">这篇博客</a>或者<a href="http://octopress.org/docs/">官方文档</a>，这里不再详述，需要注意的一点是每个链接的href都以 开始 (如果网站部署到子目录里，这可以帮助Octopress采用不同的链接). 如果你想把你的网站部署到像 yoursite.com/octopress 这样的子目录，你必须把它加到你添加的任何链接里。例如我在</em>includes/custom/navigation.html增加了如下一行代码：
+ <code>
+ &lt;li&gt;&lt;a href="/blog/about"&gt;关于&lt;/a&gt;&lt;/li&gt;
+</code>
+ 则需要在/blog/目录下新建一个about目录，然后下面新建了一个index.html文件，当你点击<code>关于本人</code>这个导航时连接到此html构建的网页。</p>
+
 <p><em>增加分享和评论</em></p>
 
 <p>是否希望自己的博客能被大家分享呢，或者希望能够和自己博客的读者有所互动，Octopress本身是默认带有国外facebook，twitter的分享功能的插件的，而且也带有Disqus评论功能插件，但一则因为墙的原因，二则为了真正地接地气，我们可以自己加入中国本地化的类似功能的插件，首先在/source/_includes/post目录下修改sharing.html文件如下：(目前不知道为什么，在octopress中输入{ %的方式都会进行代码解析，所以上面的{ %都进行了添加了来取消，在实际文章中输入的时候，将取消掉）</p>
@@ -376,7 +382,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>在_config.yml中增加相关设定</p>
+<p>在_config.yml中增加相关设置</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">default_asides</span><span class="p">:</span> <span class="o">[</span><span class="n">asides</span><span class="o">/</span><span class="n">recent_posts</span><span class="o">.</span><span class="n">html</span><span class="p">,</span> <span class="n">asides</span><span class="o">/</span><span class="n">category_list</span><span class="o">.</span><span class="n">html</span><span class="o">]</span>
@@ -409,12 +415,27 @@
 
 
 <p>
-3. 在_config.yml中增加相关设定</p>
+3. 在_config.yml中增加相关设置</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">default_asides</span><span class="p">:</span> <span class="o">[</span><span class="n">asides</span><span class="o">/</span><span class="n">recent_posts</span><span class="o">.</span><span class="n">html</span><span class="p">,</span> <span class="n">asides</span><span class="o">/</span><span class="n">category_list</span><span class="o">.</span><span class="n">html</span><span class="p">,</span> <span class="n">asides</span><span class="o">/</span><span class="n">weiboxiu</span><span class="o">.</span><span class="n">html</span><span class="o">]</span>
 </span></code></pre></td></tr></table></div></figure>
 
+
+<h4>结束感言</h4>
+
+<p>首先先介绍一个实用的方法，那就是当你想删掉某篇博客时，应该采用<a href="http://wywon.com/blog/2012/07/08/octopress-github/">这篇文章</a>介绍的方法，首先删除相应的markdown文件，然后把source分支里相应的文件也删除，可以使用下面命令：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">git</span> <span class="n">add</span> <span class="o">-</span><span class="n">u</span>
+</span><span class='line'><span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s1">&#39;delete post&#39;</span>
+</span><span class='line'><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">source</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>至此，我的第一篇博客算完成了，花的时间几乎跟搭建这个博客花的时间一样多，深深感叹，要想像黑客一样写博客玩酷写博客可真不容易啊，真是辛苦。。。熬了几个晚上。。。</p>
 </div>
   
   
