@@ -4,7 +4,7 @@
   <title><![CDATA[其实很简单]]></title>
   <link href="http://ywllx.github.com/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-03-13T01:55:50+08:00</updated>
+  <updated>2013-03-13T02:07:45+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -174,11 +174,12 @@
 
 <p><em>增加分享和评论</em></p>
 
-<p>是否希望自己的博客能被大家分享呢，或者希望能够和自己博客的读者有所互动，Octopress本身是默认带有国外facebook，twitter的分享功能的插件的，而且也带有Disqus评论功能插件，但一则因为墙的原因，二则为了真正地接地气，我们可以自己加入中国本地化的类似功能的插件，首先在/source/_includes/post目录下修改sharing.html文件如下：</p>
-
-<p><code>
+<p>是否希望自己的博客能被大家分享呢，或者希望能够和自己博客的读者有所互动，Octopress本身是默认带有国外facebook，twitter的分享功能的插件的，而且也带有Disqus评论功能插件，但一则因为墙的原因，二则为了真正地接地气，我们可以自己加入中国本地化的类似功能的插件，首先在/source/_includes/post目录下修改sharing.html文件如下：
+{ % codeblock %}</p>
 
 <!-- JiaThis Button BEGIN -->
+
+
 <div class="jiathis_style_24x24">
     <a class="jiathis_button_qzone"></a>
     <a class="jiathis_button_tsina"></a>
@@ -188,17 +189,32 @@
     <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
     <a class="jiathis_counter_style"></a>
 </div>
+
+
 <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1357227497148830" charset="utf-8"></script>
+
+
 <!-- JiaThis Button END -->
 
+
+
+
 <!-- UY BEGIN -->
+
+
 <div id="uyan_frame"></div>
+
+
 <script type="text/javascript" id="UYScript" src="http://v1.uyan.cc/js/iframe.js?UYUserId=0" async=""></script>
+
+
 <!-- UY END -->
 
 
+<p>{ % endcodeblock %}
 <code><p>
-然后到[加网](http://www.jiathis.com/)和[友言](http://www.uyan.cc/)分别获得分享代码和评论代码（如下），放入新建的share_and_comment.html的文件中，将此文件存放在/source/_includes/post目录下
+然后到<a href="http://www.jiathis.com/">加网</a>和<a href="http://www.uyan.cc/">友言</a>分别获得分享代码和评论代码（如下），放入新建的share_and_comment.html的文件中，将此文件存放在/source/_includes/post目录下</p>
+
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -233,16 +249,24 @@
 </span><span class='line'>&lt;div id="uyan_frame"&gt;&lt;/div&gt;
 </span><span class='line'>&lt;script type="text/javascript" id="UYScript" src="http://v1.uyan.cc/js/iframe.js?UYUserId=0" async=""&gt;&lt;/script&gt;
 </span><span class='line'>&lt;!-- UY END --&gt;</span></code></pre></td></tr></table></div></figure>
-最后修改_config.yml文件，设置share_and_comment为true，如下：
+
+
+<p>最后修改_config.yml文件，设置share_and_comment为true，如下：</p>
+
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>share_and_comment: true</span></code></pre></td></tr></table></div></figure>
 
-*增加文章分类标签*
 
-*侧栏增加微博秀*
+<p><em>增加文章分类标签</em></p>
 
-1. 首先到先到[微博秀](http://weibo.com/tool/weiboshow)里面生成自己的微博秀嵌入代码，找出最后的uid和verifier
-2. 新建一个weiboxiu.html放置到source/_includes/asides下
+<p><em>侧栏增加微博秀</em></p>
+
+<ol>
+<li>首先到先到<a href="http://weibo.com/tool/weiboshow">微博秀</a>里面生成自己的微博秀嵌入代码，找出最后的uid和verifier</li>
+<li>新建一个weiboxiu.html放置到source/_includes/asides下</li>
+</ol>
+
+
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -257,8 +281,12 @@
 </span><span class='line'>    <span class="nt">&lt;/li&gt;</span>
 </span><span class='line'>  <span class="nt">&lt;/ul&gt;</span>
 </span><span class='line'><span class="nt">&lt;/section&gt;</span>
-</span></code></pre></td></tr></table></div></figure>  
-3. 在_config.yml中增加相关设定
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>
+3. 在_config.yml中增加相关设定</p>
+
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">default_asides</span><span class="p">:</span> <span class="o">[</span><span class="n">asides</span><span class="o">/</span><span class="n">recent_posts</span><span class="o">.</span><span class="n">html</span><span class="p">,</span> <span class="n">asides</span><span class="o">/</span><span class="n">weiboxiu</span><span class="o">.</span><span class="n">html</span><span class="o">]</span>
 </span></code></pre></td></tr></table></div></figure>

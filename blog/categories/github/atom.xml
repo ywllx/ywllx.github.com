@@ -4,7 +4,7 @@
   <title><![CDATA[Category: github | 其实很简单]]></title>
   <link href="http://ywllx.github.com/blog/categories/github/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-03-13T01:55:50+08:00</updated>
+  <updated>2013-03-13T02:07:45+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -136,9 +136,8 @@ margin-bottom: 1em;
 
 <p><em>增加分享和评论</em></p>
 
-<p>是否希望自己的博客能被大家分享呢，或者希望能够和自己博客的读者有所互动，Octopress本身是默认带有国外facebook，twitter的分享功能的插件的，而且也带有Disqus评论功能插件，但一则因为墙的原因，二则为了真正地接地气，我们可以自己加入中国本地化的类似功能的插件，首先在/source/_includes/post目录下修改sharing.html文件如下：</p>
-
-<p><code>
+<p>是否希望自己的博客能被大家分享呢，或者希望能够和自己博客的读者有所互动，Octopress本身是默认带有国外facebook，twitter的分享功能的插件的，而且也带有Disqus评论功能插件，但一则因为墙的原因，二则为了真正地接地气，我们可以自己加入中国本地化的类似功能的插件，首先在/source/<em>includes/post目录下修改sharing.html文件如下：
+{ % codeblock %}
 
 <!-- JiaThis Button BEGIN -->
 <div class="jiathis_style_24x24">
@@ -159,10 +158,14 @@ margin-bottom: 1em;
 <!-- UY END -->
 
 
+{ % endcodeblock %}
 <code><p>
-然后到[加网](http://www.jiathis.com/)和[友言](http://www.uyan.cc/)分别获得分享代码和评论代码（如下），放入新建的share_and_comment.html的文件中，将此文件存放在/source/_includes/post目录下
-```
+然后到<a href="http://www.jiathis.com/">加网</a>和<a href="http://www.uyan.cc/">友言</a>分别获得分享代码和评论代码（如下），放入新建的share_and_comment.html的文件中，将此文件存放在/source/</em>includes/post目录下
+```</p>
+
 <!-- JiaThis Button BEGIN -->
+
+
 <div class="jiathis_style_24x24">
     <a class="jiathis_button_qzone"></a>
     <a class="jiathis_button_tsina"></a>
@@ -172,38 +175,55 @@ margin-bottom: 1em;
     <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
     <a class="jiathis_counter_style"></a>
 </div>
+
+
 <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1357227497148830" charset="utf-8"></script>
+
+
 <!-- JiaThis Button END -->
 
+
+
+
 <!-- UY BEGIN -->
+
+
 <div id="uyan_frame"></div>
+
+
 <script type="text/javascript" id="UYScript" src="http://v1.uyan.cc/js/iframe.js?UYUserId=0" async=""></script>
+
+
 <!-- UY END -->
-```
+
+
+<p><code>
 最后修改_config.yml文件，设置share_and_comment为true，如下：
-```
+</code>
 share_and_comment: true
-```
+```</p>
 
-*增加文章分类标签*
+<p><em>增加文章分类标签</em></p>
 
-*侧栏增加微博秀*
+<p><em>侧栏增加微博秀</em></p>
 
-1. 首先到先到[微博秀](http://weibo.com/tool/weiboshow)里面生成自己的微博秀嵌入代码，找出最后的uid和verifier
-2. 新建一个weiboxiu.html放置到source/_includes/asides下
-```html 
- <section>  
-  <ul id="weibo">  
-    <li>  
-      (此处拷入微博秀生成的html代码）
-    </li>  
-  </ul>  
-</section>   
-```  
-3. 在_config.yml中增加相关设定
-```ruby
+<ol>
+<li>首先到先到<a href="http://weibo.com/tool/weiboshow">微博秀</a>里面生成自己的微博秀嵌入代码，找出最后的uid和verifier</li>
+<li>新建一个weiboxiu.html放置到source/_includes/asides下
+<code>html
+&lt;section&gt;  
+&lt;ul id="weibo"&gt;  
+ &lt;li&gt;  
+   (此处拷入微博秀生成的html代码）
+ &lt;/li&gt;  
+&lt;/ul&gt;  
+&lt;/section&gt;   
+</code></li>
+<li>在_config.yml中增加相关设定
+<code>ruby
 default_asides: [asides/recent_posts.html, asides/weiboxiu.html]  
-```
+</code></li>
+</ol>
 
 ]]></content>
   </entry>
