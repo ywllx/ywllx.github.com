@@ -4,7 +4,7 @@
   <title><![CDATA[Category: github | 其实很简单]]></title>
   <link href="http://ywllx.github.com/blog/categories/github/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-03-13T02:23:14+08:00</updated>
+  <updated>2013-03-13T02:46:54+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -187,6 +187,54 @@ share_and_comment: true
 
 <p><em>增加文章分类标签</em></p>
 
+<p>我们利用rake new_post["Title"]`命令生成一个新的博客markdown文件之后，一般来说开头会默认包含以下几行代码：
+<code>
+layout: post
+title: "利用octopress在github构建自己的博客"
+date: 2013-03-11 22:26
+comments: true
+categories: octopress github
+</code>
+其中categories便是你对这篇文章的分类标签，如何利用这些标签，找到我们想看的文章，便可以利用以下插件实现，具体参考的博客文章我一时找不到了，对原作者先表示抱歉。首先在plugins新建一个ruby文件category_list_tag.rb，增加一下代码：
+```ruby
+module Jekyll
+  class CategoryListTag &lt; Liquid::Tag</p>
+
+<pre><code>def render(context)
+  html = ""
+  categories = context.registers[:site].categories.keys
+  categories.sort.each do |category|
+    posts_in_category = context.registers[:site].categories[category].size
+    category_dir = context.registers[:site].config['category_dir']
+    category_url = File.join(category_dir, category.gsub(/_|\P{Word}/, '-').gsub(/-{2,}/, '-').downcase)
+    html &lt;&lt; "&lt;li class='category'&gt;&lt;a href='http://ywllx.github.com/#{category_url}/'&gt;#{category} (#{posts_in_category})&lt;/a&gt;&lt;/li&gt;\n"
+  end 
+  html
+end 
+</code></pre>
+
+<p>  end
+end</p>
+
+<p>Liquid::Template.register_tag('category_list', Jekyll::CategoryListTag)
+<code>
+然后在/source/_includes/asides/目录下新建category_list.html文件，增加以下代码（记得去掉{_%中的_）：
+</code>html
+<section>
+  <h1>文章分类</h1>
+  <ul id="categories"></p>
+
+<pre><code>{_% category_list %}
+</code></pre>
+
+<p>  </ul>
+</section>
+<code>
+在_config.yml中增加相关设定
+</code>ruby
+default_asides: [asides/recent_posts.html, asides/category_list.html]
+```</p>
+
 <p><em>侧栏增加微博秀</em></p>
 
 <ol>
@@ -203,7 +251,7 @@ share_and_comment: true
 </code></li>
 <li>在_config.yml中增加相关设定
 <code>ruby
-default_asides: [asides/recent_posts.html, asides/weiboxiu.html]  
+default_asides: [asides/recent_posts.html, asides/category_list.html, asides/weiboxiu.html]  
 </code></li>
 </ol>
 
