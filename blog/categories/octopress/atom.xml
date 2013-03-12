@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | 其实很简单]]></title>
   <link href="http://ywllx.github.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-03-13T00:10:48+08:00</updated>
+  <updated>2013-03-13T01:03:40+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -22,7 +22,7 @@
 
 <hr />
 
-<h4>环境准备</h4>
+<h4>一些准备</h4>
 
 <p>搭建博客主要用到了下面这些技术和工具，首先对它们进行一些简单的介绍：</p>
 
@@ -46,7 +46,92 @@
 
 <h4>个性化设置</h4>
 
-<p><em>更改背景颜色</em></p>
+<p>完成上述步骤后，在/octopress目录下，你首先可以执行<code>rake new_post["Title"]</code>命令，这条命令会在source/_post目录下生存一个以日期开头的后缀为.markdown的文件，利用你喜欢的编辑器，按照markdown语法编辑此文件，然后执行<code>rake generate</code>,<code>rake deploy</code>命令就可以生成你的一篇新博客。但凡是使用Octopress搭建的博客，如果不再做修改，那么风格将会是一样的，而且功能单一，下面则将介绍做一些简单的修改，将它进行一点个性化的设置。</p>
+
+<p><em>更改背景颜色与正文字体</em></p>
+
+<p>在Octopress安装完成之后，在sass/custom/下面有一些特殊的文件，根据命名可以猜到它是用来设置你的博客字体，颜色，布局的配置文件，这些配置文件一般会在最后载入。我们将它做一些修改，就可以对你博客的背景色，字体，布局等做出你个性化的设置。这里我参考<a href="http://aijazansari.com/2012/08/27/how-to-customize-octopress-theme/">这个博客</a>修改_colors.scss文件如下：
+```
+html {
+   background: #d8d8d8 !important;
+ }
+ body {</p>
+
+<blockquote><p>div {</p>
+
+<pre><code> background: #fff !important;
+ &gt; div {
+   background: #fff !important;
+   }
+</code></pre>
+
+<p>   }
+}
+$main-bg: #ffffff!default;
+$page-bg: #ffffff !default;</p></blockquote>
+
+<p>$header-bg: #81BEF7;
+$subtitle-color: lighten($header-bg, 58);
+$nav-bg: desaturate(lighten(#8fc17a, 18), 5);
+$nav-bg-front: image-url('noise.png');
+$nav-bg-back: linear-gradient(lighten($nav-bg, 8), $nav-bg, darken($nav-bg, 11));
+$sidebar-bg: desaturate(#eceff5, 8);
+$sidebar-link-color: saturate(#526f9a, 10);
+$sidebar-link-color-hover: darken(#7ab662, 9);
+$footer-bg: #ccc !default;
+$footer-bg-front: image-url('noise.png');
+$footer-bg-back: linear-gradient(lighten($footer-bg, 8), $footer-bg, darken($footer-bg, 11));
+<code>
+参考这个博客修改样式配置文件_styles.scss文件如下：
+</code>
+body { font-size: 1em; }
+body > div { background-image: none; }
+body > div > div { background-image: none; }</p>
+
+<p>/<em> ----- Content ----- </em>/</p>
+
+<h1>content .blog-index article h1 {</h1>
+
+<pre><code>font-size: 1.8em;
+font-weight: normal;
+</code></pre>
+
+<p>}</p>
+
+<h1>content .blog-index article h1, #content .blog-index article h1 a, article header h1, article header h1 a{</h1>
+
+<pre><code>color: #555555 !important;
+</code></pre>
+
+<p>}</p>
+
+<p>h1 { font-size: 1.8em; }</p>
+
+<p>h1 span{</p>
+
+<pre><code>font-weight: normal;
+color: #E0841B;
+</code></pre>
+
+<p>}</p>
+
+<p>article h2, article h3, article header h1{</p>
+
+<pre><code>font-weight: normal;
+</code></pre>
+
+<p>}</p>
+
+<p>.blog-index article h1 a:hover{ text-decoration: none; }</p>
+
+<p>article p {</p>
+
+<pre><code>text-align:justify;
+margin-bottom: 1em;
+</code></pre>
+
+<p>}
+```</p>
 
 <p><em>导航栏修改</em></p>
 
