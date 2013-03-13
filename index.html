@@ -433,8 +433,33 @@
 
 <h4>结束感言</h4>
 
-<p>首先介绍一个困惑我许久的问题，那就是我想在文中展示以{%或{{开头，%}或}} 结尾的代码时，会被直接解析，最后终于找到了<a href="http://stackoverflow.com/questions/3426182/how-to-escape-liquid-template-tags">解决办法</a>,那就是在其前面加入<code>, 后面加入配对</code>即可。
-再介绍一个实用的方法，那就是当你想删掉某篇博客时，应该采用<a href="http://wywon.com/blog/2012/07/08/octopress-github/">这篇文章</a>介绍的方法，首先删除相应的markdown文件，然后把source分支里相应的文件也删除，可以使用下面命令：</p>
+<p>首先介绍一个困惑我许久的问题，那就是我想在文中展示以{%或{{开头，%}或}} 结尾的代码时，会被直接解析，最后终于找到了<a href="http://stackoverflow.com/questions/3426182/how-to-escape-liquid-template-tags">解决办法</a>,那就是在其前后加入以下配对的代码，例如在markdown文件中写入如下代码：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="p">{</span><span class="o">%</span> <span class="n">raw</span>  <span class="sx">%}</span>
+</span><span class='line'><span class="sx"></span>
+</span><span class='line'><span class="p">{</span><span class="o">%</span> <span class="kp">include</span> <span class="n">post</span><span class="o">/</span><span class="n">share_and_comment</span><span class="o">.</span><span class="n">html</span> <span class="sx">%}</span>
+</span><span class='line'><span class="sx"></span>
+</span><span class='line'><span class="p">{</span><span class="o">%</span> <span class="n">endraw</span>  <span class="o">%</span><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>将会以以下方式显示：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">site</span><span class="o">.</span><span class="n">share_and_comment</span> <span class="sx">%}</span>
+</span><span class='line'><span class="sx">{% include post/share_and_comment.html %}</span>
+</span><span class='line'><span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>再介绍一个实用的方法，那就是当你想删掉某篇博客时，应该采用<a href="http://wywon.com/blog/2012/07/08/octopress-github/">这篇文章</a>介绍的方法，首先删除相应的markdown文件，然后把source分支里相应的文件也删除，可以使用下面命令：</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
