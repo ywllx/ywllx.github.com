@@ -4,7 +4,7 @@
   <title><![CDATA[其实很简单]]></title>
   <link href="http://ywllx.github.com/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-03-13T03:23:34+08:00</updated>
+  <updated>2013-03-14T02:47:35+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -174,7 +174,7 @@
 
 <p><em>导航栏修改</em></p>
 
-<p> 实际上导航栏，标题等的修改都可通过编辑 /source/<em>includes/custom/里的每个文件来更新你的博客，具体可以参考<a href="http://yanping.me/cn/blog/2012/01/07/theming-and-customization/">这篇博客</a>或者<a href="http://octopress.org/docs/">官方文档</a>，这里不再详述，需要注意的一点是每个链接的href都以 开始 (如果网站部署到子目录里，这可以帮助Octopress采用不同的链接). 如果你想把你的网站部署到像 yoursite.com/octopress 这样的子目录，你必须把它加到你添加的任何链接里。例如我在</em>includes/custom/navigation.html增加了如下一行代码：
+<p> 实际上导航栏，标题等的修改都可通过编辑/source/<em>includes/custom里的每个文件来更新你的博客，具体可以参考<a href="http://yanping.me/cn/blog/2012/01/07/theming-and-customization/">这篇博客</a>或者<a href="http://octopress.org/docs/">官方文档</a>，这里不再详述，需要注意的一点是每个链接的href都以 开始 (如果网站部署到子目录里，这可以帮助Octopress采用不同的链接). 如果你想把你的网站部署到像 yoursite.com/octopress 这样的子目录，你必须把它加到你添加的任何链接里。例如我在</em>includes/custom/navigation.html增加了如下一行代码：
  <code>
  &lt;li&gt;&lt;a href="http://ywllx.github.com/blog/about"&gt;关于&lt;/a&gt;&lt;/li&gt;
 </code>
