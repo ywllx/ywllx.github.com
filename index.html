@@ -252,7 +252,7 @@
 
 <p>实际上导航栏，标题等的修改都可通过编辑里/source/_includes/custom的每个文件来更新你的博客，具体可以参考<a href="http://yanping.me/cn/blog/2012/01/07/theming-and-customization/">这篇博客</a>或者<a href="http://octopress.org/docs/">官方文档</a>，这里不再详述，需要注意的一点是每个链接的href都以root_url开始。例如我在/source/_includes/custom/navigation.html增加了如下一行代码：
  <code>
- &lt;li&gt;&lt;a href="/blog/about"&gt;关于本人&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="\{\{ root\_url \}\}/blog/about"&gt;关于本人&lt;/a&gt;&lt;/li&gt;
 </code>
 则需要在/blog/目录下新建一个about目录，然后下面新建了一个index.html文件，当你点击<code>关于本人</code>这个导航时连接到此html构建的网页。</p>
 
@@ -263,7 +263,7 @@
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='scss'><span class='line'><span class="p">{</span> <span class="err">%</span> <span class="nt">if</span> <span class="nt">site</span><span class="nc">.share_and_comment</span> <span class="err">%</span><span class="p">}</span>
+</pre></td><td class='code'><pre><code class='scss'><span class='line'><span class="err">\</span><span class="p">{</span><span class="err">\%</span> <span class="nt">if</span> <span class="nt">site</span><span class="nc">.share_and_comment</span> <span class="err">%\</span><span class="p">}</span><span class="err">\</span>
 </span><span class='line'><span class="p">{</span> <span class="err">%</span> <span class="nt">include</span> <span class="nt">post</span><span class="o">/</span><span class="nt">share_and_comment</span><span class="nc">.html</span> <span class="err">%</span><span class="p">}</span>
 </span><span class='line'><span class="p">{</span> <span class="err">%</span> <span class="nt">endif</span> <span class="err">%</span><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
