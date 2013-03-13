@@ -4,7 +4,7 @@
   <title><![CDATA[其实很简单]]></title>
   <link href="http://ywllx.github.com/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-03-14T04:38:14+08:00</updated>
+  <updated>2013-03-14T04:41:34+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -362,12 +362,25 @@
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="p">{</span><span class="o">%</span> <span class="n">raw</span>  <span class="sx">%} </span>
-</span><span class='line'><span class="sx"></span>
-</span><span class='line'><span class="p">{</span><span class="o">%</span> <span class="kp">include</span> <span class="n">post</span><span class="o">/</span><span class="n">share_and_comment</span><span class="o">.</span><span class="n">html</span> <span class="sx">%}</span>
-</span><span class='line'><span class="sx"></span>
+</span><span class='line'><span class="sx"><!-- JiaThis Button BEGIN -->
+<div class="jiathis_style_24x24">
+    <a class="jiathis_button_qzone"></a>
+    <a class="jiathis_button_tsina"></a>
+    <a class="jiathis_button_tqq"></a>
+    <a class="jiathis_button_renren"></a>
+    <a class="jiathis_button_kaixin001"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+    <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1357227497148830" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+<!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" id="UYScript" src="http://v1.uyan.cc/js/iframe.js?UYUserId=0" async=""></script>
+<!-- UY END -->
+</span>
 </span><span class='line'><span class="p">{</span><span class="o">%</span> <span class="n">endraw</span>  <span class="o">%</span><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -375,11 +388,7 @@
 <p>将会以以下方式显示：</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">site</span><span class="o">.</span><span class="n">share_and_comment</span> <span class="sx">%}</span>
-</span><span class='line'><span class="sx">{% include post/share_and_comment.html %}</span>
-</span><span class='line'><span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="p">{</span><span class="o">%</span> <span class="kp">include</span> <span class="n">post</span><span class="o">/</span><span class="n">share_and_comment</span><span class="o">.</span><span class="n">html</span> <span class="o">%</span><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
