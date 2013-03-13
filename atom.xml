@@ -4,7 +4,7 @@
   <title><![CDATA[其实很简单]]></title>
   <link href="http://ywllx.github.com/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-03-14T03:54:34+08:00</updated>
+  <updated>2013-03-14T03:58:28+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -298,7 +298,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>然后在source/_includes/asides/目录下新建category_list.html文件，增加以下代码（记得去掉{_%中的_）：</p>
+<p>然后在source/_includes/asides/目录下新建category_list.html文件，增加以下代码：</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -309,7 +309,7 @@
 </pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;section&gt;</span>
 </span><span class='line'>  <span class="nt">&lt;h1&gt;</span>文章分类<span class="nt">&lt;/h1&gt;</span>
 </span><span class='line'>  <span class="nt">&lt;ul</span> <span class="na">id=</span><span class="s">&quot;categories&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>    {_% category_list %}
+</span><span class='line'>    {% category_list %}
 </span><span class='line'>  <span class="nt">&lt;/ul&gt;</span>
 </span><span class='line'><span class="nt">&lt;/section&gt;</span>
 </span></code></pre></td></tr></table></div></figure>

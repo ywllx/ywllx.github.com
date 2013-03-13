@@ -4,7 +4,7 @@
   <title><![CDATA[Category: github | 其实很简单]]></title>
   <link href="http://ywllx.github.com/blog/categories/github/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-03-14T03:54:34+08:00</updated>
+  <updated>2013-03-14T03:58:28+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -229,19 +229,20 @@ end</p>
 <p>Liquid::Template.register_tag('category_list', Jekyll::CategoryListTag)
 ```</p>
 
-<p>然后在source/_includes/asides/目录下新建category_list.html文件，增加以下代码（记得去掉{_%中的_）：</p>
+<p>然后在source/_includes/asides/目录下新建category_list.html文件，增加以下代码：
 
-<p>```html
+```html
 <section>
   <h1>文章分类</h1>
   <ul id="categories"></p>
 
-<pre><code>{_% category_list %}
+<pre><code>{% category_list %}
 </code></pre>
 
 <p>  </ul>
 </section>
 <code>
+
 在_config.yml中增加相关设置
 </code>ruby
 default_asides: [asides/recent_posts.html, asides/category_list.html]
