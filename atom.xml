@@ -4,7 +4,7 @@
   <title><![CDATA[其实很简单]]></title>
   <link href="http://ywllx.github.com/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-03-14T04:34:58+08:00</updated>
+  <updated>2013-03-14T04:38:14+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -364,7 +364,7 @@
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="p">{</span><span class="o">%</span> <span class="n">raw</span>  <span class="sx">%}</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="p">{</span><span class="o">%</span> <span class="n">raw</span>  <span class="sx">%} </span>
 </span><span class='line'><span class="sx"></span>
 </span><span class='line'><span class="p">{</span><span class="o">%</span> <span class="kp">include</span> <span class="n">post</span><span class="o">/</span><span class="n">share_and_comment</span><span class="o">.</span><span class="n">html</span> <span class="sx">%}</span>
 </span><span class='line'><span class="sx"></span>
