@@ -247,7 +247,7 @@
 
 <p><em>导航栏修改</em></p>
 
-<p>实际上导航栏，标题等的修改都可通过编辑里/source/_includes/custom的每个文件来更新你的博客，具体可以参考<a href="http://yanping.me/cn/blog/2012/01/07/theming-and-customization/">这篇博客</a>或者<a href="http://octopress.org/docs/">官方文档</a>，这里不再详述，需要注意的一点是每个链接的href都以root_url开始。例如我在/source_includes/custom/navigation.html增加了如下一行代码：
+<p>实际上导航栏，标题等的修改都可通过编辑里/source/_includes/custom的每个文件来更新你的博客，具体可以参考<a href="http://yanping.me/cn/blog/2012/01/07/theming-and-customization/">这篇博客</a>或者<a href="http://octopress.org/docs/">官方文档</a>，这里不再详述，需要注意的一点是每个链接的href都以root_url开始。例如我在/source/_includes/custom/navigation.html增加了如下一行代码：
  <code>
  &lt;li&gt;&lt;a href="/blog/about"&gt;关于本人&lt;/a&gt;&lt;/li&gt;
 </code>
@@ -255,7 +255,7 @@
 
 <p><em>增加分享和评论</em></p>
 
-<p>是否希望自己的博客能被大家分享呢，或者希望能够和自己博客的读者有所互动，Octopress本身是默认带有国外facebook，twitter的分享功能的插件的，而且也带有Disqus评论功能插件，但一则因为墙的原因，二则为了真正地接地气，我们可以自己加入中国本地化的类似功能的插件，首先在/source/_includes/post目录下修改sharing.html文件如下：(目前不知道为什么，在octopress中输入{ %的方式都会进行代码解析，所以上面的{ %都进行了添加了来取消，在实际文章中输入的时候，将取消掉）</p>
+<p>是否希望自己的博客能被大家分享呢，或者希望能够和自己博客的读者有所互动，Octopress本身是默认带有国外facebook，twitter的分享功能的插件的，而且也带有Disqus评论功能插件，但一则因为墙的原因，二则为了真正地接地气，我们可以自己加入中国本地化的类似功能的插件，首先在/source/_includes/post目录下修改sharing.html文件如下：(目前不知道为什么，在octopress中输入{ %的方式都会进行html代码解析，所以下面的{ %都在中间添加了_来取消解析，在实际配置文件中输入的时候，将_取消掉）</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
