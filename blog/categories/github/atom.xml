@@ -4,7 +4,7 @@
   <title><![CDATA[Category: github | 其实很简单]]></title>
   <link href="http://ywllx.github.com/blog/categories/github/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-03-14T04:41:34+08:00</updated>
+  <updated>2013-03-14T04:53:24+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -271,19 +271,12 @@ default_asides: [asides/recent_posts.html, asides/category_list.html, asides/wei
 
 <h4>结束感言</h4>
 
-<p>首先介绍一个困惑我许久的问题，那就是我想在文中展示以{%或{{开头，%}或}} 结尾的代码时，会被直接解析，最后终于找到了<a href="http://stackoverflow.com/questions/3426182/how-to-escape-liquid-template-tags">解决办法</a>,那就是在其前后加入以下配对的代码，例如在markdown文件中写入如下代码：
-<code>
+<p>首先介绍一个困惑我许久的问题，那就是我想在文中展示以{%或{{开头，%}或}} 结尾的代码时，会被直接解析，最后终于找到了<a href="http://stackoverflow.com/questions/3426182/how-to-escape-liquid-template-tags">解决办法</a>,那就是在其前后加入以下配对的代码，例如在markdown文件中写入如下代码：</p>
 
-{% include post/share_and_comment.html %}
+<p>   </p>
 
-</code>
-将会以以下方式显示：
 
-<code>
-{% include post/share_and_comment.html %}
-</code>
-
-再介绍一个实用的方法，那就是当你想删掉某篇博客时，应该采用<a href="http://wywon.com/blog/2012/07/08/octopress-github/">这篇文章</a>介绍的方法，首先删除相应的markdown文件，然后把source分支里相应的文件也删除，可以使用下面命令：
+<p>再介绍一个实用的方法，那就是当你想删掉某篇博客时，应该采用<a href="http://wywon.com/blog/2012/07/08/octopress-github/">这篇文章</a>介绍的方法，首先删除相应的markdown文件，然后把source分支里相应的文件也删除，可以使用下面命令：
 <code>
 git add -u
 git commit -m 'delete post'
