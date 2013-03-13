@@ -4,7 +4,7 @@
   <title><![CDATA[其实很简单]]></title>
   <link href="http://ywllx.github.com/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-03-14T02:54:47+08:00</updated>
+  <updated>2013-03-14T03:09:16+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -174,9 +174,9 @@
 
 <p><em>导航栏修改</em></p>
 
-<p>实际上导航栏，标题等的修改都可通过编辑里的每个文件来更新你的博客，具体可以参考<a href="http://yanping.me/cn/blog/2012/01/07/theming-and-customization/">这篇博客</a>或者<a href="http://octopress.org/docs/">官方文档</a>，这里不再详述，需要注意的一点是每个链接的href都以 开始 (如果网站部署到子目录里，这可以帮助Octopress采用不同的链接). 如果你想把你的网站部署到像 yoursite.com/octopress 这样的子目录，你必须把它加到你添加的任何链接里。例如我在_includes/custom/navigation.html增加了如下一行代码：
+<p>实际上导航栏，标题等的修改都可通过编辑里/source/<em>includes/custom的每个文件来更新你的博客，具体可以参考<a href="http://yanping.me/cn/blog/2012/01/07/theming-and-customization/">这篇博客</a>或者<a href="http://octopress.org/docs/">官方文档</a>，这里不再详述，需要注意的一点是每个链接的href都以root_url开始 (如果网站部署到子目录里，这可以帮助Octopress采用不同的链接)。例如我在</em>includes/custom/navigation.html增加了如下一行代码：
  <code>
- &lt;li&gt;&lt;a href="http://ywllx.github.com/blog/about"&gt;关于&lt;/a&gt;&lt;/li&gt;
+ &lt;li&gt;&lt;a href="http://ywllx.github.com/blog/about"&gt;关于本人&lt;/a&gt;&lt;/li&gt;
 </code>
 则需要在/blog/目录下新建一个about目录，然后下面新建了一个index.html文件，当你点击<code>关于本人</code>这个导航时连接到此html构建的网页。</p>
 
@@ -365,7 +365,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>至此，我的第一篇博客算完成了，花的时间几乎跟搭建这个博客花的时间一样多，深深感叹，要想像黑客一样写博客玩酷写博客可真不容易啊，真是辛苦。。。熬了几个晚上。。。</p>
+<p>至此，我的第一篇博客算完成了，花的时间几乎跟搭建这个博客花的时间一样多，深深感叹，要想像黑客一样玩酷写博客可真不容易啊，真是辛苦。。。熬了几个晚上。。。</p>
 ]]></content>
   </entry>
   
