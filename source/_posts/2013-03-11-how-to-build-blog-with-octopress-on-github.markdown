@@ -12,7 +12,7 @@ categories: octopress github
 搭建博客主要用到了下面这些技术和工具，首先对它们进行一些简单的介绍：
 
 * [Github](http://pages.github.com/)：GitHub 是一个用于使用Git版本控制系统项目的共享虚拟主机服务。它由GitHub公司（曾称Logical Awesome）的开发者Chris Wanstrath、PJ Hyett和Tom Preston-Werner使用Ruby on Rails编写而成。GitHub同时提供付费账户和为开源项目提供的免费账户。Git是一个分布式的版本控制系统，最初由Linus Torvalds编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功。有人把github比作程序员中的facebook，在上面，我们可以很容易构建自己的开源项目。
-这里搭建博客主要用到了了Github的Pages功能，它允许用户自定义项目首页。github Pages可以被认为是用户编写的、托管在github上的静态网页，而且它还支持域名绑定。Github Pages同时提供了模板功能，可以用解析引擎是Jekyll。
+这里搭建博客主要用到了了Github的Pages功能，它允许用户自定义项目首页。github Pages可以被认为是用户编写的、托管在github上的静态网页，而且它还支持域名绑定。Github Pages同时提供了模板功能，采用的解析引擎是Jekyll。
 * [Jekyll](http://jekyllrb.com/): Jekyll是一个简单的免费的Blog生成工具，它会根据网页源码生成静态文件。它提供了模板、变量、插件等功能，不需要数据库，文章可以使用Markdown、HTML、Textile格式的文件保存。Jekyll只是一个生成静态网页的工具，可以配合第三方服务，例如disqus。而且jekyll可以免费部署在Github上，可以绑定自己的域名。
 * [Octopress](http://octopress.org/)：Octopress是由Brandon Mathis设计的针对Jekyll的框架，使用Jekyll你可以DIY你个人博客的每一部分,但是你可能就得自己编写自己的HTML模板，CSS，javascript脚本。这对于大多数人来说可能还是太复杂繁琐，那么你可以使用Octopress，它有一系列便捷的命令负责生成、预览、发布、新建文章、新建页面等等，有本地预览功能，有一套还算美观的模版，这个模板修改起来还是很方便的，网站源码和静态页面分离。可以在git以不同分支管理。这样你便可以轻松搭建一个自己的博客。
 * [Markdown](http://zh.wikipedia.org/wiki/Markdown)：Markdown 是一种轻量级标记语言，创始人为John Gruber和Aaron Swartz。它允许人们“使用易读易写的纯文本格式编写文档， 然后转换成有效的XHTML(或者HTML)文档”。这种语言吸收了很多在电子邮件中已有的纯文本标记的特性。 Github的README.md文件就是用Markdown格式写的。在这里了解[Markdown基本语法](http://wowubuntu.com/markdown/#p)，简单学习你就可以使用它写博客了。
@@ -92,20 +92,24 @@ article p {
 ```
 *导航栏修改*
 
- 实际上导航栏，标题等的修改都可通过编辑 /source/_includes/custom/里的每个文件来更新你的博客，具体可以参考[这篇博客](http://yanping.me/cn/blog/2012/01/07/theming-and-customization/)或者[官方文档](http://octopress.org/docs/)，这里不再详述，需要注意的一点是每个链接的href都以 {{ root_url }}开始 (如果网站部署到子目录里，这可以帮助Octopress采用不同的链接). 如果你想把你的网站部署到像 yoursite.com/octopress 这样的子目录，你必须把它加到你添加的任何链接里。例如我在_includes/custom/navigation.html增加了如下一行代码：
- ``` 
- <li><a href="{{ root_url }}/blog/about">关于</a></li>
- ```
- 则需要在/blog/目录下新建一个about目录，然后下面新建了一个index.html文件，当你点击`关于本人`这个导航时连接到此html构建的网页。
+实际上导航栏，标题等的修改都可通过编辑里/source/\_includes/custom的每个文件来更新你的博客，具体可以参考[这篇博客](http://yanping.me/cn/blog/2012/01/07/theming-and-customization/)或者[官方文档](http://octopress.org/docs/)，这里不再详述，需要注意的一点是每个链接的href都以root\_url开始。例如我在/source/\_includes/custom/navigation.html增加了如下一行代码：
+{% raw  %}
+``` 
+<li><a href="{{ root_url }}/blog/about">关于本人</a></li>
+```
+{% endraw  %}
+则需要在/blog/目录下新建一个about目录，然后下面新建了一个index.html文件，当你点击`关于本人`这个导航时连接到此html构建的网页。
 
 *增加分享和评论*
 
-是否希望自己的博客能被大家分享呢，或者希望能够和自己博客的读者有所互动，Octopress本身是默认带有国外facebook，twitter的分享功能的插件的，而且也带有Disqus评论功能插件，但一则因为墙的原因，二则为了真正地接地气，我们可以自己加入中国本地化的类似功能的插件，首先在/source/_includes/post目录下修改sharing.html文件如下：(目前不知道为什么，在octopress中输入{ %的方式都会进行代码解析，所以上面的{ %都进行了添加了来取消，在实际文章中输入的时候，将取消掉）
+是否希望自己的博客能被大家分享呢，或者希望能够和自己博客的读者有所互动，Octopress本身是默认带有国外facebook，twitter的分享功能的插件的，而且也带有Disqus评论功能插件，但一则因为墙的原因，二则为了真正地接地气，我们可以自己加入中国本地化的类似功能的插件，首先在/source/_includes/post目录下修改sharing.html文件如下：
+{% raw  %}
 ```
-{_% if site.share_and_comment %}
-{_% include post/share_and_comment.html %}
-{_% endif %}
+{% if site.share_and_comment %}
+{% include post/share_and_comment.html %}
+{% endif %}
 ```
+{% endraw  %}
 然后到[加网](http://www.jiathis.com/)和[友言](http://www.uyan.cc/)分别获得分享代码和评论代码（如下），放入新建的share_and_comment.html的文件中，将此文件存放在/source/_includes/post目录下
 ``` html
 <!-- JiaThis Button BEGIN -->
@@ -162,16 +166,17 @@ end
 Liquid::Template.register_tag('category_list', Jekyll::CategoryListTag)
 ```
 
-然后在/source/_includes/asides/目录下新建category_list.html文件，增加以下代码（记得去掉{_%中的_）：
-
+然后在source/\_includes/asides/目录下新建category_list.html文件，增加以下代码：
+{% raw %}
 ```html
 <section>
   <h1>文章分类</h1>
   <ul id="categories">
-    {_% category_list %}
+    {% category_list %}
   </ul>
 </section>
 ```
+{% endraw %}
 在_config.yml中增加相关设置
 ```ruby
 default_asides: [asides/recent_posts.html, asides/category_list.html]
@@ -196,10 +201,12 @@ default_asides: [asides/recent_posts.html, asides/category_list.html, asides/wei
 ```
 
 #### 结束感言
-首先先介绍一个实用的方法，那就是当你想删掉某篇博客时，应该采用[这篇文章](http://wywon.com/blog/2012/07/08/octopress-github/)介绍的方法，首先删除相应的markdown文件，然后把source分支里相应的文件也删除，可以使用下面命令：
+首先介绍一个困惑我许久的问题，那就是我想在文中展示以{% raw %}{%或{{开头，%}或}} {% endraw %}结尾的代码时，会被直接解析，最后终于找到了[解决办法](http://stackoverflow.com/questions/3426182/how-to-escape-liquid-template-tags),那就是在其前面加入代码:{{ "{% raw " }}%}，后面加入配对的部分{{ "{% endraw " }}%}。
+
+再介绍一个实用的方法，那就是当你想删掉某篇博客时，应该采用[这篇文章](http://wywon.com/blog/2012/07/08/octopress-github/)介绍的方法，首先删除相应的markdown文件，然后把source分支里相应的文件也删除，可以使用下面命令：
 ```
 git add -u
 git commit -m 'delete post'
 git push origin source
 ```
-至此，我的第一篇博客算完成了，花的时间几乎跟搭建这个博客花的时间一样多，深深感叹，要想像黑客一样写博客玩酷写博客可真不容易啊，真是辛苦。。。熬了几个晚上。。。
+至此，我的第一篇博客算完成了，花的时间几乎跟搭建这个博客花的时间一样多，深深感叹，要想像黑客一样玩酷写博客可真不容易啊，真是辛苦。。。熬了几个晚上。。。

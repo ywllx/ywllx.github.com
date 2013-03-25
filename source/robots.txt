@@ -2,6 +2,9 @@
 layout: nil
 ---
 User-agent: *
-Disallow: 
-
-Sitemap: {{ site.url }}/sitemap.xml 
+Disallow: /archives
+Disallow: /javascripts
+Disallow: /font
+Disallow: /assets
+Disallow: /blog
+Sitemap: http://ywllx.github.com/sitemap.xml 
