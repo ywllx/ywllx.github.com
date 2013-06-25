@@ -4,7 +4,7 @@
   <title><![CDATA[Category: C | 其实很简单]]></title>
   <link href="http://ywllx.github.com/blog/categories/c/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-06-26T00:20:56+08:00</updated>
+  <updated>2013-06-26T01:07:46+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -18,7 +18,15 @@
     <link href="http://ywllx.github.com/blog/2013/06/25/c-pointer/"/>
     <updated>2013-06-25T23:43:00+08:00</updated>
     <id>http://ywllx.github.com/blog/2013/06/25/c-pointer</id>
-    <content type="html"><![CDATA[<p>好久没更新过博客了，只能怪自己实在是懒，</p>
+    <content type="html"><![CDATA[<p>好久没更新过博客了，只能怪自己实在是懒，以后打算最好每星期能更新一次博客，写点自己学的东西，这次就想写点C指针的问题。关于这个，网上有个很详细的文章，叫做<a href="http://ishare.iask.sina.com.cn/f/12454328.html">C语言指针详解</a>。而我写这个，主要是看了一本书《算法精解—C语言描述》，里面第2章是专门讲C指针的，我觉得不错，摘了些我觉得有意思的内容。</p>
+
+<hr />
+
+<h4>指针基础</h4>
+
+<p>一个指针其实就是一个变量，它存储的是数据在内存中的地址而不是存储数据本身。C语言指针详解提到要搞清一个指针需要搞清指针的四方面的内容:指针的类型,指针所指向的类型,指针的值或者叫指针所指向的内存区,还有指针本身所占据的内存区，并且做了大量示例介绍，大家可以去看看。在C 语言中，指针能够指向一个无效的地址，这样的指针被称作悬空指针。可能产生悬空指针的一些编程错误包括：将任意的整型变量强制转换为指针变量；操作超出数组边界的指针；释放一个或多个仍在被引用的指针。</p>
+
+<h4>存储空间分配</h4>
 ]]></content>
   </entry>
   
