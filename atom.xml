@@ -4,7 +4,7 @@
   <title><![CDATA[其实很简单]]></title>
   <link href="http://ywllx.github.com/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-03-26T01:27:00+08:00</updated>
+  <updated>2013-06-26T00:20:56+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -12,6 +12,15 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[C 指针总结]]></title>
+    <link href="http://ywllx.github.com/blog/2013/06/25/c-pointer/"/>
+    <updated>2013-06-25T23:43:00+08:00</updated>
+    <id>http://ywllx.github.com/blog/2013/06/25/c-pointer</id>
+    <content type="html"><![CDATA[<p>好久没更新过博客了，只能怪自己实在是懒，</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[利用octopress在github构建自己的博客]]></title>
