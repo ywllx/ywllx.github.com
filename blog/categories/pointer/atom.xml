@@ -4,7 +4,7 @@
   <title><![CDATA[Category: pointer | 其实很简单]]></title>
   <link href="http://ywllx.github.com/blog/categories/pointer/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-06-27T00:46:11+08:00</updated>
+  <updated>2013-06-27T01:06:17+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -26,6 +26,8 @@
 
 <p>一个指针其实就是一个变量，它存储的是数据在内存中的地址而不是存储数据本身。C语言指针详解提到要搞清一个指针需要搞清指针的四方面的内容:指针的类型,指针所指向的类型,指针的值或者叫指针所指向的内存区,还有指针本身所占据的内存区，并且做了大量示例介绍，大家可以去看看。在C 语言中，指针能够指向一个无效的地址，这样的指针被称作悬空指针。可能产生悬空指针的一些编程错误包括：将任意的整型变量强制转换为指针变量；操作超出数组边界的指针；释放一个或多个仍在被引用的指针。</p>
 
+<hr />
+
 <h4>存储空间分配</h4>
 
 <p>当在C中声明一个指针时，一定量的存储空间会分配个这个指针。这里提的存储空间就如前面提的，我们把它分为：指针的值或者叫指针所指向的内存区,以及指针本身所占据的内存区。当声明一个指针时，仅仅只是为指针本身分配了空间，并没有为指针引用的数据分配空间。而数据分配空间一般有两种方法：一种是直接声明一个变量，另一种是在运行时动态分配存储空间（例如：使用malloc或realloc）
@@ -35,6 +37,21 @@ int f(int **ptr) {</p>
 
 <pre><code>int a = 10;
 *ptr = &amp;a;
+return 0;
+</code></pre>
+
+<p>}
+<code>
+而当动态分配存储空间时，我们会得到一个指向存储空间的指针。此存储空间由我们自行管理，会一直存在，除非我们显式将其释放。例如下面这个函数中`malloc`分配的存储空间会一直有效直到我们调用`free`函数将其释放掉。所以，当函数`g`返回时此存储空间仍然有效。参数`iptr`是一个指向我们想要改变其内容的对象的指针（此对象也是一个指针），所以当`g`返回时，`iptr`指向由`malloc`申请的地址空间。
+</code>c</p>
+
+<h1>include &lt;stdlib.h></h1>
+
+<p>int g(int **ptr) {</p>
+
+<pre><code>if ((*iptr = (int *)malloc(sizeof(int))) == NULL)
+    return -1;
+
 return 0;
 </code></pre>
 
