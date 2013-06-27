@@ -117,57 +117,39 @@
 <p>当在C中声明一个指针时，一定量的存储空间会分配个这个指针。这里提的存储空间就如前面提的，我们把它分为：指针的值或者叫指针所指向的内存区,以及指针本身所占据的内存区。当声明一个指针时，仅仅只是为指针本身分配了空间，并没有为指针引用的数据分配空间。而数据分配空间一般有两种方法：一种是直接声明一个变量，另一种是在运行时动态分配存储空间（例如：使用malloc或realloc）
 当声明一个变量时，此变量所需的存储空间一般由系统自动管理，需要注意的是有些变量的存储空间不会在程序的整个生命周期中永久存在。例如一些变量，暂且称为自由变量，在进入或者离开一个模块或函数时其存储空间由系统自动分配和释放。例如在下面的函数<code>f</code>中，<code>iptr</code>的赋值为变量<code>a</code>的地址，当函数<code>f</code>返回时，<code>iptr</code>会变成一个悬空指针，因为当函数返回时，变量<code>a</code>已经从栈中弹出释放了。</p>
 
-<p>int f(int **iptr) {</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>int f(int **iptr) {
+</span><span class='line'>  int a = 10;
+</span><span class='line'>  *ptr = &a;
+</span><span class='line'>  return 0;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
-<pre><code>int a = 10;
-*ptr = &amp;a;
-return 0;
-</code></pre>
-
-<p>}</p>
 
 <p>而当动态分配存储空间时，我们会得到一个指向存储空间的指针。此存储空间由我们自行管理，会一直存在，除非我们显式将其释放。例如下面这个函数中<code>malloc</code>分配的存储空间会一直有效直到我们调用<code>free</code>函数将其释放掉。所以，当函数<code>g</code>返回时此存储空间仍然有效。参数<code>iptr</code>是一个指向我们想要改变其内容的对象的指针（此对象也是一个指针），所以当<code>g</code>返回时，<code>iptr</code>指向由<code>malloc</code>申请的地址空间。</p>
 
-<h1>include &lt;stdlib.h></h1>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#include &lt;stdlib.h&gt;
+</span><span class='line'>
+</span><span class='line'>int g(int **iptr) {
+</span><span class='line'>  if ((*iptr = (int *)malloc(sizeof(int))) == NULL)
+</span><span class='line'>      return -1;
+</span><span class='line'>  
+</span><span class='line'>  return 0;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
-<p>int g(int **iptr) {</p>
-
-<pre><code>if ((*iptr = (int *)malloc(sizeof(int))) == NULL)
-    return -1;
-
-return 0;
-</code></pre>
-
-<p>}</p>
 
 <p>关于二级指针作为参数的问题，我们还可以看下面这个可以实际运行的例子:</p>
-
-<h1>include &lt;stdlib.h></h1>
-
-<h1>include &lt;stdio.h></h1>
-
-<h1>include &lt;string.h></h1>
-
-<p>void  test(char  **p,  int  num)<br/>
-{</p>
-
-<pre><code>*p  =  (char  *)malloc(sizeof(char)  *  num);  
-</code></pre>
-
-<p>}<br/>
-int  main(void)<br/>
-{</p>
-
-<pre><code>char  *str  =  NULL;  
-test(&amp;str,  100);      //注意参数是&amp;str，而不是str  
-strcpy(str,  "hello");            
-printf("%s\n", str);  
-free(str);           
-</code></pre>
-
-<p>}</p>
-
-<p>在上面这个程序中，传进函数<code>test</code>是指针<code>str</code>的地址值，可以认为这个值是指向指针<code>str</code>的指针，这个值在程序运行过程中，是存放在栈结构中的，<code>test</code>函数返回之后，会自动将其释放掉。但是调用<code>test</code>函数之后，改变了这个值指向的内存的值，即<code>str</code>的值，也就是说改变了指针<code>str</code>的值，使其指向了我们在堆中申请的内存，这个变量是属于<code>main</code>函数的，这样我们就可以改变<code>str</code>指针指向的值。这是把二级指针作为参数传递给函数一个很重要的地方。</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -182,20 +164,44 @@ free(str);
 <span class='line-number'>11</span>
 <span class='line-number'>12</span>
 <span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>执行test函数，动态分配内存时       test函数返回时, test关联的栈销毁之后，&str释放
-</span><span class='line'>    ——————————————————                        ——————————————————     
-</span><span class='line'>     （堆）"hello"    &lt;--                      （堆）"hello"    &lt;--
-</span><span class='line'>    ——————————————————  |                     ——————————————————  |
-</span><span class='line'>                        |                                         |
-</span><span class='line'>                        |                                         |
-</span><span class='line'>    —————————————————— --                     —————————————————— --
-</span><span class='line'>       main       str &lt;--                           main    str   
-</span><span class='line'>    ——————————————————  |                     ——————————————————
-</span><span class='line'>                        |
-</span><span class='line'>    ——————————————————  |       
-</span><span class='line'>     （栈）test   &str --
-</span><span class='line'>    ——————————————————</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#include &lt;stdlib.h&gt;
+</span><span class='line'>#include &lt;stdio.h&gt;
+</span><span class='line'>#include &lt;string.h&gt;
+</span><span class='line'>
+</span><span class='line'>void  test(char  **p,  int  num)  
+</span><span class='line'>{  
+</span><span class='line'>    *p  =  (char  *)malloc(sizeof(char)  *  num);  
+</span><span class='line'>}  
+</span><span class='line'>int  main(void)  
+</span><span class='line'>{  
+</span><span class='line'>    char  *str  =  NULL;  
+</span><span class='line'>    test(&str,  100);      //注意参数是&str，而不是str  
+</span><span class='line'>    strcpy(str,  "hello");            
+</span><span class='line'>    printf("%s\n", str);  
+</span><span class='line'>    free(str);           
+</span><span class='line'>}  </span></code></pre></td></tr></table></div></figure>
 
+
+<h2>在上面这个程序中，传进函数<code>test</code>是指针<code>str</code>的地址值，可以认为这个值是指向指针<code>str</code>的指针，这个值在程序运行过程中，是存放在栈结构中的，<code>test</code>函数返回之后，会自动将其释放掉。但是调用<code>test</code>函数之后，改变了这个值指向的内存的值，即<code>str</code>的值，也就是说改变了指针<code>str</code>的值，使其指向了我们在堆中申请的内存，这个变量是属于<code>main</code>函数的，这样我们就可以改变<code>str</code>指针指向的值。这是把二级指针作为参数传递给函数一个很重要的地方。</h2>
+
+<p>执行test函数，动态分配内存时       test函数返回时, test关联的栈销毁之后，&amp;str释放</p>
+
+<pre><code>——————————————————                        ——————————————————     
+ （堆）"hello"    &lt;--                      （堆）"hello"    &lt;--
+——————————————————  |                     ——————————————————  |
+                    |                                         |
+                    |                                         |
+—————————————————— --                     —————————————————— --
+   main       str &lt;--                           main    str   
+——————————————————  |                     ——————————————————
+                    |
+——————————————————  |       
+ （栈）test   &amp;str --
+——————————————————
+</code></pre>
 </div>
 
 
