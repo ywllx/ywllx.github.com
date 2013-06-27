@@ -4,7 +4,7 @@
   <title><![CDATA[其实很简单]]></title>
   <link href="http://ywllx.github.com/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-06-27T23:17:15+08:00</updated>
+  <updated>2013-06-27T23:18:23+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -67,8 +67,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>关于二级指针作为参数的问题，我们还可以看下面这个可以实际运行的例子:
-&#8220;`</p>
+<p>关于二级指针作为参数的问题，我们还可以看下面这个可以实际运行的例子:</p>
 
 <h1>include &lt;stdlib.h></h1>
 
