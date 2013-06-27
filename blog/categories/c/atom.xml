@@ -4,7 +4,7 @@
   <title><![CDATA[Category: C | 其实很简单]]></title>
   <link href="http://ywllx.github.com/blog/categories/c/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-06-27T23:33:55+08:00</updated>
+  <updated>2013-06-27T23:35:47+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[C 指针总结]]></title>
-    <link href="http://ywllx.github.com/blog/2013/06/25/c-pointer/"/>
+    <link href="http://ywllx.github.com/blog/2013/06/25/c-pointer.markdown/"/>
     <updated>2013-06-25T23:43:00+08:00</updated>
-    <id>http://ywllx.github.com/blog/2013/06/25/c-pointer</id>
+    <id>http://ywllx.github.com/blog/2013/06/25/c-pointer.markdown</id>
     <content type="html"><![CDATA[<p>好久没更新过博客了，只能怪自己实在是懒，以后打算最好每星期能更新一次博客，写点自己学的东西，这次就想写点C指针的问题。关于这个，网上有个很详细的文章，叫做<a href="http://ishare.iask.sina.com.cn/f/12454328.html">C语言指针详解</a>。而我写这个，主要是看了一本书《算法精解—C语言描述》，里面第2章是专门讲C指针的，我觉得不错，摘了些我觉得有意思的内容。</p>
 
 <hr />
@@ -102,6 +102,82 @@ free(str);
  （栈）test   &amp;str --
 ——————————————————
 </code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[C 指针总结]]></title>
+    <link href="http://ywllx.github.com/blog/2013/06/25/c-pointer/"/>
+    <updated>2013-06-25T23:43:00+08:00</updated>
+    <id>http://ywllx.github.com/blog/2013/06/25/c-pointer</id>
+    <content type="html"><![CDATA[<p>好久没更新过博客了，只能怪自己实在是懒，以后打算最好每星期能更新一次博客，写点自己学的东西，这次就想写点C指针的问题。关于这个，网上有个很详细的文章，叫做<a href="http://ishare.iask.sina.com.cn/f/12454328.html">C语言指针详解</a>。而我写这个，主要是看了一本书《算法精解—C语言描述》，里面第2章是专门讲C指针的，我觉得不错，摘了些我觉得有意思的内容。</p>
+
+<hr />
+
+<h4>指针基础</h4>
+
+<p>一个指针其实就是一个变量，它存储的是数据在内存中的地址而不是存储数据本身。C语言指针详解提到要搞清一个指针需要搞清指针的四方面的内容:指针的类型,指针所指向的类型,指针的值或者叫指针所指向的内存区,还有指针本身所占据的内存区，并且做了大量示例介绍，大家可以去看看。在C 语言中，指针能够指向一个无效的地址，这样的指针被称作悬空指针。可能产生悬空指针的一些编程错误包括：将任意的整型变量强制转换为指针变量；操作超出数组边界的指针；释放一个或多个仍在被引用的指针。</p>
+
+<hr />
+
+<h4>存储空间分配</h4>
+
+<p>当在C中声明一个指针时，一定量的存储空间会分配个这个指针。这里提的存储空间就如前面提的，我们把它分为：指针的值或者叫指针所指向的内存区,以及指针本身所占据的内存区。当声明一个指针时，仅仅只是为指针本身分配了空间，并没有为指针引用的数据分配空间。而数据分配空间一般有两种方法：一种是直接声明一个变量，另一种是在运行时动态分配存储空间（例如：使用malloc或realloc）
+当声明一个变量时，此变量所需的存储空间一般由系统自动管理，需要注意的是有些变量的存储空间不会在程序的整个生命周期中永久存在。例如一些变量，暂且称为自由变量，在进入或者离开一个模块或函数时其存储空间由系统自动分配和释放。例如在下面的函数<code>f</code>中，<code>iptr</code>的赋值为变量<code>a</code>的地址，当函数<code>f</code>返回时，<code>iptr</code>会变成一个悬空指针，因为当函数返回时，变量<code>a</code>已经从栈中弹出释放了。
+```c
+int f(int **iptr) {</p>
+
+<pre><code>int a = 10;
+*ptr = &amp;a;
+return 0;
+</code></pre>
+
+<p>}
+<code>
+而当动态分配存储空间时，我们会得到一个指向存储空间的指针。此存储空间由我们自行管理，会一直存在，除非我们显式将其释放。例如下面这个函数中`malloc`分配的存储空间会一直有效直到我们调用`free`函数将其释放掉。所以，当函数`g`返回时此存储空间仍然有效。参数`iptr`是一个指向我们想要改变其内容的对象的指针（此对象也是一个指针），所以当`g`返回时，`iptr`指向由`malloc`申请的地址空间。
+</code>c</p>
+
+<h1>include &lt;stdlib.h></h1>
+
+<p>int g(int **iptr) {</p>
+
+<pre><code>if ((*iptr = (int *)malloc(sizeof(int))) == NULL)
+    return -1;
+
+return 0;
+</code></pre>
+
+<p>}
+<code>
+关于二级指针作为参数的问题，我们还可以看下面这个可以实际运行的例子:
+</code>c</p>
+
+<h1>include &lt;stdlib.h></h1>
+
+<h1>include &lt;stdio.h></h1>
+
+<h1>include &lt;string.h></h1>
+
+<p>void  test(char  **p,  int  num)<br/>
+{</p>
+
+<pre><code>*p  =  (char  *)malloc(sizeof(char)  *  num);  
+</code></pre>
+
+<p>}<br/>
+int  main(void)<br/>
+{</p>
+
+<pre><code>char  *str  =  NULL;  
+test(&amp;str,  100);      //注意参数是&amp;str，而不是str  
+strcpy(str,  "hello");            
+printf("%s\n", str);  
+free(str);           
+</code></pre>
+
+<p>}<br/>
+<code>``
+在上面这个程序中，传进函数</code>test<code>是指针</code>str<code>的地址值，可以认为这个值是指向指针</code>str<code>的指针，这个值在程序运行过程中，是存放在栈结构中的，</code>test<code>函数返回之后，会自动将其释放掉。但是调用</code>test<code>函数之后，改变了这个值指向的内存的值，即</code>str<code>的值，也就是说改变了指针</code>str<code>的值，使其指向了我们在堆中申请的内存，这个变量是属于</code>main<code>函数的，这样我们就可以改变</code>str`指针指向的值。这是把二级指针作为参数传递给函数一个很重要的地方。</p>
 ]]></content>
   </entry>
   
