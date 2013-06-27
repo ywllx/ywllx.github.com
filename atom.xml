@@ -4,7 +4,7 @@
   <title><![CDATA[其实很简单]]></title>
   <link href="http://ywllx.github.com/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-06-27T01:06:17+08:00</updated>
+  <updated>2013-06-27T22:55:43+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -38,7 +38,7 @@
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="kt">int</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span> <span class="o">**</span><span class="n">ptr</span><span class="p">)</span> <span class="p">{</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="kt">int</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span> <span class="o">**</span><span class="n">iptr</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>  <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
 </span><span class='line'>  <span class="o">*</span><span class="n">ptr</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
 </span><span class='line'>  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
@@ -58,7 +58,7 @@
 <span class='line-number'>8</span>
 </pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cp">#include &lt;stdlib.h&gt;</span>
 </span><span class='line'>
-</span><span class='line'><span class="kt">int</span> <span class="nf">g</span><span class="p">(</span><span class="kt">int</span> <span class="o">**</span><span class="n">ptr</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'><span class="kt">int</span> <span class="nf">g</span><span class="p">(</span><span class="kt">int</span> <span class="o">**</span><span class="n">iptr</span><span class="p">)</span> <span class="p">{</span>
 </span><span class='line'>  <span class="k">if</span> <span class="p">((</span><span class="o">*</span><span class="n">iptr</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)))</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
 </span><span class='line'>      <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
 </span><span class='line'>  
@@ -66,6 +66,59 @@
 </span><span class='line'><span class="p">}</span>
 </span></code></pre></td></tr></table></div></figure>
 
+
+<p>关于二级指针作为参数的问题，我们还可以看下面这个可以实际运行的例子:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cp">#include &lt;stdlib.h&gt;</span>
+</span><span class='line'><span class="cp">#include &lt;stdio.h&gt;</span>
+</span><span class='line'><span class="cp">#include &lt;string.h&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">void</span>  <span class="nf">test</span><span class="p">(</span><span class="kt">char</span>  <span class="o">**</span><span class="n">p</span><span class="p">,</span>  <span class="kt">int</span>  <span class="n">num</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="o">*</span><span class="n">p</span>  <span class="o">=</span>  <span class="p">(</span><span class="kt">char</span>  <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">)</span>  <span class="o">*</span>  <span class="n">num</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="kt">int</span>  <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="kt">char</span>  <span class="o">*</span><span class="n">str</span>  <span class="o">=</span>  <span class="nb">NULL</span><span class="p">;</span>
+</span><span class='line'>    <span class="n">test</span><span class="p">(</span><span class="o">&amp;</span><span class="n">str</span><span class="p">,</span>  <span class="mi">100</span><span class="p">);</span>      <span class="c1">//注意参数是&amp;str，而不是str  </span>
+</span><span class='line'>    <span class="n">strcpy</span><span class="p">(</span><span class="n">str</span><span class="p">,</span>  <span class="s">&quot;hello&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">str</span><span class="p">);</span>
+</span><span class='line'>    <span class="n">free</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>执行test函数，动态分配内存时                   test函数返回时</p>
+
+<pre><code>——————————————————                        ——————————————————     
+ （堆）"hello"    &lt;--                      （堆）"hello"    &lt;--
+——————————————————  |                     ——————————————————  |
+                    |                                         |
+                    |                                         |
+—————————————————— --                     —————————————————— --
+   main      *str &lt;--                           main    *str   
+——————————————————  |                     ——————————————————
+                    |
+——————————————————  |       
+ （栈）test   &amp;str --
+——————————————————
+</code></pre>
 ]]></content>
   </entry>
   
