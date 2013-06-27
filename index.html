@@ -168,25 +168,37 @@ printf("%s\n", str);
 free(str);           
 </code></pre>
 
-<h2>}  </h2>
+<p>}</p>
 
 <p>在上面这个程序中，传进函数<code>test</code>是指针<code>str</code>的地址值，可以认为这个值是指向指针<code>str</code>的指针，这个值在程序运行过程中，是存放在栈结构中的，<code>test</code>函数返回之后，会自动将其释放掉。但是调用<code>test</code>函数之后，改变了这个值指向的内存的值，即<code>str</code>的值，也就是说改变了指针<code>str</code>的值，使其指向了我们在堆中申请的内存，这个变量是属于<code>main</code>函数的，这样我们就可以改变<code>str</code>指针指向的值。这是把二级指针作为参数传递给函数一个很重要的地方。</p>
 
-<p>执行test函数，动态分配内存时       test函数返回时, test关联的栈销毁之后，&amp;str释放</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>执行test函数，动态分配内存时       test函数返回时, test关联的栈销毁之后，&str释放
+</span><span class='line'>    ——————————————————                        ——————————————————     
+</span><span class='line'>     （堆）"hello"    &lt;--                      （堆）"hello"    &lt;--
+</span><span class='line'>    ——————————————————  |                     ——————————————————  |
+</span><span class='line'>                        |                                         |
+</span><span class='line'>                        |                                         |
+</span><span class='line'>    —————————————————— --                     —————————————————— --
+</span><span class='line'>       main       str &lt;--                           main    str   
+</span><span class='line'>    ——————————————————  |                     ——————————————————
+</span><span class='line'>                        |
+</span><span class='line'>    ——————————————————  |       
+</span><span class='line'>     （栈）test   &str --
+</span><span class='line'>    ——————————————————</span></code></pre></td></tr></table></div></figure>
 
-<pre><code>——————————————————                        ——————————————————     
- （堆）"hello"    &lt;--                      （堆）"hello"    &lt;--
-——————————————————  |                     ——————————————————  |
-                    |                                         |
-                    |                                         |
-—————————————————— --                     —————————————————— --
-   main       str &lt;--                           main    str   
-——————————————————  |                     ——————————————————
-                    |
-——————————————————  |       
- （栈）test   &amp;str --
-——————————————————
-</code></pre>
 </div>
   
   
