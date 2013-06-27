@@ -4,7 +4,7 @@
   <title><![CDATA[Category: pointer | 其实很简单]]></title>
   <link href="http://ywllx.github.com/blog/categories/pointer/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-06-27T23:30:06+08:00</updated>
+  <updated>2013-06-27T23:32:16+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -32,7 +32,7 @@
 
 <p>当在C中声明一个指针时，一定量的存储空间会分配个这个指针。这里提的存储空间就如前面提的，我们把它分为：指针的值或者叫指针所指向的内存区,以及指针本身所占据的内存区。当声明一个指针时，仅仅只是为指针本身分配了空间，并没有为指针引用的数据分配空间。而数据分配空间一般有两种方法：一种是直接声明一个变量，另一种是在运行时动态分配存储空间（例如：使用malloc或realloc）
 当声明一个变量时，此变量所需的存储空间一般由系统自动管理，需要注意的是有些变量的存储空间不会在程序的整个生命周期中永久存在。例如一些变量，暂且称为自由变量，在进入或者离开一个模块或函数时其存储空间由系统自动分配和释放。例如在下面的函数<code>f</code>中，<code>iptr</code>的赋值为变量<code>a</code>的地址，当函数<code>f</code>返回时，<code>iptr</code>会变成一个悬空指针，因为当函数返回时，变量<code>a</code>已经从栈中弹出释放了。
-```
+```c
 int f(int **iptr) {</p>
 
 <pre><code>int a = 10;
@@ -43,7 +43,7 @@ return 0;
 <p>}
 <code>
 而当动态分配存储空间时，我们会得到一个指向存储空间的指针。此存储空间由我们自行管理，会一直存在，除非我们显式将其释放。例如下面这个函数中`malloc`分配的存储空间会一直有效直到我们调用`free`函数将其释放掉。所以，当函数`g`返回时此存储空间仍然有效。参数`iptr`是一个指向我们想要改变其内容的对象的指针（此对象也是一个指针），所以当`g`返回时，`iptr`指向由`malloc`申请的地址空间。
-</code></p>
+</code>c</p>
 
 <h1>include &lt;stdlib.h></h1>
 
@@ -58,7 +58,7 @@ return 0;
 <p>}
 <code>
 关于二级指针作为参数的问题，我们还可以看下面这个可以实际运行的例子:
-</code></p>
+</code>c</p>
 
 <h1>include &lt;stdlib.h></h1>
 
