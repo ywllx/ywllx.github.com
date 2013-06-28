@@ -9,7 +9,8 @@
   <meta name="author" content="Fred Yan">
 
   
-  <meta name="description" content="好久没更新过博客了，只能怪自己实在是懒，以后打算最好每星期能更新一次博客，写点自己学的东西，这次就想写点C指针的问题。关于这个，网上有个很详细的文章，叫做C语言指针详解。而我写这个，主要是看了一本书《算法精解—C语言描述》，里面第2章是专门讲C指针的，我觉得不错，摘了些我觉得有意思的内容。 &hellip;">
+  <meta name="description" content="
+">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,6 +77,42 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/06/28/python-text-processing/">Python Text Processing</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-28T11:45:00+08:00" pubdate data-updated="true">Jun 28<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -193,7 +230,7 @@
 
 <p>在上面这个程序中，传进函数<code>test</code>是指针<code>str</code>的地址值，可以认为这个值是指向指针<code>str</code>的指针，这个值在程序运行过程中，是存放在栈结构中的，<code>test</code>函数返回之后，会自动将其释放掉。但是调用<code>test</code>函数之后，改变了这个值指向的内存的值，即<code>str</code>的值，也就是说改变了指针<code>str</code>的值，使其指向了我们在堆中申请的内存，这个变量是属于<code>main</code>函数的，这样我们就可以改变<code>str</code>指针指向的值。这是把二级指针作为参数传递给函数一个很重要的地方。</p>
 
-<p>执行test函数，动态分配内存时       test函数返回时, test关联的栈销毁之后，&amp;str释放</p>
+<p>在下图中，左边代表：执行<code>test</code>函数，动态分配内存时，与<code>str</code>相关的指针情况，可以看到此时<code>str</code>的值被改变，指向堆中的存储字符串“hello”的内存；右边代表：<code>test</code>函数返回时, <code>test</code>关联的栈销毁之后，<code>&amp;str</code>释放，此时与<code>main</code>函数中的<code>str</code>仍然保持指向堆中的内存。</p>
 
 <pre><code>——————————————————                        ——————————————————     
  （堆）"hello"    &lt;--                      （堆）"hello"    &lt;--
@@ -614,6 +651,10 @@
     <section>
   <h1>最近发表</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/06/28/python-text-processing/">python text processing</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2013/06/25/c-pointer/">C 指针总结</a>
