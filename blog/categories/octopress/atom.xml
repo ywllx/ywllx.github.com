@@ -4,7 +4,7 @@
   <title><![CDATA[Category: octopress | 其实很简单]]></title>
   <link href="http://ywllx.github.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-06-28T15:17:57+08:00</updated>
+  <updated>2013-06-28T15:24:16+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -33,6 +33,9 @@
 <li><a href="http://octopress.org/">Octopress</a>：Octopress是由Brandon Mathis设计的针对Jekyll的框架，使用Jekyll你可以DIY你个人博客的每一部分,但是你可能就得自己编写自己的HTML模板，CSS，javascript脚本。这对于大多数人来说可能还是太复杂繁琐，那么你可以使用Octopress，它有一系列便捷的命令负责生成、预览、发布、新建文章、新建页面等等，有本地预览功能，有一套还算美观的模版，这个模板修改起来还是很方便的，网站源码和静态页面分离。可以在git以不同分支管理。这样你便可以轻松搭建一个自己的博客。</li>
 <li><a href="http://zh.wikipedia.org/wiki/Markdown">Markdown</a>：Markdown 是一种轻量级标记语言，创始人为John Gruber和Aaron Swartz。它允许人们“使用易读易写的纯文本格式编写文档， 然后转换成有效的XHTML(或者HTML)文档”。这种语言吸收了很多在电子邮件中已有的纯文本标记的特性。 Github的README.md文件就是用Markdown格式写的。在这里了解<a href="http://wowubuntu.com/markdown/#p">Markdown基本语法</a>，简单学习你就可以使用它写博客了。</li>
 </ul>
+
+
+<!-- more -->
 
 
 <hr />
