@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: python | 其实很简单]]></title>
+  <link href="http://ywllx.github.com/blog/categories/python/atom.xml" rel="self"/>
+  <link href="http://ywllx.github.com/"/>
+  <updated>2013-07-01T02:37:04+08:00</updated>
+  <id>http://ywllx.github.com/</id>
+  <author>
+    <name><![CDATA[Fred Yan]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[python文本处理]]></title>
+    <link href="http://ywllx.github.com/blog/2013/06/28/python-text-processing/"/>
+    <updated>2013-06-28T11:45:00+08:00</updated>
+    <id>http://ywllx.github.com/blog/2013/06/28/python-text-processing</id>
+    <content type="html"><![CDATA[<p>对于脚本语言来说，文本处理任务构成了一个很重要的组成部分。python提供用于文本处理最主要的工具就是字符串——不可改变的字符序列。python提供了很多基于字符串的基本处理方法，掌握这些方法对于处理文本是十分用于的，这里不再详述。我这里主要是总结《python cookbook》中关于文本处理的几个例子一些内容形成的一个博客。</p>
+
+<hr />
+
+<h4>每次处理一个字符</h4>
+
+<p>在例子1中，文章提到了如何处理字符串中每个字符的四种基本方法。python实际上并没有一个特别的类型来对应“字符”以区别字符串,要做到每次处理一个字符的方式处理字符串。可以调用内建的<code>list</code>，用字符串作为参数：</p>
+
+<pre><code>thelist = list(thestring)
+</code></pre>
+
+<p>或者用<code>for</code>语句对该字符串进行循环遍历：</p>
+
+<pre><code>for c in thestring:
+    do_something_with(c)
+</code></pre>
+
+<p>上面可以换成以下用法：</p>
+
+<pre><code>results = [do_something_with(c) for c in thestring]
+</code></pre>
+
+<p>或者用内建的<code>map</code>函数，每次取得一个字符就调用一次处理函数：</p>
+
+<pre><code>results = map(do_something, thestring]
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>

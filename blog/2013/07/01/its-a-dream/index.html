@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>python文本处理 - 其实很简单</title>
+  <title>梦一场 - 其实很简单</title>
   <meta name="author" content="Fred Yan">
 
   
-  <meta name="description" content="对于脚本语言来说，文本处理任务构成了一个很重要的组成部分。python提供用于文本处理最主要的工具就是字符串——不可改变的字符序列。python提供了很多基于字符串的基本处理方法，掌握这些方法对于处理文本是十分用于的，这里不再详述。我这里主要是总结《python cookbook》 &hellip;">
+  <meta name="description" content="今天应该说是昨天去见了一位女生，一位第一眼感觉很好的女生。不过她十分对我不感兴趣，其实这也许该怪自己，因为我往往在陌生的自己喜欢的女生面前显的很无趣。还好有另外一位朋友在，她是一位很健谈的人，讲了很多有意思的事情。在见面之前，做了一件自己以前肯定不会做很丢人的事情，这个以后再如果可以的话再提了。 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://ywllx.github.com/blog/2013/06/28/python-text-processing/">
+  <link rel="canonical" href="http://ywllx.github.com/blog/2013/07/01/its-a-dream/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -79,7 +79,7 @@
   
   <header>
     
-      <h1 class="entry-title">Python文本处理</h1>
+      <h1 class="entry-title">梦一场</h1>
     
     
       <p class="meta">
@@ -95,39 +95,20 @@
   
 
 
-<time datetime="2013-06-28T11:45:00+08:00" pubdate data-updated="true">Jun 28<span>th</span>, 2013</time>
+<time datetime="2013-07-01T00:51:00+08:00" pubdate data-updated="true">Jul 1<span>st</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>对于脚本语言来说，文本处理任务构成了一个很重要的组成部分。python提供用于文本处理最主要的工具就是字符串——不可改变的字符序列。python提供了很多基于字符串的基本处理方法，掌握这些方法对于处理文本是十分用于的，这里不再详述。我这里主要是总结《python cookbook》中关于文本处理的几个例子一些内容形成的一个博客。</p>
-
-<hr />
-
-<h4>每次处理一个字符</h4>
-
-<p>在例子1中，文章提到了如何处理字符串中每个字符的四种基本方法。python实际上并没有一个特别的类型来对应“字符”以区别字符串,要做到每次处理一个字符的方式处理字符串。可以调用内建的<code>list</code>，用字符串作为参数：</p>
-
-<pre><code>thelist = list(thestring)
-</code></pre>
-
-<p>或者用<code>for</code>语句对该字符串进行循环遍历：</p>
-
-<pre><code>for c in thestring:
-    do_something_with(c)
-</code></pre>
-
-<p>上面可以换成以下用法：</p>
-
-<pre><code>results = [do_something_with(c) for c in thestring]
-</code></pre>
-
-<p>或者用内建的<code>map</code>函数，每次取得一个字符就调用一次处理函数：</p>
-
-<pre><code>results = map(do_something, thestring]
-</code></pre>
+<div class="entry-content"><p>今天应该说是昨天去见了一位女生，一位第一眼感觉很好的女生。不过她十分对我不感兴趣，其实这也许该怪自己，因为我往往在陌生的自己喜欢的女生面前显的很无趣。还好有另外一位朋友在，她是一位很健谈的人，讲了很多有意思的事情。在见面之前，做了一件自己以前肯定不会做很丢人的事情，这个以后再如果可以的话再提了。见面之后，下地铁坐公交的时候，可郁闷了。本来去那个公交站有19和101路，结果回来的时候，我下地铁上公交站的时候，费了九牛二虎之力辨认到开始坐19路下车站的另一边，突然来了一辆101，我赶紧准备上车，问司机却说我坐反了，要到对面。我又穿越地铁跑到对面，搜了下公交车站的指示牌，发现101车到我要的目的站要好多站，而19路却少的很多，两个竟然不是同一路线，当然选站少的车做了，又赶紧跑到对面，此时又来了一辆101，反正是坐不了，公交站指示牌上搜19路车，却怎么也搜不到，郁闷啊，难道这里没有回去的19路，手机上网一搜，还真没。Oh，XX！我只好又跑到对面去了，那地铁门口摆摩的的一人都诧异地望着我了，要是地铁有警察叔叔，会不会怀疑我做恐怖活动呢。
+总之今天应该说昨天我很不幸，not my lucky day！回住的地方，身边一直放着手机，看着电视，总想对自己说点什么，往往人郁闷的时候，就会想一些事情。
+其实有些事情真的很简单，可我们自己往往搞得很复杂，想的太多，到底是出于什么心理呢？怕自己出错，怕丢面子。自己想说一句话，想着说出去会不会显得自己很二，很无知，因此不敢说。自己想做的事情，想着万一做了失败了，那些盯着你看的人眼光会怎么样啊，因此缩手缩脚，或者干脆找个借口说自己不愿或者不能去做。到最后却发现自己越来越无趣，越来越孤单。我们很喜欢单纯，却把自己搞得越来越复杂，而且还冷眼冷风那些人家简单的言语，简单的举动。
+然而有时却真的在想，是不是这个社会原本就很复杂了，也许以前我所接触的人就在这个小山村，而现在我已辗转了几个几千万人的大城市。以前我跟家人耕着一亩三分地，而现在却周围充满着各种身份的同事。人生依然不过百，可能见能听的范围和事情跟过去比起来，何止多了几百倍。也许复杂不是错，只是因为我们处在这个时代。但我觉得我们内心应该坚持一些简单，尤其是面对自己最亲近喜欢的人，如果还抱着复杂的目的和心理去做，这是悲哀的，真正的不值得。
+谈到简单，让我不得不想起我非常喜欢的一部电影《阿甘正传》和一部电视剧《士兵突击》。我一直觉得那个阿甘和许三多是简单的人把简单的事情做到极致的人，却做出了不简单的结果。我印象中好像有哪位科学家说过上帝最终的真理应该是简单统一的，也许真是如此，因为上帝似乎最垂青的是那些坚持简简单单做好一件事的人，就像电影里的阿甘。追求太多，也许会让你不堪重负，感到的是痛苦，也许会让你迷失方向，走向歧途，最后带来伤害。也许真正碰到了我们喜欢的，就应该简简单单地现在就去做，坚持下去，不必想着那么多的得失。
+再提一下我看的电视，偶尔看到了湖南卫士的《快乐男生》，其实我以前对这个节目很不齿的。但是看到里面一位女人街卖女鞋晋级的男生和第四位演唱《梦一场》晋级的男生，觉得其实真没绝对的好和坏，也许只是因为你恰好没发现，也许只是因为你一开始就抱着那种成见永不去接受它。有些东西是因为它合理而存在的。
+今天，昨天not my lucky day？ NO! 它让我在这个时间见到了一位感觉很好，很喜欢的女生！</p>
 </div>
 
 
@@ -150,12 +131,12 @@
   
 
 
-<time datetime="2013-06-28T11:45:00+08:00" pubdate data-updated="true">Jun 28<span>th</span>, 2013</time>
+<time datetime="2013-07-01T00:51:00+08:00" pubdate data-updated="true">Jul 1<span>st</span>, 2013</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/python/'>python</a>
+    <a class='category' href='/blog/categories/life/'>life</a>
   
 </span>
 
@@ -186,10 +167,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/06/25/c-pointer/" title="Previous Post: C 指针总结">&laquo; C 指针总结</a>
+        <a class="basic-alignment left" href="/blog/2013/06/28/python-text-processing/" title="Previous Post: python文本处理">&laquo; python文本处理</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2013/07/01/its-a-dream/" title="Next Post: 梦一场">梦一场 &raquo;</a>
       
     </p>
   </footer>
