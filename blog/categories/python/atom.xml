@@ -4,7 +4,7 @@
   <title><![CDATA[Category: python | 其实很简单]]></title>
   <link href="http://ywllx.github.com/blog/categories/python/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-07-01T02:49:08+08:00</updated>
+  <updated>2013-07-01T17:43:20+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -44,6 +44,33 @@
 
 <pre><code>results = map(do_something, thestring]
 </code></pre>
+
+<hr />
+
+<h4>测试一个对象是否为字符串</h4>
+
+<p>在python cookbook中提到，许多程序员遇到这个问题的第一反应是采用如下方法：</p>
+
+<pre><code>def isExactlyAString(obj):
+    return type(obj) is type('')
+</code></pre>
+
+<p>书中说到这个方法不太好，很多Unicode对象无法通过这个测试，用户自己编写的str的子类也不行，我尝试了下，发现中文字符串还是可以通过这个测试的。书中提到的首先的解决方案是采用如下方法：</p>
+
+<pre><code>def isAstring(obj):
+    return isinstance(obj, basestring)
+</code></pre>
+
+<p>但书中接着提到这个方案也有不足，对于python标准库中提到的UserString的模块提供的UserString实例也无能为力，因为它不是从basestring派生的。想检查一个对象行为是否真的像字符串那样，可以采取如下方法：</p>
+
+<pre><code>def isStringLike(obj):
+    try: obj + ''
+    excpet: return False
+    else: return true
+</code></pre>
+
+<p>它实用于str，unicode和Usertring，但是比较复杂而且运行比较慢。
+这个方法仍有可能不满足的地方，如是作者提到了一个所谓的鸭子判断法：如果它走路像鸭子，而且叫声也像鸭子，那么对于我们的应用而言，便可以认为这个东西就是鸭子。这个方法蛮有意思的，倒有点像做测试，如果我所列出的一大堆测试都过了，那么便可以认为这个程序基本就正确了，可以用了，当然很有可能它还有我们没发现的bug。</p>
 ]]></content>
   </entry>
   
