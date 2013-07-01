@@ -104,6 +104,9 @@
 
 <div class="entry-content"><p>对于脚本语言来说，文本处理任务构成了一个很重要的组成部分。python提供用于文本处理最主要的工具就是字符串——不可改变的字符序列。python提供了很多基于字符串的基本处理方法，掌握这些方法对于处理文本是十分用于的，这里不再详述。我这里主要是总结《python cookbook》中关于文本处理的几个例子一些内容形成的一个博客。</p>
 
+<!--more-->
+
+
 <hr />
 
 <h4>每次处理一个字符</h4>
@@ -155,6 +158,49 @@
 
 <p>它实用于str，unicode和Usertring，但是比较复杂而且运行比较慢。
 这个方法仍有可能不满足的地方，如是作者提到了一个所谓的鸭子判断法：如果它走路像鸭子，而且叫声也像鸭子，那么对于我们的应用而言，便可以认为这个东西就是鸭子。这个方法蛮有意思的，倒有点像做测试，如果我所列出的一大堆测试都过了，那么便可以认为这个程序基本就正确了，可以用了，当然很有可能它还有我们没发现的bug。</p>
+
+<hr />
+
+<h4>合并字符串</h4>
+
+<p>python中如果要把一些小的字符串合并成一个大的字符串，可以使用字符串操作符join，当然我们也可以使用&#8217;+&#8217;操作符也能够将字符串拼接起来，假如pieces是一个字符串列表，那么可以使用以上两种方式进行拼接。
+在python中，字符串对象是无法改变的。任何对字符串的操作，包括字符串的拼接，都将产生一个新的字符串对象，而不是修改原有的对象。因此拼接N个字符串将涉及到创建并丢弃N-1个中间结果。当一个序列中包含了很多小的字符串的时候，性能就不得不考虑。在内部使用了 + 或者 += 的循环所需的时间跟需要累加的字符数的平方成正比，因为分配并填充一个大字符串的时间大致正比如该字符串的长度。但是如果我们使用join方法，传入一个字符串序列作为参数，它将返回一个由字符串序列所有子项字符串拼接而成的大字符串，而且这个过程只使用了一个拷贝用于串接所有子项，性能将会得到大大提高。下面是两种实现方法一个简单测试例子，最后执行时间可以看出两者性能差距是很大的。</p>
+
+<h1>!/usr/bin/env python</h1>
+
+<p>def test1(pieces):</p>
+
+<pre><code>largeString = ''
+for piece in pieces:
+    largeString += piece
+</code></pre>
+
+<p>def test2(pieces):</p>
+
+<pre><code>largeString = ''.join(pieces)
+</code></pre>
+
+<p>strings1 = [ str(item) for item in xrange(100) ]
+strings2 = [ str(item) for item in xrange(200) ]</p>
+
+<p>if <strong>name</strong> == &#8217;<strong>main</strong>&#8217;:</p>
+
+<pre><code>from timeit import Timer
+t1=Timer("test1(strings1)", "from __main__ import test1, strings1")
+t2=Timer("test2(strings1)", "from __main__ import test2, strings1")
+t3=Timer("test1(strings2)", "from __main__ import test1, strings2")
+t4=Timer("test2(strings2)", "from __main__ import test2, strings2")
+print t1.timeit()
+print t2.timeit()
+print t3.timeit()
+print t4.timeit()
+</code></pre>
+
+<p>执行结果如下：
+8.47422218323
+2.06159615517
+18.8844971657
+4.24623513222</p>
 </div>
 
 

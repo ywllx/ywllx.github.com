@@ -4,7 +4,7 @@
   <title><![CDATA[其实很简单]]></title>
   <link href="http://ywllx.github.com/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-07-01T17:43:20+08:00</updated>
+  <updated>2013-07-02T00:23:53+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -22,6 +22,9 @@
 
 
 <p>今天应该说是昨天去见了一位女生，一位第一眼感觉很好的女生。不过她十分对我不感兴趣，其实这也许该怪自己，因为我往往在陌生的自己喜欢的女生面前显的很无趣。还好有另外一位朋友在，她是一位很健谈的人，讲了很多有意思的事情。在见面之前，做了一件自己以前肯定不会做很丢人的事情，这个以后再如果可以的话再提了。见面之后，下地铁坐公交的时候，可郁闷了。本来去那个公交站有19和101路，结果回来的时候，我下地铁上公交站的时候，费了九牛二虎之力辨认到开始坐19路下车站的另一边，突然来了一辆101，我赶紧准备上车，问司机却说我坐反了，要到对面。我又穿越地铁跑到对面，搜了下公交车站的指示牌，发现101车到我要的目的站要好多站，而19路却少的很多，两个竟然不是同一路线，当然选站少的车做了，又赶紧跑到对面，此时又来了一辆101，反正是坐不了，公交站指示牌上搜19路车，却怎么也搜不到，郁闷啊，难道这里没有回去的19路，手机上网一搜，还真没。Oh，XX！我只好又跑到对面去了，那地铁门口摆摩的的一人都诧异地望着我了，要是地铁有警察叔叔，会不会怀疑我做恐怖活动呢。</p>
+
+<!--more-->
+
 
 <br/>
 
@@ -61,6 +64,9 @@
     <updated>2013-06-28T11:45:00+08:00</updated>
     <id>http://ywllx.github.com/blog/2013/06/28/python-text-processing</id>
     <content type="html"><![CDATA[<p>对于脚本语言来说，文本处理任务构成了一个很重要的组成部分。python提供用于文本处理最主要的工具就是字符串——不可改变的字符序列。python提供了很多基于字符串的基本处理方法，掌握这些方法对于处理文本是十分用于的，这里不再详述。我这里主要是总结《python cookbook》中关于文本处理的几个例子一些内容形成的一个博客。</p>
+
+<!--more-->
+
 
 <hr />
 
@@ -113,6 +119,49 @@
 
 <p>它实用于str，unicode和Usertring，但是比较复杂而且运行比较慢。
 这个方法仍有可能不满足的地方，如是作者提到了一个所谓的鸭子判断法：如果它走路像鸭子，而且叫声也像鸭子，那么对于我们的应用而言，便可以认为这个东西就是鸭子。这个方法蛮有意思的，倒有点像做测试，如果我所列出的一大堆测试都过了，那么便可以认为这个程序基本就正确了，可以用了，当然很有可能它还有我们没发现的bug。</p>
+
+<hr />
+
+<h4>合并字符串</h4>
+
+<p>python中如果要把一些小的字符串合并成一个大的字符串，可以使用字符串操作符join，当然我们也可以使用&#8217;+&#8217;操作符也能够将字符串拼接起来，假如pieces是一个字符串列表，那么可以使用以上两种方式进行拼接。
+在python中，字符串对象是无法改变的。任何对字符串的操作，包括字符串的拼接，都将产生一个新的字符串对象，而不是修改原有的对象。因此拼接N个字符串将涉及到创建并丢弃N-1个中间结果。当一个序列中包含了很多小的字符串的时候，性能就不得不考虑。在内部使用了 + 或者 += 的循环所需的时间跟需要累加的字符数的平方成正比，因为分配并填充一个大字符串的时间大致正比如该字符串的长度。但是如果我们使用join方法，传入一个字符串序列作为参数，它将返回一个由字符串序列所有子项字符串拼接而成的大字符串，而且这个过程只使用了一个拷贝用于串接所有子项，性能将会得到大大提高。下面是两种实现方法一个简单测试例子，最后执行时间可以看出两者性能差距是很大的。</p>
+
+<h1>!/usr/bin/env python</h1>
+
+<p>def test1(pieces):</p>
+
+<pre><code>largeString = ''
+for piece in pieces:
+    largeString += piece
+</code></pre>
+
+<p>def test2(pieces):</p>
+
+<pre><code>largeString = ''.join(pieces)
+</code></pre>
+
+<p>strings1 = [ str(item) for item in xrange(100) ]
+strings2 = [ str(item) for item in xrange(200) ]</p>
+
+<p>if <strong>name</strong> == &#8217;<strong>main</strong>&#8217;:</p>
+
+<pre><code>from timeit import Timer
+t1=Timer("test1(strings1)", "from __main__ import test1, strings1")
+t2=Timer("test2(strings1)", "from __main__ import test2, strings1")
+t3=Timer("test1(strings2)", "from __main__ import test1, strings2")
+t4=Timer("test2(strings2)", "from __main__ import test2, strings2")
+print t1.timeit()
+print t2.timeit()
+print t3.timeit()
+print t4.timeit()
+</code></pre>
+
+<p>执行结果如下：
+8.47422218323
+2.06159615517
+18.8844971657
+4.24623513222</p>
 ]]></content>
   </entry>
   
@@ -122,6 +171,9 @@
     <updated>2013-06-25T23:43:00+08:00</updated>
     <id>http://ywllx.github.com/blog/2013/06/25/c-pointer</id>
     <content type="html"><![CDATA[<p>好久没更新过博客了，只能怪自己实在是懒，以后打算最好每星期能更新一次博客，写点自己学的东西，这次就想写点C指针的问题。关于这个，网上有个很详细的文章，叫做<a href="http://ishare.iask.sina.com.cn/f/12454328.html">C语言指针详解</a>。而我写这个，主要是看了一本书《算法精解—C语言描述》，里面第2章是专门讲C指针的，我觉得不错，摘了些我觉得有意思的内容。</p>
+
+<!--more-->
+
 
 <hr />
 
@@ -234,6 +286,9 @@
     <id>http://ywllx.github.com/blog/2013/03/11/how-to-build-blog-with-octopress-on-github</id>
     <content type="html"><![CDATA[<p>早就想着自己动手利用github搭建一个能自己控制的博客，上个周末，终于把想法变成行动了，google了一把之后，打开了<a href="http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html">一篇文章</a>，介绍如何利用github Pages和Jekyll搭建一个免费的，无限流量的Blog，这不正是我所需要的吗！但是对jekll并不熟，文章也没有详细介绍如何利用它。继续google，发现了octopress这个工具，而且网上对介绍如何利用它搭建博客的文章很多，于是参考这些文章，开始搭建自己的博客了。下面则主要是这个过程的一个简单记录。</p>
 
+<!--more-->
+
+
 <hr />
 
 <h4>一些准备</h4>
@@ -247,9 +302,6 @@
 <li><a href="http://octopress.org/">Octopress</a>：Octopress是由Brandon Mathis设计的针对Jekyll的框架，使用Jekyll你可以DIY你个人博客的每一部分,但是你可能就得自己编写自己的HTML模板，CSS，javascript脚本。这对于大多数人来说可能还是太复杂繁琐，那么你可以使用Octopress，它有一系列便捷的命令负责生成、预览、发布、新建文章、新建页面等等，有本地预览功能，有一套还算美观的模版，这个模板修改起来还是很方便的，网站源码和静态页面分离。可以在git以不同分支管理。这样你便可以轻松搭建一个自己的博客。</li>
 <li><a href="http://zh.wikipedia.org/wiki/Markdown">Markdown</a>：Markdown 是一种轻量级标记语言，创始人为John Gruber和Aaron Swartz。它允许人们“使用易读易写的纯文本格式编写文档， 然后转换成有效的XHTML(或者HTML)文档”。这种语言吸收了很多在电子邮件中已有的纯文本标记的特性。 Github的README.md文件就是用Markdown格式写的。在这里了解<a href="http://wowubuntu.com/markdown/#p">Markdown基本语法</a>，简单学习你就可以使用它写博客了。</li>
 </ul>
-
-
-<!--more-->
 
 
 <hr />

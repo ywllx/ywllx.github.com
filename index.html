@@ -110,37 +110,12 @@
 
 <p>今天应该说是昨天去见了一位女生，一位第一眼感觉很好的女生。不过她十分对我不感兴趣，其实这也许该怪自己，因为我往往在陌生的自己喜欢的女生面前显的很无趣。还好有另外一位朋友在，她是一位很健谈的人，讲了很多有意思的事情。在见面之前，做了一件自己以前肯定不会做很丢人的事情，这个以后再如果可以的话再提了。见面之后，下地铁坐公交的时候，可郁闷了。本来去那个公交站有19和101路，结果回来的时候，我下地铁上公交站的时候，费了九牛二虎之力辨认到开始坐19路下车站的另一边，突然来了一辆101，我赶紧准备上车，问司机却说我坐反了，要到对面。我又穿越地铁跑到对面，搜了下公交车站的指示牌，发现101车到我要的目的站要好多站，而19路却少的很多，两个竟然不是同一路线，当然选站少的车做了，又赶紧跑到对面，此时又来了一辆101，反正是坐不了，公交站指示牌上搜19路车，却怎么也搜不到，郁闷啊，难道这里没有回去的19路，手机上网一搜，还真没。Oh，XX！我只好又跑到对面去了，那地铁门口摆摩的的一人都诧异地望着我了，要是地铁有警察叔叔，会不会怀疑我做恐怖活动呢。</p>
 
-<br/>
-
-
-<p>总之今天应该说昨天我很不幸，not my lucky day！回住的地方，身边一直放着手机，看着电视，总想对自己说点什么，往往人郁闷的时候，就会想一些事情。</p>
-
-<br/>
-
-
-<p>其实有些事情真的很简单，可我们自己往往搞得很复杂，想的太多，到底是出于什么心理呢？怕自己出错，怕丢面子。自己想说一句话，想着说出去会不会显得自己很二，很无知，因此不敢说。自己想做的事情，想着万一做了失败了，那些盯着你看的人眼光会怎么样啊，因此缩手缩脚，或者干脆找个借口说自己不愿或者不能去做。到最后却发现自己越来越无趣，越来越孤单。我们很喜欢单纯，却把自己搞得越来越复杂，而且还冷眼冷风那些人家简单的言语，简单的举动。</p>
-
-<br/>
-
-
-<p>然而有时却真的在想，是不是这个社会原本就很复杂了，也许以前所接触的人就在这个小山村，而现在已辗转了几个几千万人的大城市。以前跟家人耕着一亩三分地，而现在却周围充满着各种身份的同事。人生依然不过百，可能见能听的范围和事情跟过去比起来，何止多了几百倍。也许复杂不是错，只是因为我们处在这个时代。但我觉得我们内心应该坚持一些简单，尤其是面对自己最亲近喜欢的人，如果还抱着复杂的目的和心理去做，这是悲哀的，真正的不值得。</p>
-
-<br/>
-
-
-<p>谈到简单，让我不得不想起我非常喜欢的一部电影《阿甘正传》和一部电视剧《士兵突击》。我一直觉得那个阿甘和许三多是简单的人把简单的事情做到极致的人，却做出了不简单的结果。我印象中好像有哪位科学家说过上帝最终的真理应该是简单统一的，也许真是如此，因为上帝似乎最垂青的是那些坚持简简单单做好一件事的人，就像电影里的阿甘。追求太多，也许会让你不堪重负，感到的是痛苦，也许会让你迷失方向，走向歧途，最后带来伤害。也许真正碰到了我们喜欢的，就应该简简单单地现在就去做，坚持下去，不必想着那么多的得失。</p>
-
-<br/>
-
-
-<p>再提一下我看的电视，偶尔看到了湖南卫士的《快乐男生》，其实我以前对这个节目很不齿的。但是看到里面一位女人街卖女鞋晋级的男生和第四位演唱《梦一场》晋级的男生，觉得其实真没绝对的好和坏，也许只是因为你恰好没发现，也许只是因为你一开始就抱着那种成见永不去接受它。有些东西是因为它合理而存在的。</p>
-
-<br/>
-
-
-<p>今天，昨天not my lucky day？ NO! 它让我在这个时间见到了一位感觉很好，很喜欢的女生！</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/07/01/its-a-dream/">阅读全文&rarr;</a>
+    </footer>
   
 
 
@@ -176,59 +151,12 @@
 
   <div class="entry-content"><p>对于脚本语言来说，文本处理任务构成了一个很重要的组成部分。python提供用于文本处理最主要的工具就是字符串——不可改变的字符序列。python提供了很多基于字符串的基本处理方法，掌握这些方法对于处理文本是十分用于的，这里不再详述。我这里主要是总结《python cookbook》中关于文本处理的几个例子一些内容形成的一个博客。</p>
 
-<hr />
-
-<h4>每次处理一个字符</h4>
-
-<p>在例子1中，文章提到了如何处理字符串中每个字符的四种基本方法。python实际上并没有一个特别的类型来对应“字符”以区别字符串,要做到每次处理一个字符的方式处理字符串。可以调用内建的<code>list</code>，用字符串作为参数：</p>
-
-<pre><code>thelist = list(thestring)
-</code></pre>
-
-<p>或者用<code>for</code>语句对该字符串进行循环遍历：</p>
-
-<pre><code>for c in thestring:
-    do_something_with(c)
-</code></pre>
-
-<p>上面可以换成以下用法：</p>
-
-<pre><code>results = [do_something_with(c) for c in thestring]
-</code></pre>
-
-<p>或者用内建的<code>map</code>函数，每次取得一个字符就调用一次处理函数：</p>
-
-<pre><code>results = map(do_something, thestring]
-</code></pre>
-
-<hr />
-
-<h4>测试一个对象是否为字符串</h4>
-
-<p>在python cookbook中提到，许多程序员遇到这个问题的第一反应是采用如下方法：</p>
-
-<pre><code>def isExactlyAString(obj):
-    return type(obj) is type('')
-</code></pre>
-
-<p>书中说到这个方法不太好，很多Unicode对象无法通过这个测试，用户自己编写的str的子类也不行，我尝试了下，发现中文字符串还是可以通过这个测试的。书中提到的首先的解决方案是采用如下方法：</p>
-
-<pre><code>def isAstring(obj):
-    return isinstance(obj, basestring)
-</code></pre>
-
-<p>但书中接着提到这个方案也有不足，对于python标准库中提到的UserString的模块提供的UserString实例也无能为力，因为它不是从basestring派生的。想检查一个对象行为是否真的像字符串那样，可以采取如下方法：</p>
-
-<pre><code>def isStringLike(obj):
-    try: obj + ''
-    excpet: return False
-    else: return true
-</code></pre>
-
-<p>它实用于str，unicode和Usertring，但是比较复杂而且运行比较慢。
-这个方法仍有可能不满足的地方，如是作者提到了一个所谓的鸭子判断法：如果它走路像鸭子，而且叫声也像鸭子，那么对于我们的应用而言，便可以认为这个东西就是鸭子。这个方法蛮有意思的，倒有点像做测试，如果我所列出的一大堆测试都过了，那么便可以认为这个程序基本就正确了，可以用了，当然很有可能它还有我们没发现的bug。</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/06/28/python-text-processing/">阅读全文&rarr;</a>
+    </footer>
   
 
 
@@ -264,109 +192,12 @@
 
   <div class="entry-content"><p>好久没更新过博客了，只能怪自己实在是懒，以后打算最好每星期能更新一次博客，写点自己学的东西，这次就想写点C指针的问题。关于这个，网上有个很详细的文章，叫做<a href="http://ishare.iask.sina.com.cn/f/12454328.html">C语言指针详解</a>。而我写这个，主要是看了一本书《算法精解—C语言描述》，里面第2章是专门讲C指针的，我觉得不错，摘了些我觉得有意思的内容。</p>
 
-<hr />
-
-<h4>指针基础</h4>
-
-<p>一个指针其实就是一个变量，它存储的是数据在内存中的地址而不是存储数据本身。C语言指针详解提到要搞清一个指针需要搞清指针的四方面的内容:指针的类型,指针所指向的类型,指针的值或者叫指针所指向的内存区,还有指针本身所占据的内存区，并且做了大量示例介绍，大家可以去看看。在C 语言中，指针能够指向一个无效的地址，这样的指针被称作悬空指针。可能产生悬空指针的一些编程错误包括：将任意的整型变量强制转换为指针变量；操作超出数组边界的指针；释放一个或多个仍在被引用的指针。</p>
-
-<hr />
-
-<h4>存储空间分配</h4>
-
-<p>当在C中声明一个指针时，一定量的存储空间会分配个这个指针。这里提的存储空间就如前面提的，我们把它分为：指针的值或者叫指针所指向的内存区,以及指针本身所占据的内存区。当声明一个指针时，仅仅只是为指针本身分配了空间，并没有为指针引用的数据分配空间。而数据分配空间一般有两种方法：一种是直接声明一个变量，另一种是在运行时动态分配存储空间（例如：使用malloc或realloc）
-当声明一个变量时，此变量所需的存储空间一般由系统自动管理，需要注意的是有些变量的存储空间不会在程序的整个生命周期中永久存在。例如一些变量，暂且称为自由变量，在进入或者离开一个模块或函数时其存储空间由系统自动分配和释放。例如在下面的函数<code>f</code>中，<code>iptr</code>的赋值为变量<code>a</code>的地址，当函数<code>f</code>返回时，<code>iptr</code>会变成一个悬空指针，因为当函数返回时，变量<code>a</code>已经从栈中弹出释放了。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="kt">int</span> <span class="nf">f</span><span class="p">(</span><span class="kt">int</span> <span class="o">**</span><span class="n">iptr</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>  <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-</span><span class='line'>  <span class="o">*</span><span class="n">ptr</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
-</span><span class='line'>  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>而当动态分配存储空间时，我们会得到一个指向存储空间的指针。此存储空间由我们自行管理，会一直存在，除非我们显式将其释放。例如下面这个函数中<code>malloc</code>分配的存储空间会一直有效直到我们调用<code>free</code>函数将其释放掉。所以，当函数<code>g</code>返回时此存储空间仍然有效。参数<code>iptr</code>是一个指向我们想要改变其内容的对象的指针（此对象也是一个指针），所以当<code>g</code>返回时，<code>iptr</code>指向由<code>malloc</code>申请的地址空间。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cp">#include &lt;stdlib.h&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="kt">int</span> <span class="nf">g</span><span class="p">(</span><span class="kt">int</span> <span class="o">**</span><span class="n">iptr</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>  <span class="k">if</span> <span class="p">((</span><span class="o">*</span><span class="n">iptr</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)))</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
-</span><span class='line'>      <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-</span><span class='line'>  
-</span><span class='line'>  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>关于二级指针作为参数的问题，我们还可以看下面这个可以实际运行的例子:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cp">#include &lt;stdlib.h&gt;</span>
-</span><span class='line'><span class="cp">#include &lt;stdio.h&gt;</span>
-</span><span class='line'><span class="cp">#include &lt;string.h&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="kt">void</span>  <span class="nf">test</span><span class="p">(</span><span class="kt">char</span>  <span class="o">**</span><span class="n">p</span><span class="p">,</span>  <span class="kt">int</span>  <span class="n">num</span><span class="p">)</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="o">*</span><span class="n">p</span>  <span class="o">=</span>  <span class="p">(</span><span class="kt">char</span>  <span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">)</span>  <span class="o">*</span>  <span class="n">num</span><span class="p">);</span>
-</span><span class='line'><span class="p">}</span>
-</span><span class='line'><span class="kt">int</span>  <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-</span><span class='line'><span class="p">{</span>
-</span><span class='line'>    <span class="kt">char</span>  <span class="o">*</span><span class="n">str</span>  <span class="o">=</span>  <span class="nb">NULL</span><span class="p">;</span>
-</span><span class='line'>    <span class="n">test</span><span class="p">(</span><span class="o">&amp;</span><span class="n">str</span><span class="p">,</span>  <span class="mi">100</span><span class="p">);</span>      <span class="c1">//注意参数是&amp;str，而不是str  </span>
-</span><span class='line'>    <span class="n">strcpy</span><span class="p">(</span><span class="n">str</span><span class="p">,</span>  <span class="s">&quot;hello&quot;</span><span class="p">);</span>
-</span><span class='line'>    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">str</span><span class="p">);</span>
-</span><span class='line'>    <span class="n">free</span><span class="p">(</span><span class="n">str</span><span class="p">);</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>在上面这个程序中，传进函数<code>test</code>是指针<code>str</code>的地址值，可以认为这个值是指向指针<code>str</code>的指针，这个值在程序运行过程中，是存放在栈结构中的，<code>test</code>函数返回之后，会自动将其释放掉。但是调用<code>test</code>函数之后，改变了这个值指向的内存的值，即<code>str</code>的值，也就是说改变了指针<code>str</code>的值，使其指向了我们在堆中申请的内存，这个变量是属于<code>main</code>函数的，这样我们就可以改变<code>str</code>指针指向的值。这是把二级指针作为参数传递给函数一个很重要的地方。</p>
-
-<p>在下图中，左边代表：执行<code>test</code>函数，动态分配内存时，与<code>str</code>相关的指针情况，可以看到此时<code>str</code>的值被改变，指向堆中的存储字符串“hello”的内存；右边代表：<code>test</code>函数返回时, <code>test</code>关联的栈销毁之后，<code>&amp;str</code>释放，此时与<code>main</code>函数中的<code>str</code>仍然保持指向堆中的内存。</p>
-
-<pre><code>——————————————————                        ——————————————————     
- （堆）"hello"    &lt;--                      （堆）"hello"    &lt;--
-——————————————————  |                     ——————————————————  |
-                    |                                         |
-                    |                                         |
-—————————————————— --                     —————————————————— --
-   main       str &lt;--                           main    str   
-——————————————————  |                     ——————————————————
-                    |
-——————————————————  |       
- （栈）test   &amp;str --
-——————————————————
-</code></pre>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/06/25/c-pointer/">阅读全文&rarr;</a>
+    </footer>
   
 
 
@@ -401,21 +232,6 @@
 
 
   <div class="entry-content"><p>早就想着自己动手利用github搭建一个能自己控制的博客，上个周末，终于把想法变成行动了，google了一把之后，打开了<a href="http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html">一篇文章</a>，介绍如何利用github Pages和Jekyll搭建一个免费的，无限流量的Blog，这不正是我所需要的吗！但是对jekll并不熟，文章也没有详细介绍如何利用它。继续google，发现了octopress这个工具，而且网上对介绍如何利用它搭建博客的文章很多，于是参考这些文章，开始搭建自己的博客了。下面则主要是这个过程的一个简单记录。</p>
-
-<hr />
-
-<h4>一些准备</h4>
-
-<p>搭建博客主要用到了下面这些技术和工具，首先对它们进行一些简单的介绍：</p>
-
-<ul>
-<li><a href="http://pages.github.com/">Github</a>：GitHub 是一个用于使用Git版本控制系统项目的共享虚拟主机服务。它由GitHub公司（曾称Logical Awesome）的开发者Chris Wanstrath、PJ Hyett和Tom Preston-Werner使用Ruby on Rails编写而成。GitHub同时提供付费账户和为开源项目提供的免费账户。Git是一个分布式的版本控制系统，最初由Linus Torvalds编写，用作Linux内核代码的管理。在推出后，Git在其它项目中也取得了很大成功。有人把github比作程序员中的facebook，在上面，我们可以很容易构建自己的开源项目。
-这里搭建博客主要用到了了Github的Pages功能，它允许用户自定义项目首页。github Pages可以被认为是用户编写的、托管在github上的静态网页，而且它还支持域名绑定。Github Pages同时提供了模板功能，采用的解析引擎是Jekyll。</li>
-<li><a href="http://jekyllrb.com/">Jekyll</a>: Jekyll是一个简单的免费的Blog生成工具，它会根据网页源码生成静态文件。它提供了模板、变量、插件等功能，不需要数据库，文章可以使用Markdown、HTML、Textile格式的文件保存。Jekyll只是一个生成静态网页的工具，可以配合第三方服务，例如disqus。而且jekyll可以免费部署在Github上，可以绑定自己的域名。</li>
-<li><a href="http://octopress.org/">Octopress</a>：Octopress是由Brandon Mathis设计的针对Jekyll的框架，使用Jekyll你可以DIY你个人博客的每一部分,但是你可能就得自己编写自己的HTML模板，CSS，javascript脚本。这对于大多数人来说可能还是太复杂繁琐，那么你可以使用Octopress，它有一系列便捷的命令负责生成、预览、发布、新建文章、新建页面等等，有本地预览功能，有一套还算美观的模版，这个模板修改起来还是很方便的，网站源码和静态页面分离。可以在git以不同分支管理。这样你便可以轻松搭建一个自己的博客。</li>
-<li><a href="http://zh.wikipedia.org/wiki/Markdown">Markdown</a>：Markdown 是一种轻量级标记语言，创始人为John Gruber和Aaron Swartz。它允许人们“使用易读易写的纯文本格式编写文档， 然后转换成有效的XHTML(或者HTML)文档”。这种语言吸收了很多在电子邮件中已有的纯文本标记的特性。 Github的README.md文件就是用Markdown格式写的。在这里了解<a href="http://wowubuntu.com/markdown/#p">Markdown基本语法</a>，简单学习你就可以使用它写博客了。</li>
-</ul>
-
 
 </div>
   
