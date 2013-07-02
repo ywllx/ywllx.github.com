@@ -4,7 +4,7 @@
   <title><![CDATA[其实很简单]]></title>
   <link href="http://ywllx.github.com/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-07-02T23:42:12+08:00</updated>
+  <updated>2013-07-02T23:47:48+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -196,7 +196,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>执行结果如下：<br/>
+<p>上述代码在ubnutu 12.10, python 2.7, CPU为Intel Core P8700环境下执行结果如下：<br/>
 8.47422218323<br/>
 2.06159615517<br/>
 18.8844971657<br/>
