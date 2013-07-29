@@ -4,7 +4,7 @@
   <title><![CDATA[Category: python | 其实很简单]]></title>
   <link href="http://ywllx.github.com/blog/categories/python/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-07-29T22:33:25+08:00</updated>
+  <updated>2013-07-29T22:36:28+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -158,17 +158,17 @@ print s2
 print s3
 print s4
 ```
-table1与table2不同的地方就在于翻译表中的原“abcde”的位置已被“ABCDE”替换；<br/>
-s1,s2,s3,s4打印如下：<br/>
-abcdef-123456<br\>
-ABCDEf-123456<br\>
-def-456<br\>
-DEf-456<br\>
-s1没做任何变化，输出原字符串
-s2 = s.translate(table2) #输出ABCDEf-123456 就是将abcd映射为大写的ABCD
-s3 = s.translate(table1, 'abc123') #输出def-456， 则是删除了s中的字符abc123
-s4 = s.translate(table2, 'abc123') #先把s中的abc123去除了，然后在保留下来的字符中应用table中指定的字符映射关系映射：de -> DE
-还有此方法在python3中好像有变动，具体参考相关python文档了。
+<p>table1与table2不同的地方就在于翻译表中的原“abcde”的位置已被“ABCDE”替换；</p>
+<p>s1,s2,s3,s4打印如下：</p>
+<p>abcdef-123456</p>
+<p>ABCDEf-123456</p>
+<p>def-456</p>
+<p>DEf-456</p>
+<p>s1没做任何变化，输出原字符串</p>
+<p>s2 = s.translate(table2) #输出ABCDEf-123456 就是将abcd映射为大写的ABCD</p>
+<p>s3 = s.translate(table1, 'abc123') #输出def-456， 则是删除了s中的字符abc123</p>
+<p>s4 = s.translate(table2, 'abc123') #先把s中的abc123去除了，然后在保留下来的字符中应用table中指定的字符映射关系映射：de -> DE</p>
+<p>还有此方法在python3中好像有变动，具体参考相关python文档了。</p>
 
 ]]></content>
   </entry>
