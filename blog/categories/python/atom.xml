@@ -4,7 +4,7 @@
   <title><![CDATA[Category: python | 其实很简单]]></title>
   <link href="http://ywllx.github.com/blog/categories/python/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-07-29T22:17:36+08:00</updated>
+  <updated>2013-07-29T22:20:48+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -134,7 +134,7 @@ string.maketrans(from, to)：Return a translation table suitable for passing to 
 
 <p>string.translate(s, table[, deletechars])：Delete all characters from s that are in deletechars (if present), and then translate the characters using table, which must be a 256-character string giving the translation for each character value, indexed by its ordinal. If table is None, then only the character deletion step is performed.</p>
 
-<p>当以string.maketrans('', '')方法调用maketrans时，翻译表正好是有256个字符的字符串t。翻译表生成的字符串（忽略不可打印字符）为“!"#$%&amp;'()<em>+,-./:;&lt;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]<sup>_`abcdefghijklmnopqrstuvwxyz{|}~”，本质上与ASCII表相对应。</sup>
+<p>当以string.maketrans('', '')方法调用maketrans时，翻译表正好是有256个字符的字符串t。翻译表生成的字符串（忽略不可打印字符）为“!"#$%&amp;'()<em>+,-./:;&lt;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]<sup>_abcdefghijklmnopqrstuvwxyz{|}~”，本质上与ASCII表相对应。</sup>
 其实调用maketrans函数时，已经完成了转换。例如string.maketrans('ABCD', 'abcd'),调用完成后，翻译表生成的包含256个字符的字符串（忽略不可打印字符）为“!"#$%&amp;'()</em>+,-./0123456789:;&lt;=>?@abcdEFGHIJKLMNOPQRSTUVWXYZ[]<sup>_`abcdefghijklmnopqrstuvwxyz{|}~”，该翻译表中的原“ABCD”的位置已被“abcd”替换。</sup>
 当你把t作为第一个参数传入translate方法时，原字符串中的每一个字符c，在处理完成后都会被翻译成字符t[ord(c)]
 而对于translate()简单来说,就是对字符串S移除deletechars包含的字符，然后保留下来的字符按照table里面的字符映射关系映射,这个table必须是a 256-character string giving the translation for each character value, indexed by its ordinal. 这个table正好可以用上面提到的maketrans()生成。
