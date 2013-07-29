@@ -6,6 +6,7 @@ comments: true
 categories: octopress github
 ---
 早就想着自己动手利用github搭建一个能自己控制的博客，上个周末，终于把想法变成行动了，google了一把之后，打开了[一篇文章](http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html)，介绍如何利用github Pages和Jekyll搭建一个免费的，无限流量的Blog，这不正是我所需要的吗！但是对jekll并不熟，文章也没有详细介绍如何利用它。继续google，发现了octopress这个工具，而且网上对介绍如何利用它搭建博客的文章很多，于是参考这些文章，开始搭建自己的博客了。下面则主要是这个过程的一个简单记录。
+<!--more-->
 
 ---
 #### 一些准备
