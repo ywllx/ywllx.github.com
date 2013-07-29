@@ -4,7 +4,7 @@
   <title><![CDATA[其实很简单]]></title>
   <link href="http://ywllx.github.com/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-07-29T23:59:22+08:00</updated>
+  <updated>2013-07-30T00:06:44+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -44,14 +44,14 @@
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">insert</span><span class="o">-</span><span class="n">sort</span><span class="err">：</span>
-</span><span class='line'>  <span class="k">for</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">2</span> <span class="n">to</span> <span class="n">A</span><span class="p">.</span><span class="n">length</span><span class="o">:</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">insert</span><span class="o">-</span><span class="n">sort</span>
+</span><span class='line'>  <span class="k">for</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">2</span> <span class="n">to</span> <span class="n">A</span><span class="p">.</span><span class="n">length</span>
 </span><span class='line'>      <span class="n">key</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
 </span><span class='line'>      <span class="n">i</span> <span class="o">=</span> <span class="n">j</span> <span class="err">–</span> <span class="mi">1</span>
-</span><span class='line'>      <span class="k">while</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="n">and</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">key</span><span class="o">:</span>
+</span><span class='line'>      <span class="k">while</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="n">and</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">key</span>
 </span><span class='line'>          <span class="n">A</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-</span><span class='line'>            <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="err">–</span> <span class="mi">1</span><span class="p">;</span>
-</span><span class='line'>        <span class="n">A</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span>
+</span><span class='line'>            <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="err">–</span> <span class="mi">1</span>
+</span><span class='line'>      <span class="n">A</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -86,9 +86,9 @@
 </span><span class='line'>    <span class="n">n1</span> <span class="o">=</span> <span class="n">q</span> <span class="err">–</span> <span class="n">p</span> <span class="o">+</span> <span class="mi">1</span>
 </span><span class='line'>    <span class="n">n2</span> <span class="o">=</span> <span class="n">r</span> <span class="err">–</span> <span class="n">q</span>
 </span><span class='line'>    <span class="n">define</span> <span class="n">new</span> <span class="n">arrays</span> <span class="n">L</span><span class="p">[</span><span class="mi">1</span><span class="err">…</span><span class="n">n1</span><span class="p">]</span> <span class="n">and</span> <span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="err">…</span><span class="n">n2</span><span class="p">]</span>
-</span><span class='line'>    <span class="k">for</span> <span class="n">I</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">n1</span><span class="o">:</span>
+</span><span class='line'>    <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">n1</span>
 </span><span class='line'>        <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">p</span> <span class="o">+</span> <span class="n">I</span> <span class="err">–</span> <span class="mi">1</span><span class="p">]</span>
-</span><span class='line'>    <span class="k">for</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">n2</span><span class="o">:</span>
+</span><span class='line'>    <span class="k">for</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">n2</span>
 </span><span class='line'>        <span class="n">R</span><span class="p">[</span><span class="n">j</span><span class="p">[</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">q</span> <span class="o">+</span> <span class="n">j</span><span class="p">]</span>
 </span><span class='line'>    <span class="n">L</span><span class="p">[</span><span class="n">n1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">MAX</span>
 </span><span class='line'>      <span class="n">R</span><span class="p">[</span><span class="n">n2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">MAX</span>
@@ -112,11 +112,11 @@
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">merger</span><span class="o">-</span><span class="n">sort</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span> <span class="err">：</span>
-</span><span class='line'>    <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="n">r</span><span class="o">:</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">merger</span><span class="o">-</span><span class="n">sort</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="n">r</span>
 </span><span class='line'>      <span class="n">q</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="n">r</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="c1">// 取小于(p + r)/2的最大整数</span>
-</span><span class='line'>        <span class="n">merger</span><span class="o">-</span><span class="n">sort</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
-</span><span class='line'>        <span class="n">merger</span><span class="o">-</span><span class="n">sort</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">q</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+</span><span class='line'>      <span class="n">merger</span><span class="o">-</span><span class="n">sort</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
+</span><span class='line'>      <span class="n">merger</span><span class="o">-</span><span class="n">sort</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">q</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
 </span><span class='line'>      <span class="n">merger</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -135,11 +135,15 @@
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">parent</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">:</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">parent</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </span><span class='line'>  <span class="k">return</span> <span class="n">i</span><span class="o">/</span><span class="mi">2</span> <span class="c1">// 取小于(p + r)/2的最大整数</span>
-</span><span class='line'><span class="n">left</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">:</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">left</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </span><span class='line'>    <span class="k">return</span> <span class="mi">2</span><span class="n">i</span>
-</span><span class='line'><span class="n">right</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">:</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">right</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </span><span class='line'>    <span class="k">return</span> <span class="mi">2</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -175,7 +179,7 @@
 <span class='line-number'>13</span>
 <span class='line-number'>14</span>
 <span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">max</span><span class="o">-</span><span class="n">heapify</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span><span class="o">:</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">max</span><span class="o">-</span><span class="n">heapify</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
 </span><span class='line'>  <span class="k">while</span> <span class="mi">2</span><span class="o">*</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="n">A</span><span class="p">.</span><span class="n">heap</span><span class="o">-</span><span class="n">szie</span>
 </span><span class='line'>      <span class="n">l</span> <span class="o">=</span> <span class="n">left</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </span><span class='line'>      <span class="n">r</span> <span class="o">=</span> <span class="n">right</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
@@ -188,8 +192,8 @@
 </span><span class='line'>        <span class="k">if</span> <span class="n">largest</span> <span class="o">!=</span> <span class="n">i</span>
 </span><span class='line'>            <span class="n">swap</span> <span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="n">largest</span><span class="p">])</span>
 </span><span class='line'>          <span class="n">i</span> <span class="o">=</span> <span class="n">largest</span>
-</span><span class='line'>      <span class="k">else</span>
-</span><span class='line'>          <span class="k">break</span>
+</span><span class='line'>        <span class="k">else</span>
+</span><span class='line'>            <span class="k">break</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -199,7 +203,7 @@
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">build</span><span class="o">-</span><span class="n">max</span><span class="o">-</span><span class="n">heap</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="o">:</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">build</span><span class="o">-</span><span class="n">max</span><span class="o">-</span><span class="n">heap</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 </span><span class='line'>  <span class="n">A</span><span class="p">.</span><span class="n">heap</span><span class="o">-</span><span class="n">size</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">length</span>
 </span><span class='line'>    <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">length</span><span class="o">/</span><span class="mi">2</span> <span class="n">downto</span> <span class="mi">1</span>
 </span><span class='line'>      <span class="n">max</span><span class="o">-</span><span class="n">heapify</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
@@ -216,7 +220,7 @@
 <span class='line-number'>6</span>
 </pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">heap</span><span class="o">-</span><span class="n">sort</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 </span><span class='line'>  <span class="n">build</span><span class="o">-</span><span class="n">max</span><span class="o">-</span><span class="n">heap</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-</span><span class='line'>    <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">length</span> <span class="n">downto</span> <span class="mi">2</span><span class="o">:</span>
+</span><span class='line'>    <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">length</span> <span class="n">downto</span> <span class="mi">2</span>
 </span><span class='line'>      <span class="n">swap</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
 </span><span class='line'>        <span class="n">A</span><span class="p">.</span><span class="n">heap</span><span class="o">-</span><span class="n">size</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">heap</span><span class="o">-</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span>
 </span><span class='line'>        <span class="n">max</span><span class="o">-</span><span class="n">heapify</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -241,7 +245,7 @@
 </pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">partition</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
 </span><span class='line'>  <span class="n">x</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">r</span><span class="p">]</span>
 </span><span class='line'>    <span class="n">i</span> <span class="o">=</span> <span class="n">p</span> <span class="err">–</span> <span class="mi">1</span>
-</span><span class='line'>    <span class="k">for</span> <span class="n">j</span> <span class="o">=</span> <span class="n">p</span> <span class="n">to</span> <span class="n">r</span> <span class="err">–</span> <span class="mi">1</span><span class="o">:</span>
+</span><span class='line'>    <span class="k">for</span> <span class="n">j</span> <span class="o">=</span> <span class="n">p</span> <span class="n">to</span> <span class="n">r</span> <span class="err">–</span> <span class="mi">1</span>
 </span><span class='line'>      <span class="k">if</span> <span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">x</span>
 </span><span class='line'>          <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
 </span><span class='line'>            <span class="n">swap</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
@@ -251,7 +255,7 @@
 
 
 <p>下图展示了 partition过程如何在一个有8个元素的数组的进行操作的过程，它总是选择一个元素 x=A[r]作为主元，并围绕它来划分数组，如下图所示， (1)代表最初的数组，(2)代表 partition过程j 执行到第 6个元素处时数组的形状。 (3)代表这一次partition 过程执行完成之后数组的状态。从这个 partition过程很容易看出，在整个执行的过程中， partition维护了四个区域，A[p…i]区间里的所有值都小于或者等于 x，A[i+1…j-1] 区间里所有的值都大于 x，A[r]=x ，而区间 A[j…r-1]中的值则还未进行划分。而快速排序partition过此执行完成之后，整个数组A以主元A[r]分成两部分，区间A[p&#8230;q-1]所有的元素小于或者等于A[r], 区间A[q+1&#8230;r]所有的元素大于A[r]
-<img src=/images/quick-sort.jpg title="quick-sort">
+<img src=/images/quick-sort.jpg title="quick-sort"><br/>
 整个快速排序算法的伪代码如下所示 ,快速排序的时间复杂度依赖于划分是否平衡，如果划分不平衡，例如按照上面的 partition过程，如果对于有序的数组，时间复杂度就最差，为 O(n<sup>2)，如果划分比较平衡的话，时间复杂度就为</sup> O(nlogn)，快速排序的平均时间复杂度也为 O(nlogn)：</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -260,7 +264,7 @@
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 </pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">quick</span><span class="o">-</span><span class="n">sort</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
-</span><span class='line'>  <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="n">r</span><span class="o">:</span>
+</span><span class='line'>  <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="n">r</span>
 </span><span class='line'>      <span class="n">q</span> <span class="o">=</span> <span class="n">partition</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
 </span><span class='line'>        <span class="n">quick</span><span class="o">-</span><span class="n">sort</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 </span><span class='line'>        <span class="n">quick</span><span class="o">-</span><span class="n">sort</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">q</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
