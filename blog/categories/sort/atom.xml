@@ -4,7 +4,7 @@
   <title><![CDATA[Category: sort | 其实很简单]]></title>
   <link href="http://ywllx.github.com/blog/categories/sort/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-07-30T00:39:10+08:00</updated>
+  <updated>2013-07-30T00:40:19+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -19,6 +19,9 @@
     <updated>2013-07-30T00:09:00+08:00</updated>
     <id>http://ywllx.github.com/blog/2013/07/30/sort-algorithms-part2</id>
     <content type="html"><![CDATA[<p>上篇博客介绍了四种比较排序算法的基本内容，这次就那四种排序算法扩展开，介绍一些有意思的内容，首先我们将简单证明下比较排序算法的下界为O(nlogn)。也许你很奇怪，为什么我在这里一直强调比较排序算法，其实我在这里需要指出的这里我们介绍的排序算法都是利用比较信息来对数组排序的，并没有对数组有特殊要求，因此并没有利用数组的其它信息来进行排序，它所能达到的最快时间复杂度就是O(nlogn),如果我们对数组有了特殊要求，就有可能突破这个时间复杂度限制，例如计数排序算法。</p>
+
+<!--more-->
+
 
 <hr />
 

@@ -107,96 +107,12 @@
 
   <div class="entry-content"><p>上篇博客介绍了四种比较排序算法的基本内容，这次就那四种排序算法扩展开，介绍一些有意思的内容，首先我们将简单证明下比较排序算法的下界为O(nlogn)。也许你很奇怪，为什么我在这里一直强调比较排序算法，其实我在这里需要指出的这里我们介绍的排序算法都是利用比较信息来对数组排序的，并没有对数组有特殊要求，因此并没有利用数组的其它信息来进行排序，它所能达到的最快时间复杂度就是O(nlogn),如果我们对数组有了特殊要求，就有可能突破这个时间复杂度限制，例如计数排序算法。</p>
 
-<hr />
-
-<h4>比较排序算法下界</h4>
-
-<p>比较排序可以被抽象为一颗决策树。决策树是一颗完全二叉树，它可以表示在给定输入规模的情况下，某一种特定排序算法对所有元素的比较情况。下图演示了插入排序算法作用于包含三个元素的输入序列的决策树情况。
-<img src=/images/decision-tree.jpeg title="decision tree"><br/></p>
-
-<p>在决策树种，每个内部节点都以 i:j标记，其中i 和j满足 1 <= i, j <= n，n 是输入序列的元素的个数。每个叶节点都标注一个序列。排序算法的执行则是对应于一条从树的根节点到叶节点的路径。每个内节点都表示是一次比较。因为任何正确的排序算法都能够生成输入的一个正确排序，所以对于一个正确的比较输入排序来说， n个元素的n！中可能的排列都应该出现在决策树的叶节点上，而且每一个叶节点都必须是可以从根节点由某条路径出发到达的，该路径对应于实际排序的一次执行过程。</p>
-<p>在决策树中，从根节点到任意一个可达叶节点的之间最长简单路径的长度，表示的是对应排序算法的最坏情况下的实际复杂度。因此，一个比较排序算法中的最坏情况比较次数就等于其决策树的高度。同时，当决策树中的每种排列都是以可达的叶节点形式出现时，该决策树下界也就是比较排序算法运行时间的下界。如果这颗决策二叉树就是高度平衡的，深度至少是 log(n!)。又因为log(n!) 的增长速度与 nlogn 相同，即 log(n!)=O(nlogn) ，这就是通用排序算法的最低时间复杂度 O(nlogn)的依据。</p>
-
-&#8212;
-####选择排序与归并排序合并
-虽然归并排序的最坏运行情况时间复杂度为 O(nlogn)，选择排序的最差的时间复杂度为 O(n2)，但是插入排序的常量因子可以使得它在 n比较小的时候，在许多机器上运行时间更快。因此当归并排序的子问题变得足够小时，此时采用插入排序进行排序是想当有意义的。使用插入排序来排序 n/k个为长度为k 的子数组，然后对使用合并排序对这些子数组进行合并。我们可以插入排序可以再 O(nk)时间内排序每个长度为k的 n/k的子数组，最坏情况下可在 O(nlg(n/k))时间内合并这些子表，修改后的排序算法的时间复杂度为 O(nk + nlg(n/k))。
-
-&#8212;
-####逆序对问题
-假设对于数组A[1…n]是一个 n个不同数的数组。若对于 i<j，有A[i]>A[j] ，则对偶 (i, j)则称为数组A 的一个逆序对。实际上修改插入排序算法和归并排序算法都可以求出数组 A逆序对的数目。
-如果我们采用合并排序思想来找逆序对。因为在合并排序的 Merge过程中，A[p&#8230;q] 和A[q+1&#8230;r]已经有序，假设此时已经 Merge到A[s&#8230;q] 和A[q+1&#8230;r]。考虑接 下来的一步：若从前者取出 A[s],说明A[s] 比后面的序列 A[t&#8230;q]中的元素都小，不存在逆序对；若从后者取出 A[t]，则说明A[t] 比前面 的序列 A[s&#8230;r]都小，即以t 结尾的逆序对的数量为前者的剩余序列 A[s&#8230;r]中元素的数量。
-
-&#8212;
-###堆排序与优先队列
-堆的一个常见的应用为实现优先级队列；同堆一样，优先级队列也有两种：最大优先级队列和最小优先级队列。以最大优先级队列为例，优先级队列基本操作主要有：返回最大元素、删除并返回最大元素、提高元素优先级、插入给定值。下面分别简单介绍其伪代码。
-返回最大值伪代码：
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">heap</span><span class="o">-</span><span class="n">maximum</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-</span><span class='line'>  <span class="k">return</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-</span></code></pre></td></tr></table></div></figure>
-删除并返回最大值伪代码，时间复杂度为O(logn)：
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">heap</span><span class="o">-</span><span class="n">extract</span><span class="o">-</span><span class="n">max</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-</span><span class='line'>  <span class="k">if</span> <span class="n">heap</span><span class="o">-</span><span class="n">size</span><span class="p">[</span><span class="n">A</span><span class="p">]</span><span class="o">&lt;</span><span class="mi">1</span>
-</span><span class='line'>      <span class="n">then</span> <span class="n">error</span> <span class="err">“</span><span class="n">heap</span> <span class="n">underflow</span><span class="err">”</span>
-</span><span class='line'>    <span class="n">max</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-</span><span class='line'>    <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">A</span><span class="p">.</span><span class="n">heap</span><span class="o">-</span><span class="n">size</span><span class="p">]</span>
-</span><span class='line'>    <span class="n">A</span><span class="p">.</span><span class="n">heap</span><span class="o">-</span><span class="n">size</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">heap</span><span class="o">-</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span>
-</span><span class='line'>    <span class="n">max</span><span class="o">-</span><span class="n">heapify</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-</span><span class='line'>  <span class="k">return</span> <span class="n">max</span>
-</span></code></pre></td></tr></table></div></figure>
-
-提高元素优先级伪代码，时间复杂度为O(logn)：
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">heap</span><span class="o">-</span><span class="n">increase</span><span class="o">-</span><span class="n">key</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
-</span><span class='line'>  <span class="k">if</span> <span class="n">key</span> <span class="o">&lt;</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-</span><span class='line'>      <span class="n">then</span> <span class="n">error</span> <span class="err">“</span><span class="n">connot</span> <span class="n">increase</span><span class="err">”</span>
-</span><span class='line'>    <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span>
-</span><span class='line'>    <span class="k">while</span> <span class="n">i</span><span class="o">&gt;</span><span class="mi">1</span> <span class="n">and</span> <span class="n">A</span><span class="p">[</span><span class="n">parent</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span><span class="o">&lt;</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-</span><span class='line'>      <span class="n">swap</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="n">PARENT</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span>
-</span><span class='line'>      <span class="n">i</span> <span class="o">=</span> <span class="n">parent</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-插入过程伪代码，时间复杂度为堆的高度为 lgn，所以时间复杂读为 Ο(logn)：
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">max</span><span class="o">-</span><span class="n">heap</span><span class="o">-</span><span class="n">insert</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">A</span><span class="p">.</span><span class="n">heap</span><span class="o">-</span><span class="n">size</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">heap</span><span class="o">-</span><span class="n">size</span> <span class="o">+</span> <span class="mi">1</span>
-</span><span class='line'>  <span class="n">A</span><span class="p">[</span><span class="n">A</span><span class="p">.</span><span class="n">heap</span><span class="o">-</span><span class="n">size</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">MAX</span>
-</span><span class='line'>  <span class="n">heap</span><span class="o">-</span><span class="n">increase</span><span class="o">-</span><span class="n">key</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">A</span><span class="p">.</span><span class="n">heap</span><span class="o">-</span><span class="n">size</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-&#8212;
-####堆排序与 Young氏矩阵
-首先介绍一下Young举证这个数据结构的定义， Young矩阵有一个m*n 的矩阵，让后有一数组 a[k], 其中 k<=m*n ，然后把 a[k]中的数填入 m*n 的矩阵中，填充规则为：<br/>
-1.  每一行每一列都严格单调递增 (有其他的版本是递减，其原理相同)。<br/>
-2.  如果将a[k] 中的数填完后，矩阵中仍有空间，则填入无穷大。<br/>
-它的堆的结构在这里表现为某个元素 Y[x, y] 下面和右面的两个元素 Y[x, y+1] ,Y[x+1, y]均比 Y[x, y]要大。因此对于其的插入，删除等操作我们可以借助堆的思想。
-
-####快速排序的优化
-快速排序的平均时间复杂度为 O(nlogn)，我们的前提假设是：输入数据的所有排列是随机的，也就是对于每次划分的能做到基本平衡的划分。如何保证呢？一种方法是我们生成随机数来选择主元，另一种改进的随机方法称作三数取中划分（不是简单随机选取主元），从子数组中随机选择三个元素，选取其中数作为主元，另外如果对于一个数组中如果有大量相同的元素，那么使用快速排序对其进行划分时，也许我们需要采取更加细致的划分，比如对于主元值为 x，可以使数组A划分为三段 A[q…t]中所有的元素等于x， A[p…q-1]中所有的元素都小于x，对于 A[t+1…r]中所有的元素都大于x，以此改进快速排序效率。最后同样对于当快速排序划分的子数组较小时，我们不再采用快速排序，而采用效率更高的插入排序算法。如果想更详细了解这些内容，可参考[这篇博客](http://blogread.cn/it/article/612?f=sr)
-
-&#8212;
-对那些常用的比较排序算法就介绍这里，到这才发现原来我们原本学习的那些基本东西可以引申出如此多的内容，也顿时觉得自己真的大学没有好好学，现在处在这种境界，真是得怪自己啊，唉，好好学习，天天向上吧！
-
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/07/30/sort-algorithms-part2/">阅读全文&rarr;</a>
+    </footer>
   
 
 
