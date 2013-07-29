@@ -4,7 +4,7 @@
   <title><![CDATA[其实很简单]]></title>
   <link href="http://ywllx.github.com/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-07-29T22:45:03+08:00</updated>
+  <updated>2013-07-29T23:59:22+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -12,6 +12,266 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[sort-algorithms-part1]]></title>
+    <link href="http://ywllx.github.com/blog/2013/07/29/sort-algorithms-part1/"/>
+    <updated>2013-07-29T22:48:00+08:00</updated>
+    <id>http://ywllx.github.com/blog/2013/07/29/sort-algorithms-part1</id>
+    <content type="html"><![CDATA[<p>这篇博客和下篇博客主要就排序问题做个简单的总结，任何学习计算机的同学都知道，排序问题在计算机科学里面是研究的最广泛的一个问题，也是在计算机科学里应用最广泛的一个问题。这篇博客先简单介绍几种最基本的比较排序算法的基本内容，下篇博客则就这些内容做一些有意思的深入，需要指出的这两篇博客所有的内容都是参考算法导论这本书的内容来的。</p>
+
+<!--more-->
+
+
+<hr />
+
+<p>对于一个数组 A[1…n]，A 中元素的数目 n用A.length 表示，我们定义一个排序问题：<br/>
+输入： n个数的一个序列(A[1], A[2], &#8230;, A[n])。<br/>
+输出：输入序列的一个排序 (A’[1], A’[2], …, A’[n]) ，满足((A’[1] &lt; A’[2] &lt; … &lt; A’[n])<br>
+我们把用来排序的数字成为关键值。</p>
+
+<hr />
+
+<h4>插入排序</h4>
+
+<p>插入排序的基本操作就是将一个数据插入到已经排好序的有序数据中，从而得到一个新的、个数加一的有序数据，算法适用于少量数据的排序，时间复杂度为O(n<sup>2)。是稳定的排序方法，伪代码如下：</sup></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">insert</span><span class="o">-</span><span class="n">sort</span><span class="err">：</span>
+</span><span class='line'>  <span class="k">for</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">2</span> <span class="n">to</span> <span class="n">A</span><span class="p">.</span><span class="n">length</span><span class="o">:</span>
+</span><span class='line'>      <span class="n">key</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+</span><span class='line'>      <span class="n">i</span> <span class="o">=</span> <span class="n">j</span> <span class="err">–</span> <span class="mi">1</span>
+</span><span class='line'>      <span class="k">while</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="n">and</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">key</span><span class="o">:</span>
+</span><span class='line'>          <span class="n">A</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span><span class='line'>            <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="err">–</span> <span class="mi">1</span><span class="p">;</span>
+</span><span class='line'>        <span class="n">A</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">key</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>插入排序的最好情况是输入数组已经排好序，时间复杂度为 O(n)，最坏情况为数组已经反向排好序，此时时间复杂度为 O(n<sup>2)，平均时间复杂度度为O(n<sup>2)。</sup></sup></p>
+
+<hr />
+
+<h4>归并排序</h4>
+
+<p>归并排序的关键操作是合并两个已排序的序列，我们需要调用一个辅助过程 merger(A, p, q, r)来完成合并，p, q, r分别为数组的下标，假设满足 p &lt;= q &lt; r，执行合并步骤时，假设 A[p…q] 和 A[q+1…r] 已经排好序。它将合并这两个子数组为一个排好序的数组 A[p…r]。合并步骤的伪代码如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">merger</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">n1</span> <span class="o">=</span> <span class="n">q</span> <span class="err">–</span> <span class="n">p</span> <span class="o">+</span> <span class="mi">1</span>
+</span><span class='line'>    <span class="n">n2</span> <span class="o">=</span> <span class="n">r</span> <span class="err">–</span> <span class="n">q</span>
+</span><span class='line'>    <span class="n">define</span> <span class="n">new</span> <span class="n">arrays</span> <span class="n">L</span><span class="p">[</span><span class="mi">1</span><span class="err">…</span><span class="n">n1</span><span class="p">]</span> <span class="n">and</span> <span class="n">R</span><span class="p">[</span><span class="mi">1</span><span class="err">…</span><span class="n">n2</span><span class="p">]</span>
+</span><span class='line'>    <span class="k">for</span> <span class="n">I</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">n1</span><span class="o">:</span>
+</span><span class='line'>        <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">p</span> <span class="o">+</span> <span class="n">I</span> <span class="err">–</span> <span class="mi">1</span><span class="p">]</span>
+</span><span class='line'>    <span class="k">for</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">to</span> <span class="n">n2</span><span class="o">:</span>
+</span><span class='line'>        <span class="n">R</span><span class="p">[</span><span class="n">j</span><span class="p">[</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">q</span> <span class="o">+</span> <span class="n">j</span><span class="p">]</span>
+</span><span class='line'>    <span class="n">L</span><span class="p">[</span><span class="n">n1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">MAX</span>
+</span><span class='line'>      <span class="n">R</span><span class="p">[</span><span class="n">n2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">MAX</span>
+</span><span class='line'>    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span class='line'>    <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span>
+</span><span class='line'>    <span class="k">for</span> <span class="n">k</span> <span class="o">=</span> <span class="n">p</span> <span class="n">to</span> <span class="n">r</span><span class="o">:</span>
+</span><span class='line'>        <span class="k">if</span> <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">R</span> <span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">:</span>
+</span><span class='line'>          <span class="n">A</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span><span class='line'>            <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+</span><span class='line'>        <span class="k">else</span>
+</span><span class='line'>          <span class="n">A</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">R</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+</span><span class='line'>          <span class="n">j</span> <span class="o">=</span> <span class="n">j</span> <span class="o">+</span> <span class="mi">1</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>排序算法完整的伪代码如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">merger</span><span class="o">-</span><span class="n">sort</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span> <span class="err">：</span>
+</span><span class='line'>    <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="n">r</span><span class="o">:</span>
+</span><span class='line'>      <span class="n">q</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="n">r</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span> <span class="c1">// 取小于(p + r)/2的最大整数</span>
+</span><span class='line'>        <span class="n">merger</span><span class="o">-</span><span class="n">sort</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
+</span><span class='line'>        <span class="n">merger</span><span class="o">-</span><span class="n">sort</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">q</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+</span><span class='line'>      <span class="n">merger</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>归并排序的最坏，平均时间复杂度均为 O(nlogn)，但是空间复杂度达到了 O(n)。</p>
+
+<hr />
+
+<h4>堆排序</h4>
+
+<p>此处我们用到的为二叉堆。假设我们的堆是存储在数组A中的，那么A.length 表示数组中元素的个数，那么 A.heap-size则表示有多少个堆元素存储在此数组中。也就是说，虽然 A中存满了数据，但是有可能只有 A[1…A.heap-size]存储的是堆的有效元素，这里 0 &lt;= A.heap-size &lt;= A.length。堆的根节点为 A[1]，这样给的一个节点的下标，我们很容易计算他的父节点，左孩子和右孩子。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">parent</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">:</span>
+</span><span class='line'>  <span class="k">return</span> <span class="n">i</span><span class="o">/</span><span class="mi">2</span> <span class="c1">// 取小于(p + r)/2的最大整数</span>
+</span><span class='line'><span class="n">left</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">:</span>
+</span><span class='line'>    <span class="k">return</span> <span class="mi">2</span><span class="n">i</span>
+</span><span class='line'><span class="n">right</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">:</span>
+</span><span class='line'>    <span class="k">return</span> <span class="mi">2</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>二叉堆可以分为两种形式：最大堆和最小堆，在这两种堆中，节点的值都要满足堆的性质，在最大堆中，最大堆性质是指除了根节点以为的所有节点，必须满足：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">A</span><span class="p">[</span><span class="n">parent</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span> <span class="o">&gt;=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>在最小堆中，最小堆性质是指除了根节点以为的所有节点，必须满足：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">A</span><span class="p">[</span><span class="n">parent</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span> <span class="o">&lt;=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>堆排序主要包含以下两个基本过程，一是 max-heapify过程：它用来维护最大堆的性质，其实际复杂度为 O(logn)。二是build-max-heap 过程：它主要是从无序的输入数组中构造一个最大堆，具有线性时间复杂度。首先介绍max-heapify 过程，它的输入为一个数组 A和数组下标i ，使用max-heapify过程的时候，我们假定根节点为 left[i]和right[i] 的二叉树都已经为最大堆了，若此时 A[i]有可能小于其孩子节点，这样就违背了最大堆的性质。 max-heapify过程通过让A[i] 逐级下降，从而使下标 i为根节点的子树遵循最大堆的性质。其伪代码如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">max</span><span class="o">-</span><span class="n">heapify</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span><span class="o">:</span>
+</span><span class='line'>  <span class="k">while</span> <span class="mi">2</span><span class="o">*</span><span class="n">i</span> <span class="o">&lt;=</span> <span class="n">A</span><span class="p">.</span><span class="n">heap</span><span class="o">-</span><span class="n">szie</span>
+</span><span class='line'>      <span class="n">l</span> <span class="o">=</span> <span class="n">left</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span><span class='line'>      <span class="n">r</span> <span class="o">=</span> <span class="n">right</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span><span class='line'>        <span class="k">if</span> <span class="n">l</span> <span class="o">&lt;=</span> <span class="n">A</span><span class="p">.</span><span class="n">heap</span><span class="o">-</span><span class="n">szie</span> <span class="n">and</span> <span class="n">A</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span><span class='line'>          <span class="n">largest</span> <span class="o">=</span> <span class="n">l</span>
+</span><span class='line'>        <span class="k">else</span>
+</span><span class='line'>            <span class="n">largest</span> <span class="o">=</span> <span class="n">i</span>
+</span><span class='line'>        <span class="k">if</span> <span class="n">r</span> <span class="o">&lt;=</span> <span class="n">A</span><span class="p">.</span><span class="n">heap</span><span class="o">-</span><span class="n">szie</span> <span class="n">and</span> <span class="n">A</span><span class="p">[</span><span class="n">r</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+</span><span class='line'>            <span class="n">largest</span> <span class="o">=</span> <span class="n">r</span>
+</span><span class='line'>        <span class="k">if</span> <span class="n">largest</span> <span class="o">!=</span> <span class="n">i</span>
+</span><span class='line'>            <span class="n">swap</span> <span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="n">largest</span><span class="p">])</span>
+</span><span class='line'>          <span class="n">i</span> <span class="o">=</span> <span class="n">largest</span>
+</span><span class='line'>      <span class="k">else</span>
+</span><span class='line'>          <span class="k">break</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>我们可以用自底向上的方法利用 max-heapify把一个大小为n = A。 length的数组A[1…n] 转换为最大堆。对于数组 A，我们可以知道A((n/2)+1…n)中的元素都为此二叉树的叶节点。每个元素都可以看成只包含一个元素的堆。 build-max-heap过程则对树中的其它节点都调用一次 max-heapify。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">build</span><span class="o">-</span><span class="n">max</span><span class="o">-</span><span class="n">heap</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="o">:</span>
+</span><span class='line'>  <span class="n">A</span><span class="p">.</span><span class="n">heap</span><span class="o">-</span><span class="n">size</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">length</span>
+</span><span class='line'>    <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">length</span><span class="o">/</span><span class="mi">2</span> <span class="n">downto</span> <span class="mi">1</span>
+</span><span class='line'>      <span class="n">max</span><span class="o">-</span><span class="n">heapify</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>初始时候，堆排序算法利用 build-max-heap将输入数组A 建成最大堆，其中 n = A.length。因为数组中的最大元素总在根节点 A[1]中，通过它与A[n]进行交换，便可将此元素放到正确的位置。如此我们可得堆排序的算法伪代码如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">heap</span><span class="o">-</span><span class="n">sort</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">build</span><span class="o">-</span><span class="n">max</span><span class="o">-</span><span class="n">heap</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">length</span> <span class="n">downto</span> <span class="mi">2</span><span class="o">:</span>
+</span><span class='line'>      <span class="n">swap</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="n">n</span><span class="p">])</span>
+</span><span class='line'>        <span class="n">A</span><span class="p">.</span><span class="n">heap</span><span class="o">-</span><span class="n">size</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">heap</span><span class="o">-</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span>
+</span><span class='line'>        <span class="n">max</span><span class="o">-</span><span class="n">heapify</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<hr />
+
+<h4>快速排序</h4>
+
+<p>与归并排序一样，快速排序也使用了分治思想。算法的关键部分是下面的 partition过程，如下面的伪代码所示，它将数组 A[p..r]分为两个( 可能为空 )子数组A[p…q-1] 和A[q+1…r]，使得 A[p…q-1]中的每一个元素都小于等于 A[q]，使得A[q+1…r] 中的每一个元素都大于或等于 A[q]。partition 的伪代码如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">partition</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">x</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="n">r</span><span class="p">]</span>
+</span><span class='line'>    <span class="n">i</span> <span class="o">=</span> <span class="n">p</span> <span class="err">–</span> <span class="mi">1</span>
+</span><span class='line'>    <span class="k">for</span> <span class="n">j</span> <span class="o">=</span> <span class="n">p</span> <span class="n">to</span> <span class="n">r</span> <span class="err">–</span> <span class="mi">1</span><span class="o">:</span>
+</span><span class='line'>      <span class="k">if</span> <span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">x</span>
+</span><span class='line'>          <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+</span><span class='line'>            <span class="n">swap</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+</span><span class='line'>    <span class="n">swap</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="n">r</span><span class="p">])</span>
+</span><span class='line'>    <span class="k">return</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>下图展示了 partition过程如何在一个有8个元素的数组的进行操作的过程，它总是选择一个元素 x=A[r]作为主元，并围绕它来划分数组，如下图所示， (1)代表最初的数组，(2)代表 partition过程j 执行到第 6个元素处时数组的形状。 (3)代表这一次partition 过程执行完成之后数组的状态。从这个 partition过程很容易看出，在整个执行的过程中， partition维护了四个区域，A[p…i]区间里的所有值都小于或者等于 x，A[i+1…j-1] 区间里所有的值都大于 x，A[r]=x ，而区间 A[j…r-1]中的值则还未进行划分。而快速排序partition过此执行完成之后，整个数组A以主元A[r]分成两部分，区间A[p&#8230;q-1]所有的元素小于或者等于A[r], 区间A[q+1&#8230;r]所有的元素大于A[r]
+<img src=/images/quick-sort.jpg title="quick-sort">
+整个快速排序算法的伪代码如下所示 ,快速排序的时间复杂度依赖于划分是否平衡，如果划分不平衡，例如按照上面的 partition过程，如果对于有序的数组，时间复杂度就最差，为 O(n<sup>2)，如果划分比较平衡的话，时间复杂度就为</sup> O(nlogn)，快速排序的平均时间复杂度也为 O(nlogn)：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">quick</span><span class="o">-</span><span class="n">sort</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">if</span> <span class="n">p</span> <span class="o">&lt;</span> <span class="n">r</span><span class="o">:</span>
+</span><span class='line'>      <span class="n">q</span> <span class="o">=</span> <span class="n">partition</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+</span><span class='line'>        <span class="n">quick</span><span class="o">-</span><span class="n">sort</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">q</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'>        <span class="n">quick</span><span class="o">-</span><span class="n">sort</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">q</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<hr />
+
+<p>至此介绍了四种排序算法最基本的内容，排序算法还有一个稳定性问题，可参考<a href="http://zh.wikipedia.org/wiki/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95">这里</a>。上面的排序算法，选择和合并排序是稳定的，堆排序和快速排序不稳定。在实际应用中，当需要涉及到排序算法时，也许应用不仅仅是简单套用这些基本的内容那么简单，下篇将基于这些排序算法深入介绍一些有意思的内容。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[梦一场]]></title>
