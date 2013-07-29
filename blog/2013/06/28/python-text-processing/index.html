@@ -250,12 +250,11 @@ string.maketrans(from, to)：Return a translation table suitable for passing to 
 
 <p>string.translate(s, table[, deletechars])：Delete all characters from s that are in deletechars (if present), and then translate the characters using table, which must be a 256-character string giving the translation for each character value, indexed by its ordinal. If table is None, then only the character deletion step is performed.</p>
 
-<p>当以string.maketrans(&#8221;, &#8221;)方法调用maketrans时，翻译表正好是有256个字符的字符串t。翻译表生成的字符串（忽略不可打印字符）为“!&#8221;#$%&amp;&#8217;()<em>+,-./:;&lt;=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]<sup>_abcdefghijklmnopqrstuvwxyz{|}~”，本质上与ASCII表相对应。</sup>
-其实调用maketrans函数时，已经完成了转换。例如string.maketrans(&#8216;ABCD&#8217;, &#8216;abcd&#8217;),调用完成后，翻译表生成的包含256个字符的字符串（忽略不可打印字符）为“!&#8221;#$%&amp;&#8217;()</em>+,-./0123456789:;&lt;=>?@abcdEFGHIJKLMNOPQRSTUVWXYZ[]<sup>_`abcdefghijklmnopqrstuvwxyz{|}~”，该翻译表中的原“ABCD”的位置已被“abcd”替换。</sup>
+<p>当以string.maketrans(&#8221;, &#8221;)方法调用maketrans时，翻译表正好是有256个字符的字符串t。翻译表生成的字符串（忽略不可打印字符）为“!&#8221;#$%&&#8217;()*+,-./:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~”，本质上与ASCII表相对应.</p>
+<p>其实调用maketrans函数时，已经完成了转换。例如string.maketrans(&#8216;ABCD&#8217;, &#8216;abcd&#8217;),调用完成后，翻译表生成的包含256个字符的字符串（忽略不可打印字符）为“!&#8221;#$%&&#8217;()*+,-./0123456789:;<=>?@abcdEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~”，该翻译表中的原“ABCD”的位置已被“abcd”替换。</p>
 当你把t作为第一个参数传入translate方法时，原字符串中的每一个字符c，在处理完成后都会被翻译成字符t[ord(c)]
 而对于translate()简单来说,就是对字符串S移除deletechars包含的字符，然后保留下来的字符按照table里面的字符映射关系映射,这个table必须是a 256-character string giving the translation for each character value, indexed by its ordinal. 这个table正好可以用上面提到的maketrans()生成。
-举个例子也许更有说服力：</p>
-
+举个例子也许更有说服力：
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -291,19 +290,18 @@ string.maketrans(from, to)：Return a translation table suitable for passing to 
 </span><span class='line'><span class="k">print</span> <span class="n">s3</span>
 </span><span class='line'><span class="k">print</span> <span class="n">s4</span>
 </span></code></pre></td></tr></table></div></figure>
-
-
-<p>table1与table2不同的地方就在于翻译表中的原“abcde”的位置已被“ABCDE”替换；
+table1与table2不同的地方就在于翻译表中的原“abcde”的位置已被“ABCDE”替换；
 s1,s2,s3,s4打印如下：<br/>
-abcdef-123456&lt;br>
-ABCDEf-123456&lt;br>
-def-456&lt;br>
-DEf-456&lt;br>
+abcdef-123456<br\>
+ABCDEf-123456<br\>
+def-456<br\>
+DEf-456<br\>
 s1没做任何变化，输出原字符串
 s2 = s.translate(table2) #输出ABCDEf-123456 就是将abcd映射为大写的ABCD
 s3 = s.translate(table1, &#8216;abc123&#8217;) #输出def-456， 则是删除了s中的字符abc123
 s4 = s.translate(table2, &#8216;abc123&#8217;) #先把s中的abc123去除了，然后在保留下来的字符中应用table中指定的字符映射关系映射：de -> DE
-还有此方法在python3中好像有变动，具体参考相关python文档了。</p>
+还有此方法在python3中好像有变动，具体参考相关python文档了。
+
 </div>
 
 
