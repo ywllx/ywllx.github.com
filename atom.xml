@@ -4,7 +4,7 @@
   <title><![CDATA[其实很简单]]></title>
   <link href="http://ywllx.github.com/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-07-30T00:06:44+08:00</updated>
+  <updated>2013-07-30T00:07:58+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[sort-algorithms-part1]]></title>
+    <title type="html"><![CDATA[排序算法基本简介]]></title>
     <link href="http://ywllx.github.com/blog/2013/07/29/sort-algorithms-part1/"/>
     <updated>2013-07-29T22:48:00+08:00</updated>
     <id>http://ywllx.github.com/blog/2013/07/29/sort-algorithms-part1</id>
