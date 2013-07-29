@@ -4,7 +4,7 @@
   <title><![CDATA[Category: python | 其实很简单]]></title>
   <link href="http://ywllx.github.com/blog/categories/python/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-07-29T22:36:28+08:00</updated>
+  <updated>2013-07-29T22:38:54+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -158,6 +158,7 @@ print s2
 print s3
 print s4
 ```
+---
 <p>table1与table2不同的地方就在于翻译表中的原“abcde”的位置已被“ABCDE”替换；</p>
 <p>s1,s2,s3,s4打印如下：</p>
 <p>abcdef-123456</p>
