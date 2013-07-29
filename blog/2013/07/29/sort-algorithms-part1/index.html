@@ -118,7 +118,7 @@
 
 <h4>插入排序</h4>
 
-<p>插入排序的基本操作就是将一个数据插入到已经排好序的有序数据中，从而得到一个新的、个数加一的有序数据，算法适用于少量数据的排序，时间复杂度为O(n<sup>2)。是稳定的排序方法，伪代码如下：</sup></p>
+<p>插入排序的基本操作就是将一个数据插入到已经排好序的有序数据中，从而得到一个新的、个数加一的有序数据，算法适用于少量数据的排序，时间复杂度为O(n2)(n的2次方，后面类似）。是稳定的排序方法，伪代码如下：</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -139,7 +139,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>插入排序的最好情况是输入数组已经排好序，时间复杂度为 O(n)，最坏情况为数组已经反向排好序，此时时间复杂度为 O(n<sup>2)，平均时间复杂度度为O(n<sup>2)。</sup></sup></p>
+<p>插入排序的最好情况是输入数组已经排好序，时间复杂度为 O(n)，最坏情况为数组已经反向排好序，此时时间复杂度为 O(n2)，平均时间复杂度度为O(n2)。</p>
 
 <hr />
 
@@ -338,9 +338,9 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>下图展示了 partition过程如何在一个有8个元素的数组的进行操作的过程，它总是选择一个元素 x=A[r]作为主元，并围绕它来划分数组，如下图所示， (1)代表最初的数组，(2)代表 partition过程j 执行到第 6个元素处时数组的形状。 (3)代表这一次partition 过程执行完成之后数组的状态。从这个 partition过程很容易看出，在整个执行的过程中， partition维护了四个区域，A[p…i]区间里的所有值都小于或者等于 x，A[i+1…j-1] 区间里所有的值都大于 x，A[r]=x ，而区间 A[j…r-1]中的值则还未进行划分。而快速排序partition过此执行完成之后，整个数组A以主元A[r]分成两部分，区间A[p&#8230;q-1]所有的元素小于或者等于A[r], 区间A[q+1&#8230;r]所有的元素大于A[r]
+<p>下图展示了 partition过程如何在一个有8个元素的数组的进行操作的过程，它总是选择一个元素 x=A[r]作为主元，并围绕它来划分数组，如下图所示， (1)代表最初的数组，(2)代表 partition过程j 执行到第 6个元素处时数组的形状。 (3)代表这一次partition 过程执行完成之后数组的状态。从这个 partition过程很容易看出，在整个执行的过程中， partition维护了四个区域，A[p…i]区间里的所有值都小于或者等于 x，A[i+1…j-1] 区间里所有的值都大于 x，A[r]=x ，而区间 A[j…r-1]中的值则还未进行划分。而快速排序partition过此执行完成之后，整个数组A以主元A[r]分成两部分，区间A[p…q-1]所有的元素小于或者等于A[r], 区间A[q+1…r]所有的元素大于A[r]
 <img src=/images/quick-sort.jpg title="quick-sort"><br/>
-整个快速排序算法的伪代码如下所示 ,快速排序的时间复杂度依赖于划分是否平衡，如果划分不平衡，例如按照上面的 partition过程，如果对于有序的数组，时间复杂度就最差，为 O(n<sup>2)，如果划分比较平衡的话，时间复杂度就为</sup> O(nlogn)，快速排序的平均时间复杂度也为 O(nlogn)：</p>
+整个快速排序算法的伪代码如下所示 ,快速排序的时间复杂度依赖于划分是否平衡，如果划分不平衡，例如按照上面的 partition过程，如果对于有序的数组，时间复杂度就最差，为 O(n2)，如果划分比较平衡的话，时间复杂度就为 O(nlogn)，快速排序的平均时间复杂度也为 O(nlogn)：</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
