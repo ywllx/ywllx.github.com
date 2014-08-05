@@ -4,7 +4,7 @@
   <title><![CDATA[其实很简单]]></title>
   <link href="http://ywllx.github.com/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2014-08-05T04:32:41-07:00</updated>
+  <updated>2014-08-05T04:37:35-07:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -23,7 +23,6 @@
 <p>含泪星光 打亮了旧的记忆 我们还会相遇 一定有原因 滚烫星光 就像埋藏的真心 只为一个人狂热 烧红了梦境 把漆黑忘记。
 <p>许久没回到这个博客了，哎，注定是个一事无成的人啊，今天再次回到这里，希望以后常更新，能够坚持下去。这篇博客主要在Linux对CPU性能进行监控和分析。
 <!--more-->
-&#8212;
 
 &#8212;
 ####CPU Load(负载) vs utilization(利用率)
@@ -143,9 +142,9 @@ count 采样的次数，count只能和delay一起使用
 &#8212;
 总之，针对以上的到的信息，一般而言：
 
-* **当us很高而cs较低的时候，则可能是一个进程占用了较高的CPU时间**（If the **us** column in vmstat goes too high in the output, without a similar level of context switches, then it is possible that a single process is using the processor for a substantially higher amount of time）
-* **wa较高，us高而cs比较低，则意味着系统是高IO导致高us。**（If the  **wa** column also experiences a too high value at the same time (when **us** is higher and **cs** is substantially low ), that means the process that caused the  **us** value to stay high is doing some heavy i/o operation.）
-* **in较高而cs较低则可能是产生了较多的硬件请求** （A case where you have higher number of interrupts (shown by **in** column in vmstat) and substantially lower number of context switches (shown by **cs**) can indicate that a particular application (which might be single threaded) is sending too many hardware requests.）
+<li> <strong>当us很高而cs较低的时候，则可能是一个进程占用了较高的CPU时间</strong>（If the <strong>us</strong> column in vmstat goes too high in the output, without a similar level of context switches, then it is possible that a single process is using the processor for a substantially higher amount of time）</li>
+<li> <strong>wa较高，us高而cs比较低，则意味着系统是高IO导致高us。</strong>（If the  <strong>wa</strong> column also experiences a too high value at the same time (when <strong>us</strong> is higher and <strong>cs</strong> is substantially low ), that means the process that caused the  <strong>us</strong> value to stay high is doing some heavy i/o operation.）</li>
+<li> <strong>in较高而cs较低则可能是产生了较多的硬件请求</strong> （A case where you have higher number of interrupts (shown by <strong>in</strong> column in vmstat) and substantially lower number of context switches (shown by <strong>cs</strong>) can indicate that a particular application (which might be single threaded) is sending too many hardware requests.）</li>
 
 ]]></content>
   </entry>
