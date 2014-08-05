@@ -160,25 +160,19 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p></p>
-
-<p>关于以上各列的意义，具体解释如下：</p>
-
-
-<ul>
-<li><strong>us</strong>: This shows the cpu workload caused by processes run by normal users. In Other words these are load caused by applications.</li>
-<li><strong>sy</strong>: This indicates load created by the system. Means these are things most of the times executed by the Linux kernel. This normally stays low, but becomes a little high for certain tasks where kernel is involved.</li>
-<li><strong>ni</strong>: This refers to the number of processes that are running with a modified nice value. If you are new to nice values then refer the below <a href="http://www.slashroot.in/nice-and-renice-command-usage-examples-process-priority-linux">article</a>.</li>
-<li><strong>id</strong>: This indicates the amount of time spent by CPU doing nothing. A higher id value means CPU is idle most of the times</li>
-<li><strong>wa</strong>: The amount of time, your cpu is waiting for I/O operations to complete.</li>
-<li><strong>ha</strong>: This refers to hardware interrupts. This becomes high when you have a higher disk usage, or higher network usage etc.</li>
-<li><strong>si</strong>: These are interrupts created by software. These values stay very low normally.</li>
-<li><strong>st</strong>: This relates to virtual machines running on your system. When virtual machines need CPU, then normally take it from the host machine. If you have too many virtual machines running on your server and you have this st value higher, its good to tear down a few virtual hosts.
+<p>
+关于以上各列的意义，具体解释如下：
+* <strong>us</strong>: This shows the cpu workload caused by processes run by normal users. In Other words these are load caused by applications.
+* <strong>sy</strong>: This indicates load created by the system. Means these are things most of the times executed by the Linux kernel. This normally stays low, but becomes a little high for certain tasks where kernel is involved.
+* <strong>ni</strong>: This refers to the number of processes that are running with a modified nice value. If you are new to nice values then refer the below <a href="http://www.slashroot.in/nice-and-renice-command-usage-examples-process-priority-linux">article</a>.
+* <strong>id</strong>: This indicates the amount of time spent by CPU doing nothing. A higher id value means CPU is idle most of the times
+* <strong>wa</strong>: The amount of time, your cpu is waiting for I/O operations to complete.
+* <strong>ha</strong>: This refers to hardware interrupts. This becomes high when you have a higher disk usage, or higher network usage etc.
+* <strong>si</strong>: These are interrupts created by software. These values stay very low normally.
+* <strong>st</strong>: This relates to virtual machines running on your system. When virtual machines need CPU, then normally take it from the host machine. If you have too many virtual machines running on your server and you have this st value higher, its good to tear down a few virtual hosts.
 其中一个CPU有关的交互命令P：根据CPU使用百分比大小对进程进行排序。
 关于top这个工具功能更多的介绍和用法我们可以参考<a href="http://my.oschina.net/leejun2005/blog/157910">linux系统监控、诊断工具之top详解</a>和<a href="http://os.51cto.com/art/201005/200652_all.htm">Linux系统监控工具之top详解</a>这两篇文章。
-我们知道CPU负载(load average)反映了运行队列的某段时间平均长度，那么我们如何检测系统现有运行队列呢。一个进程进入到运行队列，可能处于runnable或者blocked状态,注意CPU负载反映的运行队列的长度（无论其中的进程处于runnable或者blocked状态）。vmstat工具便可以检测运行队列的状态。</li>
-</ul>
-
+我们知道CPU负载(load average)反映了运行队列的某段时间平均长度，那么我们如何检测系统现有运行队列呢。一个进程进入到运行队列，可能处于runnable或者blocked状态,注意CPU负载反映的运行队列的长度（无论其中的进程处于runnable或者blocked状态）。vmstat工具便可以检测运行队列的状态。</p>
 
 <hr />
 
@@ -201,8 +195,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>其中各个参数介绍如下，主要参考[这篇文章](http://www.cnblogs.com/ggjucheng/archive/2012/01/05/2312625.html)：</p>
-
+<p>其中各个参数介绍如下，主要参考<a href="http://www.cnblogs.com/ggjucheng/archive/2012/01/05/2312625.html">这篇文章</a>:</p>
 
 <ul>
 <li><strong>r</strong>：表示运行队列(就是说多少个进程真的分配到CPU)，当这个值超过了CPU数目，就会出现CPU瓶颈了。这个也和top的负载有关系，一般负载超过了3就比较高，超过了5就高，超过了10就不正常了，服务器的状态很危险。top的负载类似每秒的运行队列。如果运行队列过大，表示你的CPU很繁忙，一般会造成CPU使用率很高。</li>
