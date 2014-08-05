@@ -4,7 +4,7 @@
   <title><![CDATA[其实很简单]]></title>
   <link href="http://ywllx.github.com/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-09-04T10:37:53+08:00</updated>
+  <updated>2014-08-04T18:10:05-07:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -14,9 +14,37 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Test]]></title>
+    <link href="http://ywllx.github.com/blog/2014/08/04/test/"/>
+    <updated>2014-08-04T18:07:00-07:00</updated>
+    <id>http://ywllx.github.com/blog/2014/08/04/test</id>
+    <content type="html"><![CDATA[<hr />
+
+<p>这是很久以前写的一篇文章了，当时标题就是送给我自己，发表在以前我的一个腾讯的空间里，查看了下时间是2007年9月份，而现在已是2013年的9月份，如今把他翻出来，不打算做任何改动，当作自己一种回忆吧。</p>
+
+
+<p>前记：有意给自己写上一篇，想到了很多，却什么写不下来，然而，文字在瞬间形成。</P>
+
+
+<!--more-->
+
+
+<hr />
+
+<h4>落花岂是无情物</h4>
+
+<p>几个月前，大概是初夏刚到的时候，看着学校那淡绿的新嫩荷叶点缀在荷塘之中，心里想着：再等一段时间，等着荷花盛开时，一定来好好看>看。</p>
+
+
+<p>几天前，等我再次来到荷塘边，已是初秋时，荷花早已不见，而且好多的荷叶周边已开始变黄，心里想道：花儿为什么不等一段时间，等我看>过了之后再谢呢？</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[送给我自己]]></title>
     <link href="http://ywllx.github.com/blog/2013/09/04/for-myself/"/>
-    <updated>2013-09-04T10:09:00+08:00</updated>
+    <updated>2013-09-04T10:09:00-07:00</updated>
     <id>http://ywllx.github.com/blog/2013/09/04/for-myself</id>
     <content type="html"><![CDATA[<p>这是很久以前写的一篇文章了，当时标题就是送给我自己，发表在以前我的一个腾讯的空间里，查看了下时间是2007年9月份，而现在已是2013年的9月份，如今把他翻出来，不打算做任何改动，当作自己一种回忆吧。</p>
 
@@ -106,7 +134,7 @@
   <entry>
     <title type="html"><![CDATA[深入比较排序算法]]></title>
     <link href="http://ywllx.github.com/blog/2013/07/30/sort-algorithms-part2/"/>
-    <updated>2013-07-30T00:09:00+08:00</updated>
+    <updated>2013-07-30T00:09:00-07:00</updated>
     <id>http://ywllx.github.com/blog/2013/07/30/sort-algorithms-part2</id>
     <content type="html"><![CDATA[<p>上篇博客介绍了四种比较排序算法的基本内容，这次就那四种排序算法扩展开，介绍一些有意思的内容，首先我们将简单证明下比较排序算法的下界为O(nlogn)。也许你很奇怪，为什么我在这里一直强调比较排序算法，其实我在这里需要指出的这里我们介绍的排序算法都是利用比较信息来对数组排序的，并没有对数组有特殊要求，因此并没有利用数组的其它信息来进行排序，它所能达到的最快时间复杂度就是O(nlogn),如果我们对数组有了特殊要求，就有可能突破这个时间复杂度限制，例如计数排序算法。</p>
 
@@ -226,7 +254,7 @@
   <entry>
     <title type="html"><![CDATA[比较排序算法基本简介]]></title>
     <link href="http://ywllx.github.com/blog/2013/07/29/sort-algorithms-part1/"/>
-    <updated>2013-07-29T22:48:00+08:00</updated>
+    <updated>2013-07-29T22:48:00-07:00</updated>
     <id>http://ywllx.github.com/blog/2013/07/29/sort-algorithms-part1</id>
     <content type="html"><![CDATA[<p>这篇博客和下篇博客主要就排序问题做个简单的总结，任何学习计算机的同学都知道，排序问题在计算机科学里面是研究的最广泛的一个问题，也是在计算机科学里应用最广泛的一个问题。这篇博客先简单介绍几种最基本的比较排序算法的基本内容，下篇博客则就这些内容做一些有意思的深入，需要指出的这两篇博客所有的内容都是参考算法导论这本书的内容来的。</p>
 
@@ -490,7 +518,7 @@
   <entry>
     <title type="html"><![CDATA[梦一场]]></title>
     <link href="http://ywllx.github.com/blog/2013/07/01/its-a-dream/"/>
-    <updated>2013-07-01T00:51:00+08:00</updated>
+    <updated>2013-07-01T00:51:00-07:00</updated>
     <id>http://ywllx.github.com/blog/2013/07/01/its-a-dream</id>
     <content type="html"><![CDATA[<h4>First</h4>
 
@@ -556,7 +584,7 @@
   <entry>
     <title type="html"><![CDATA[python文本处理]]></title>
     <link href="http://ywllx.github.com/blog/2013/06/28/python-text-processing/"/>
-    <updated>2013-06-28T11:45:00+08:00</updated>
+    <updated>2013-06-28T11:45:00-07:00</updated>
     <id>http://ywllx.github.com/blog/2013/06/28/python-text-processing</id>
     <content type="html"><![CDATA[<p>对于脚本语言来说，文本处理任务构成了一个很重要的组成部分。python提供用于文本处理最主要的工具就是字符串——不可改变的字符序列。python提供了很多基于字符串的基本处理方法，掌握这些方法对于处理文本是十分用于的，这里不再详述。我这里主要是总结《python cookbook》中关于文本处理的几个例子一些内容形成的一个博客。</p>
 
@@ -765,7 +793,7 @@ s4 = s.translate(table2, &#8216;abc123&#8217;) #先把s中的abc123去除了，�
   <entry>
     <title type="html"><![CDATA[C 指针总结]]></title>
     <link href="http://ywllx.github.com/blog/2013/06/25/c-pointer/"/>
-    <updated>2013-06-25T23:43:00+08:00</updated>
+    <updated>2013-06-25T23:43:00-07:00</updated>
     <id>http://ywllx.github.com/blog/2013/06/25/c-pointer</id>
     <content type="html"><![CDATA[<p>好久没更新过博客了，只能怪自己实在是懒，以后打算最好每星期能更新一次博客，写点自己学的东西，这次就想写点C指针的问题。关于这个，网上有个很详细的文章，叫做<a href="http://ishare.iask.sina.com.cn/f/12454328.html">C语言指针详解</a>。而我写这个，主要是看了一本书《算法精解—C语言描述》，里面第2章是专门讲C指针的，我觉得不错，摘了些我觉得有意思的内容。</p>
 
@@ -902,7 +930,7 @@ s4 = s.translate(table2, &#8216;abc123&#8217;) #先把s中的abc123去除了，�
   <entry>
     <title type="html"><![CDATA[利用octopress在github构建自己的博客]]></title>
     <link href="http://ywllx.github.com/blog/2013/03/11/how-to-build-blog-with-octopress-on-github/"/>
-    <updated>2013-03-11T22:26:00+08:00</updated>
+    <updated>2013-03-11T22:26:00-07:00</updated>
     <id>http://ywllx.github.com/blog/2013/03/11/how-to-build-blog-with-octopress-on-github</id>
     <content type="html"><![CDATA[<p>早就想着自己动手利用github搭建一个能自己控制的博客，上个周末，终于把想法变成行动了，google了一把之后，打开了<a href="http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html">一篇文章</a>，介绍如何利用github Pages和Jekyll搭建一个免费的，无限流量的Blog，这不正是我所需要的吗！但是对jekll并不熟，文章也没有详细介绍如何利用它。继续google，发现了octopress这个工具，而且网上对介绍如何利用它搭建博客的文章很多，于是参考这些文章，开始搭建自己的博客了。下面则主要是这个过程的一个简单记录。</p>
 

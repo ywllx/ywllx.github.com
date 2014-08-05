@@ -4,7 +4,7 @@
   <title><![CDATA[Category: pointer | 其实很简单]]></title>
   <link href="http://ywllx.github.com/blog/categories/pointer/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-09-04T10:37:53+08:00</updated>
+  <updated>2014-08-04T18:10:05-07:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[C 指针总结]]></title>
     <link href="http://ywllx.github.com/blog/2013/06/25/c-pointer/"/>
-    <updated>2013-06-25T23:43:00+08:00</updated>
+    <updated>2013-06-25T23:43:00-07:00</updated>
     <id>http://ywllx.github.com/blog/2013/06/25/c-pointer</id>
     <content type="html"><![CDATA[<p>好久没更新过博客了，只能怪自己实在是懒，以后打算最好每星期能更新一次博客，写点自己学的东西，这次就想写点C指针的问题。关于这个，网上有个很详细的文章，叫做<a href="http://ishare.iask.sina.com.cn/f/12454328.html">C语言指针详解</a>。而我写这个，主要是看了一本书《算法精解—C语言描述》，里面第2章是专门讲C指针的，我觉得不错，摘了些我觉得有意思的内容。</p>
 

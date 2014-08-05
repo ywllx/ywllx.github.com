@@ -4,7 +4,7 @@
   <title><![CDATA[Category: python | 其实很简单]]></title>
   <link href="http://ywllx.github.com/blog/categories/python/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2013-09-04T10:37:53+08:00</updated>
+  <updated>2014-08-04T18:10:05-07:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[python文本处理]]></title>
     <link href="http://ywllx.github.com/blog/2013/06/28/python-text-processing/"/>
-    <updated>2013-06-28T11:45:00+08:00</updated>
+    <updated>2013-06-28T11:45:00-07:00</updated>
     <id>http://ywllx.github.com/blog/2013/06/28/python-text-processing</id>
     <content type="html"><![CDATA[<p>对于脚本语言来说，文本处理任务构成了一个很重要的组成部分。python提供用于文本处理最主要的工具就是字符串——不可改变的字符序列。python提供了很多基于字符串的基本处理方法，掌握这些方法对于处理文本是十分用于的，这里不再详述。我这里主要是总结《python cookbook》中关于文本处理的几个例子一些内容形成的一个博客。</p>
 
