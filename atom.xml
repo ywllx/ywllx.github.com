@@ -4,7 +4,7 @@
   <title><![CDATA[其实很简单]]></title>
   <link href="http://ywllx.github.com/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2014-08-04T23:34:47-07:00</updated>
+  <updated>2014-08-05T03:03:21-07:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -33,16 +33,153 @@
 
 <h4>CPU Load(负载) vs utilization(利用率)</h4>
 
-<p>前一段时间做监控时，发现window系统下CPU负责和CPU利用率有很大的不同，而且在一个linux负载很低的集群上启动一个作业时，发现CPU利用率很快到了90%，而监控到的负载此时却仍然很低。</p>
+<p>前一段时间做监控时，发现window系统下CPU负载和CPU利用率有数值相差很大，而且在一个linux负载很低的集群上启动一个作业时，发现CPU利用率很快到了90%，而监控到的负载此时却仍然很低。因此觉得两者有很大不同</p>
 
 
 <p>在Linux/Unix下，CPU利用率（CPU utilization）分为用户态，系统态和空闲态，分别表示CPU处于用户态执行的时间，系统内核执行的时间，和空闲系统进程执行的时间。平时所说的CPU利用率是指：CPU执行非系统空闲进程的时间 / CPU总的执行时间。在Linux的内核中，有一个全局变量：Jiffies。 Jiffies代表时间。它的单位随硬件平台的不同而不同，系统里定义了一个常数HZ&#8212;-代表每秒种最小时间间隔的数目。这样jiffies的单位就是1/HZ。Intel平台jiffies的单位是1/100秒，这就是系统所能分辨的最小时间间隔了。每个CPU时间片，Jiffies都要加1。 CPU的利用率就是用执行用户态+系统态的Jiffies除以总的Jifffies来表示。</p>
 
 
-<p>CPU负载取决于CPU进程队列长度而不是CPU利用率。什么决定了CPU进程队列长度？它包括计算处于一种running或者runable(waiting for CPU,以及一些进程处于uninterruptable sleep states(usually waiting for disk activity)，具体可参考wiki的解释。</p>
+<p>CPU负载取决于CPU进程队列长度而不是CPU利用率。什么决定了CPU进程队列长度？它包括计算处于一种running或者runable(waiting for CPU)以及一些进程处于uninterruptable sleep states(usually waiting for disk activity),具体见本节末wiki参考</p>
 
 
-<p>它们之间有什么不同呢？主要反映在两方面，<a href="http://www.linuxjournal.com/article/9001?page=0,0">这篇文章</a>(它对CPU负载和利用率也做了更加详细的解释)这段话解释得很清楚：The load averages differ from CPU percentage in two significant ways: 1) load averages measure the trend in CPU utilization not only an instantaneous snapshot, as does percentage, and 2) load averages include all demand for the CPU not only how much was active at the time of measurement.因此觉得两者有很大不同，<a href="http://blog.csdn.net/longerzone/article/details/8631183">这篇文章</a>和wiki的[解释][2]这里简单做个总结：</p></p>
+<p>它们之间有什么不同呢？主要反映在两方面，<a href="http://www.linuxjournal.com/article/9001?page=0,0">这篇文章</a>(它对CPU负载和利用率也做了更加详细的解释)这段话解释得很清楚：The load averages differ from CPU percentage in two significant ways: 1) load averages measure the trend in CPU utilization not only an instantaneous snapshot, as does percentage, and 2) load averages include all demand for the CPU not only how much was active at the time of measurement.</p></p>
+
+<p>关于CPU负载和利用率的解释和说明，主要参考了[这篇文章](http://blog.csdn.net/longerzone/article/details/8631183)和[wiki](http://en.wikipedia.org/wiki/Load_%28computing%29),也许大家看看这三篇引用文献，会比我的简单介绍了解得更深刻。</p>
+
+
+<hr />
+
+<h4>top</h4>
+
+<p>top命令是查看linux系统性能最常使用的工具之一，可以可以动态观察系统进程状况，方便系统管理员实时了解系统资源现状。这里重点解释下CPU性能相关命令，在终端输入top命令之后，第一行显示的up表示系统运行时间，users表示当前登陆用户数，load average表示系统负载，上节已做解释。此时我们按下1，如果是多核CPU，会看到每个核的使用情况如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="n">top</span> <span class="o">-</span> <span class="mo">02</span><span class="o">:</span><span class="mi">58</span><span class="o">:</span><span class="mi">48</span> <span class="n">up</span> <span class="mi">94</span> <span class="n">days</span><span class="p">,</span> <span class="mi">12</span><span class="o">:</span><span class="mi">15</span><span class="p">,</span>  <span class="mi">1</span> <span class="n">user</span><span class="p">,</span>  <span class="n">load</span> <span class="n">average</span><span class="o">:</span> <span class="mf">0.31</span><span class="p">,</span> <span class="mf">0.29</span><span class="p">,</span> <span class="mf">0.24</span>
+</span><span class='line'><span class="nl">Tasks:</span> <span class="mi">173</span> <span class="n">total</span><span class="p">,</span>   <span class="mi">1</span> <span class="n">running</span><span class="p">,</span> <span class="mi">172</span> <span class="n">sleeping</span><span class="p">,</span>   <span class="mi">0</span> <span class="n">stopped</span><span class="p">,</span>   <span class="mi">0</span> <span class="n">zombie</span>
+</span><span class='line'><span class="n">Cpu0</span>  <span class="o">:</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">us</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">sy</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">ni</span><span class="p">,</span><span class="mf">100.0</span><span class="o">%</span><span class="n">id</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">wa</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">hi</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">si</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">st</span>
+</span><span class='line'><span class="n">Cpu1</span>  <span class="o">:</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">us</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">sy</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">ni</span><span class="p">,</span><span class="mf">100.0</span><span class="o">%</span><span class="n">id</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">wa</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">hi</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">si</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">st</span>
+</span><span class='line'><span class="n">Cpu2</span>  <span class="o">:</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">us</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">sy</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">ni</span><span class="p">,</span><span class="mf">100.0</span><span class="o">%</span><span class="n">id</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">wa</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">hi</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">si</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">st</span>
+</span><span class='line'><span class="n">Cpu3</span>  <span class="o">:</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">us</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">sy</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">ni</span><span class="p">,</span><span class="mf">100.0</span><span class="o">%</span><span class="n">id</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">wa</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">hi</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">si</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">st</span>
+</span><span class='line'><span class="n">Cpu4</span>  <span class="o">:</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">us</span><span class="p">,</span>  <span class="mf">0.3</span><span class="o">%</span><span class="n">sy</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">ni</span><span class="p">,</span> <span class="mf">99.7</span><span class="o">%</span><span class="n">id</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">wa</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">hi</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">si</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">st</span>
+</span><span class='line'><span class="n">Cpu5</span>  <span class="o">:</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">us</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">sy</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">ni</span><span class="p">,</span><span class="mf">100.0</span><span class="o">%</span><span class="n">id</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">wa</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">hi</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">si</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">st</span>
+</span><span class='line'><span class="n">Cpu6</span>  <span class="o">:</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">us</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">sy</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">ni</span><span class="p">,</span><span class="mf">100.0</span><span class="o">%</span><span class="n">id</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">wa</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">hi</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">si</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">st</span>
+</span><span class='line'><span class="n">Cpu7</span>  <span class="o">:</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">us</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">sy</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">ni</span><span class="p">,</span><span class="mf">100.0</span><span class="o">%</span><span class="n">id</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">wa</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">hi</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">si</span><span class="p">,</span>  <span class="mf">0.0</span><span class="o">%</span><span class="n">st</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>
+关于以上各列的意义，具体解释如下：
+<strong>us</strong>: This shows the cpu workload caused by processes run by normal users. In Other words these are load caused by applications.
+<strong>sy</strong>: This indicates load created by the system. Means these are things most of the times executed by the Linux kernel. This normally stays low, but becomes a little high for certain tasks where kernel is involved.
+<strong>ni</strong>: This refers to the number of processes that are running with a modified nice value. If you are new to nice values then refer the below <a href="http://www.slashroot.in/nice-and-renice-command-usage-examples-process-priority-linux">article</a>.
+<strong>id</strong>: This indicates the amount of time spent by CPU doing nothing. A higher id value means CPU is idle most of the times
+<strong>wa</strong>: The amount of time, your cpu is waiting for I/O operations to complete.
+<strong>ha</strong>: This refers to hardware interrupts. This becomes high when you have a higher disk usage, or higher network usage etc.
+<strong>si</strong>: These are interrupts created by software. These values stay very low normally.
+<strong>st</strong>: This relates to virtual machines running on your system. When virtual machines need CPU, then normally take it from the host machine. If you have too many virtual machines running on your server and you have this st value higher, its good to tear down a few virtual hosts.
+其中一个CPU有关的交互命令P：根据CPU使用百分比大小对进程进行排序。
+关于top这个工具功能更多的介绍和用法我们可以参考<a href="http://my.oschina.net/leejun2005/blog/157910">linux系统监控、诊断工具之top详解</a>和<a href="http://os.51cto.com/art/201005/200652_all.htm">Linux系统监控工具之top详解</a>这两篇文章。
+我们知道CPU负载(load average)反映了运行队列的某段时间平均长度，那么我们如何检测系统现有运行队列呢。一个进程进入到运行队列，可能处于runnable或者blocked状态,注意CPU负载反映的运行队列的长度（无论其中的进程处于runnable或者blocked状态）。vmstat工具便可以检测运行队列的状态。</p>
+
+<hr />
+
+<h4>vmstat</h4>
+
+<p>vmstat命令是最常见的Linux/Unix监控工具，可以展现给定时间间隔的服务器的状态值,包括服务器的CPU使用率，内存使用，虚拟内存交换情况,IO读写情况。vmstat工具的使用是通过两个数字参数来完成的，第一个参数是采样的时间间隔数，单位是秒，第二个参数是采样的次数。如果不输入第二个参数，则会一直采集监控的数据。具体如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="err">$</span> <span class="n">vmstat</span> <span class="mi">2</span>
+</span><span class='line'><span class="n">procs</span> <span class="o">-----------</span><span class="n">memory</span><span class="o">----------</span> <span class="o">---</span><span class="n">swap</span><span class="o">--</span> <span class="o">-----</span><span class="n">io</span><span class="o">----</span> <span class="o">-</span><span class="n">system</span><span class="o">--</span> <span class="o">------</span><span class="n">cpu</span><span class="o">-----</span>
+</span><span class='line'> <span class="n">r</span>  <span class="n">b</span>   <span class="n">swpd</span>   <span class="n">free</span>   <span class="n">buff</span>  <span class="n">cache</span>   <span class="n">si</span>   <span class="n">so</span>    <span class="n">bi</span>    <span class="n">bo</span>   <span class="n">in</span>   <span class="n">cs</span> <span class="n">us</span> <span class="n">sy</span> <span class="n">id</span> <span class="n">wa</span> <span class="n">st</span>
+</span><span class='line'> <span class="mi">1</span>  <span class="mi">0</span>      <span class="mi">0</span> <span class="mi">803408</span>  <span class="mi">19252</span>  <span class="mi">77080</span>    <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">2</span>     <span class="mi">2</span>   <span class="mi">16</span>   <span class="mi">24</span>  <span class="mi">0</span>  <span class="mi">0</span> <span class="mi">99</span>  <span class="mi">0</span>  <span class="mi">0</span>
+</span><span class='line'> <span class="mi">0</span>  <span class="mi">0</span>      <span class="mi">0</span> <span class="mi">803392</span>  <span class="mi">19252</span>  <span class="mi">77112</span>    <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>     <span class="mi">0</span>   <span class="mi">32</span>   <span class="mi">42</span>  <span class="mi">0</span>  <span class="mi">2</span> <span class="mi">97</span>  <span class="mi">0</span>  <span class="mi">0</span>
+</span><span class='line'> <span class="mi">0</span>  <span class="mi">0</span>      <span class="mi">0</span> <span class="mi">803392</span>  <span class="mi">19252</span>  <span class="mi">77112</span>    <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>     <span class="mi">0</span>   <span class="mi">26</span>   <span class="mi">36</span>  <span class="mi">0</span>  <span class="mi">0</span> <span class="mi">100</span>  <span class="mi">0</span>  <span class="mi">0</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>其中各个参数介绍如下，主要参考<a href="http://www.cnblogs.com/ggjucheng/archive/2012/01/05/2312625.html">这篇文章</a>：
+<strong>r</strong>：表示运行队列(就是说多少个进程真的分配到CPU)，当这个值超过了CPU数目，就会出现CPU瓶颈了。这个也和top的负载有关系，一般负载超过了3就比较高，超过了5就高，超过了10就不正常了，服务器的状态很危险。top的负载类似每秒的运行队列。如果运行队列过大，表示你的CPU很繁忙，一般会造成CPU使用率很高。
+<strong>b</strong>：表示阻塞的进程
+<strong>swpd</strong>：虚拟内存已使用的大小，如果大于0，表示你的机器物理内存不足了，如果不是程序内存泄露的原因，那么你该升级内存了或者把耗内存的任务迁移到其他机器。
+<strong>free</strong>：空闲的物理内存的大小。
+<strong>buff</strong>：Linux/Unix系统是用来存储，目录里面有什么内容，权限等的缓存。
+<strong>cache</strong>： cache直接用来记忆我们打开的文件,给文件做缓冲，我本机大概占用300多M(这里是Linux/Unix的聪明之处，把空闲的物理内存的一部分拿来做文件和目录的缓存，是为了提高程序执行的性能，当程序使用内存时，buffer/cached会很快地被使用。)
+<strong>si</strong>：每秒从磁盘读入虚拟内存的大小，如果这个值大于0，表示物理内存不够用或者内存泄露了，要查找耗内存进程解决掉。
+<strong>so</strong>：每秒虚拟内存写入磁盘的大小，如果这个值大于0，同上。
+<strong>bi</strong>：块设备每秒接收的块数量，这里的块设备是指系统上所有的磁盘和其他块设备，默认块大小是1024byte。
+<strong>bo</strong>： 块设备每秒发送的块数量，例如我们读取文件，bo就要大于0。bi和bo一般都要接近0，不然就是IO过于频繁，需要调整。
+<strong>in</strong>： 每秒CPU的中断次数，包括时间中断
+<strong>cs</strong>： 每秒上下文切换次数，Context switching can happen for two reasons. First one is the genuine processor switches, guided by the kernel scheduler. Second one is due to interrupts caused by hard wares and other software applications. We will get back to interrupts in some time.例如我们调用系统函数，就要进行上下文切换，线程的切换，也要进程上下文切换，这个值要越小越好，太大了，要考虑调低线程或者进程的数目,例如在apache和nginx这种web服务器中，我们一般做性能测试时会进行几千并发甚至几万并发的测试，选择web服务器的进程可以由进程或者线程的峰值一直下调，压测，直到cs到一个比较小的值，这个进程和线程数就是比较合适的值了。系统调用也是，每次调用系统函数，我们的代码就会进入内核空间，导致上下文切换，这个是很耗资源，也要尽量避免频繁调用系统函数。上下文切换次数过多表示你的CPU大部分浪费在上下文切换，导致CPU干正经事的时间少了，CPU没有充分利用，是不可取的。
+<strong>us</strong>：用户CPU时间，我曾经在一个做加密解密很频繁的服务器上，可以看到us接近100,r运行队列达到80(机器在做压力测试，性能表现不佳)。
+<strong>sy</strong>：系统CPU时间，如果太高，表示系统调用时间长，例如是IO操作频繁。
+<strong>id</strong>：空闲 CPU时间，一般来说，id + us + sy = 100,一般我认为id是空闲CPU使用率，us是用户CPU使用率，sy是系统CPU使用率。
+<strong>wt</strong>：等待IO CPU时间。</p>
+
+<hr />
+
+<h4>taskset</h4>
+
+<p>现在我们使用的CPU一般都是多核的CPU，一般一个进程是可以在所有的CPU核上运行的，一般来说多核提高了程序性能，但是对于某些进程来说，when a process is switched from one core to another the new processor has to flush its cache. 这便会影响它的性能。因此我们可以使用taskset命令让进程运行在指定的CPU，示例如下：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="err">$</span><span class="n">taskset</span> <span class="o">-</span><span class="n">c</span> <span class="mi">0</span><span class="p">,</span><span class="mi">1</span> <span class="o">-</span><span class="n">p</span> <span class="mi">6389</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>将PID为6389的进行绑定到CPU 0,1上执行。</p>
+
+<hr />
+
+<h4>pidstat，mpstat，中断</h4>
+
+<p>我们可以使用pidstat命令查看每个进程详细的资源使用情况，其中当我们使用
+-w选项时，我们可以获得这个进程的 context switch详细情况，主要涉及到cswch/s，nvcswch/s，其中详细解释如下：
+<strong>cswch/s</strong>: Total number of voluntary context switches the task made per second.  A voluntary context switch occurs when a task blocks because it requires a resource that is unavailable.
+<strong>nvcswch/s</strong>: Total  number  of  non voluntary context switches the task made per second.  A involuntary context switch takes place when a task executes for the duration of its time slice and then is forced to relinquish the processor.</p>
+
+<p><strong>mpstat</strong>是MultiProcessor Statistics的缩写，是实时系统监控工具。其报告与CPU的一些统计信息，这些信息存放在/proc/stat文件中。在多CPUs系统里，其不但能查看所有CPU的平均状况信息，而且能够查看特定CPU的信息。
+-P {|ALL} 表示监控哪个CPU， cpu在[0,cpu个数-1]中取值
+internal 相邻的两次采样的间隔时间
+count 采样的次数，count只能和delay一起使用
+当没有参数时，mpstat则显示系统启动以后所有信息的平均值。有interval时，第一行的信息自系统启动以来的平均信息。</p>
+
+<p>另外我们还可以通过cat /proc/interrupts获取CPU中断情况，例如：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="err">$</span> <span class="n">cat</span> <span class="o">/</span><span class="n">proc</span><span class="o">/</span><span class="n">interrupts</span> <span class="o">|</span><span class="n">grep</span> <span class="n">timer</span>
+</span><span class='line'>   <span class="mi">0</span><span class="o">:</span>         <span class="mi">57</span>          <span class="mi">0</span>   <span class="n">IO</span><span class="o">-</span><span class="n">APIC</span><span class="o">-</span><span class="n">edge</span>      <span class="n">timer</span>
+</span><span class='line'> <span class="nl">LOC:</span>     <span class="mi">310653</span>     <span class="mi">473923</span>   <span class="n">Local</span> <span class="n">timer</span> <span class="n">interrupts</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这个对于我们判断系统是否有高IO请求也是比较有用的。</p>
+
+<hr />
+
+<p>总之，针对以上的到的信息，一般而言：</p>
+
+<ul>
+<li><strong>当us很高而cs较低的时候，则可能是一个进程占用了较高的CPU时间</strong>（If the <strong>us</strong> column in vmstat goes too high in the output, without a similar level of context switches, then it is possible that a single process is using the processor for a substantially higher amount of time）</li>
+<li><strong>wa较高，us高而cs比较低，则意味着系统是高IO导致高us。</strong>（If the  <strong>wa</strong> column also experiences a too high value at the same time (when <strong>us</strong> is higher and <strong>cs</strong> is substantially low ), that means the process that caused the  <strong>us</strong> value to stay high is doing some heavy i/o operation.）</li>
+<li><strong>in较高而cs较低则可能是产生了较多的硬件请求</strong> （A case where you have higher number of interrupts (shown by <strong>in</strong> column in vmstat) and substantially lower number of context switches (shown by <strong>cs</strong>) can indicate that a particular application (which might be single threaded) is sending too many hardware requests.）</li>
+</ul>
+
 ]]></content>
   </entry>
   
