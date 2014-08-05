@@ -4,7 +4,7 @@
   <title><![CDATA[Category: performance | 其实很简单]]></title>
   <link href="http://ywllx.github.com/blog/categories/performance/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2014-08-05T05:25:18-07:00</updated>
+  <updated>2014-08-05T09:11:44-07:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -31,8 +31,8 @@
 <p>前一段时间做监控时，发现window系统下CPU负载和CPU利用率有数值相差很大，而且在一个linux负载很低的集群上启动一个作业时，发现CPU利用率很快到了90%，而监控到的负载此时却仍然很低。因此觉得两者有很大不同。</P>
 <p>在Linux/Unix下，CPU利用率（CPU utilization）分为用户态，系统态和空闲态，分别表示CPU处于用户态执行的时间，系统内核执行的时间，和空闲系统进程执行的时间。平时所说的CPU利用率是指：CPU执行非系统空闲进程的时间 / CPU总的执行时间。在Linux的内核中，有一个全局变量：Jiffies。 Jiffies代表时间。它的单位随硬件平台的不同而不同，系统里定义了一个常数HZ----代表每秒种最小时间间隔的数目。这样jiffies的单位就是1/HZ。Intel平台jiffies的单位是1/100秒，这就是系统所能分辨的最小时间间隔了。每个CPU时间片，Jiffies都要加1。 CPU的利用率就是用执行用户态+系统态的Jiffies除以总的Jifffies来表示。</p>
 <p>CPU负载取决于CPU进程队列长度而不是CPU利用率。什么决定了CPU进程队列长度？它包括计算处于一种running或者runable(waiting for CPU)以及一些进程处于uninterruptable sleep states(usually waiting for disk activity),具体见本节末wiki参考。</p>
-它们之间有什么不同呢？主要反映在两方面，<a herf="http://www.linuxjournal.com/article/9001?page=0,0">这篇文章</a>(它对CPU负载和利用率也做了更加详细的解释)这段话解释得很清楚：The load averages differ from CPU percentage in two significant ways: 1) load averages measure the trend in CPU utilization not only an instantaneous snapshot, as does percentage, and 2) load averages include all demand for the CPU not only how much was active at the time of measurement.
-<p>关于CPU负载和利用率的解释和说明，主要参考了<a herf='http://blog.csdn.net/longerzone/article/details/8631183'>这篇文章</a>和<a herf='http://en.wikipedia.org/wiki/Load_%28computing%29'>wiki</a>,也许大家看看这三篇引用文献，会比我的简单介绍了解得更深刻。</p>
+它们之间有什么不同呢？主要反映在两方面，<a href="http://www.linuxjournal.com/article/9001?page=0,0">这篇文章</a>(它对CPU负载和利用率也做了更加详细的解释)这段话解释得很清楚：The load averages differ from CPU percentage in two significant ways: 1) load averages measure the trend in CPU utilization not only an instantaneous snapshot, as does percentage, and 2) load averages include all demand for the CPU not only how much was active at the time of measurement.
+<p>关于CPU负载和利用率的解释和说明，主要参考了<a href='http://blog.csdn.net/longerzone/article/details/8631183'>这篇文章</a>和<a href='http://en.wikipedia.org/wiki/Load_%28computing%29'>wiki</a>,也许大家看看这三篇引用文献，会比我的简单介绍了解得更深刻。</p>
 </hr>
 
 <hr>
@@ -54,7 +54,7 @@ Cpu7  :  0.0%us,  0.0%sy,  0.0%ni,100.0%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
 
 <li><strong>us</strong>: This shows the cpu workload caused by processes run by normal users. In Other words these are load caused by applications.</li>
 <li><strong>sy</strong>: This indicates load created by the system. Means these are things most of the times executed by the Linux kernel. This normally stays low, but becomes a little high for certain tasks where kernel is involved.</li>
-<li><strong>ni</strong>: This refers to the number of processes that are running with a modified nice value. If you are new to nice values then refer the below <a herf='http://www.slashroot.in/nice-and-renice-command-usage-examples-process-priority-linux'>article </a>.</li>
+<li><strong>ni</strong>: This refers to the number of processes that are running with a modified nice value. If you are new to nice values then refer the below <a href='http://www.slashroot.in/nice-and-renice-command-usage-examples-process-priority-linux'>article </a>.</li>
 <li><strong>id</strong>: This indicates the amount of time spent by CPU doing nothing. A higher id value means CPU is idle most of the times.</li>
 <li><strong>wa</strong>: The amount of time, your cpu is waiting for I/O operations to complete.</li>
 <li><strong>ha</strong>: This refers to hardware interrupts. This becomes high when you have a higher disk usage, or higher network usage etc.</li>
@@ -62,7 +62,7 @@ Cpu7  :  0.0%us,  0.0%sy,  0.0%ni,100.0%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
 <li><strong>st</strong>: This relates to virtual machines running on your system. When virtual machines need CPU, then normally take it from the host machine. If you have too many virtual machines running on your server and you have this st value higher, its good to tear down a few virtual hosts.</li>
 
 <p>其中一个CPU有关的交互命令P：根据CPU使用百分比大小对进程进行排序。</p>
-<p>关于top这个工具功能更多的介绍和用法我们可以参考<a herf="http://my.oschina.net/leejun2005/blog/157910">linux系统监控、诊断工具之top详解</a>和<a herf="http://os.51cto.com/art/201005/200652_all.htm">linux系统监控工具之top详解</a>这两篇文章。</p>
+<p>关于top这个工具功能更多的介绍和用法我们可以参考<a href="http://my.oschina.net/leejun2005/blog/157910">linux系统监控、诊断工具之top详解</a>和<a href="http://os.51cto.com/art/201005/200652_all.htm">linux系统监控工具之top详解</a>这两篇文章。</p>
 <p>我们知道CPU负载(load average)反映了运行队列的某段时间平均长度，那么我们如何检测系统现有运行队列呢。一个进程进入到运行队列，可能处于runnable或者blocked状态,注意CPU负载反映的运行队列的长度（无论其中的进程处于runnable或者blocked状态）。vmstat工具便可以检测运行队列的状态。</p>
 </hr>
 
@@ -77,7 +77,7 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
  0  0      0 803392  19252  77112    0    0     0     0   32   42  0  2 97  0  0
  0  0      0 803392  19252  77112    0    0     0     0   26   36  0  0 100  0  0
 ```
-<p>其中各个参数介绍如下，主要参考<a herf="http://www.cnblogs.com/ggjucheng/archive/2012/01/05/2312625.html">这篇文章</a>:</p>
+<p>其中各个参数介绍如下，主要参考<a href="http://www.cnblogs.com/ggjucheng/archive/2012/01/05/2312625.html">这篇文章</a>:</p>
 <li> <strong>r</strong>：表示运行队列(就是说多少个进程真的分配到CPU)，当这个值超过了CPU数目，就会出现CPU瓶颈了。这个也和top的负载有关系，一般负载超过了3就比较高，超过了5就高，超过了10就不正常了，服务器的状态很危险。top的负载类似每秒的运行队列。如果运行队列过大，表示你的CPU很繁忙，一般会造成CPU使用率很高。</li>
 <li> <strong>b</strong>：表示阻塞的进程</li>
 <li> <strong>swpd</strong>：虚拟内存已使用的大小，如果大于0，表示你的机器物理内存不足了，如果不是程序内存泄露的原因，那么你该升级内存了或者把耗内存的任务迁移到其他机器。</li>
