@@ -4,7 +4,7 @@
   <title><![CDATA[其实很简单]]></title>
   <link href="http://ywllx.github.com/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2014-08-05T04:06:23-07:00</updated>
+  <updated>2014-08-05T04:32:41-07:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -23,6 +23,7 @@
 <p>含泪星光 打亮了旧的记忆 我们还会相遇 一定有原因 滚烫星光 就像埋藏的真心 只为一个人狂热 烧红了梦境 把漆黑忘记。
 <p>许久没回到这个博客了，哎，注定是个一事无成的人啊，今天再次回到这里，希望以后常更新，能够坚持下去。这篇博客主要在Linux对CPU性能进行监控和分析。
 <!--more-->
+&#8212;
 
 &#8212;
 ####CPU Load(负载) vs utilization(利用率)
@@ -30,7 +31,7 @@
 <p>在Linux/Unix下，CPU利用率（CPU utilization）分为用户态，系统态和空闲态，分别表示CPU处于用户态执行的时间，系统内核执行的时间，和空闲系统进程执行的时间。平时所说的CPU利用率是指：CPU执行非系统空闲进程的时间 / CPU总的执行时间。在Linux的内核中，有一个全局变量：Jiffies。 Jiffies代表时间。它的单位随硬件平台的不同而不同，系统里定义了一个常数HZ&#8212;-代表每秒种最小时间间隔的数目。这样jiffies的单位就是1/HZ。Intel平台jiffies的单位是1/100秒，这就是系统所能分辨的最小时间间隔了。每个CPU时间片，Jiffies都要加1。 CPU的利用率就是用执行用户态+系统态的Jiffies除以总的Jifffies来表示。
 <p>CPU负载取决于CPU进程队列长度而不是CPU利用率。什么决定了CPU进程队列长度？它包括计算处于一种running或者runable(waiting for CPU)以及一些进程处于uninterruptable sleep states(usually waiting for disk activity),具体见本节末wiki参考。
 它们之间有什么不同呢？主要反映在两方面，[这篇文章](http://www.linuxjournal.com/article/9001?page=0,0)(它对CPU负载和利用率也做了更加详细的解释)这段话解释得很清楚：The load averages differ from CPU percentage in two significant ways: 1) load averages measure the trend in CPU utilization not only an instantaneous snapshot, as does percentage, and 2) load averages include all demand for the CPU not only how much was active at the time of measurement.
-<p>关于CPU负载和利用率的解释和说明，主要参考了[这篇文章](http://blog.csdn.net/longerzone/article/details/8631183)和[wiki](http://en.wikipedia.org/wiki/Load_%28computing%29),也许大家看看这三篇引用文献，会比我的简单介绍了解得更深刻
+<p>关于CPU负载和利用率的解释和说明，主要参考了[这篇文章](http://blog.csdn.net/longerzone/article/details/8631183)和[wiki](http://en.wikipedia.org/wiki/Load_%28computing%29),也许大家看看这三篇引用文献，会比我的简单介绍了解得更深刻。
 
 &#8212;
 ####top
@@ -61,11 +62,11 @@ top命令是查看linux系统性能最常使用的工具之一，可以可以动
 <li><strong>us</strong>: This shows the cpu workload caused by processes run by normal users. In Other words these are load caused by applications.</li>
 <li><strong>sy</strong>: This indicates load created by the system. Means these are things most of the times executed by the Linux kernel. This normally stays low, but becomes a little high for certain tasks where kernel is involved.</li>
 <li><strong>ni</strong>: This refers to the number of processes that are running with a modified nice value. If you are new to nice values then refer the below [article](http://www.slashroot.in/nice-and-renice-command-usage-examples-process-priority-linux).</li>
-* **id**: This indicates the amount of time spent by CPU doing nothing. A higher id value means CPU is idle most of the times
-* **wa**: The amount of time, your cpu is waiting for I/O operations to complete.
-* **ha**: This refers to hardware interrupts. This becomes high when you have a higher disk usage, or higher network usage etc.
-* **si**: These are interrupts created by software. These values stay very low normally.
-* **st**: This relates to virtual machines running on your system. When virtual machines need CPU, then normally take it from the host machine. If you have too many virtual machines running on your server and you have this st value higher, its good to tear down a few virtual hosts.
+<li><strong>id</strong>: This indicates the amount of time spent by CPU doing nothing. A higher id value means CPU is idle most of the times.</li>
+<li><strong>wa</strong>: The amount of time, your cpu is waiting for I/O operations to complete.</li>
+<li><strong>ha</strong>: This refers to hardware interrupts. This becomes high when you have a higher disk usage, or higher network usage etc.</li>
+<li><strong>si</strong>: These are interrupts created by software. These values stay very low normally.</li>
+<li><strong>st</strong>: This relates to virtual machines running on your system. When virtual machines need CPU, then normally take it from the host machine. If you have too many virtual machines running on your server and you have this st value higher, its good to tear down a few virtual hosts.</li>
 
 其中一个CPU有关的交互命令P：根据CPU使用百分比大小对进程进行排序。
 关于top这个工具功能更多的介绍和用法我们可以参考[linux系统监控、诊断工具之top详解](http://my.oschina.net/leejun2005/blog/157910)和[Linux系统监控工具之top详解](http://os.51cto.com/art/201005/200652_all.htm)这两篇文章。
@@ -89,23 +90,22 @@ vmstat命令是最常见的Linux/Unix监控工具，可以展现给定时间间�
 </span><span class='line'> <span class="mi">0</span>  <span class="mi">0</span>      <span class="mi">0</span> <span class="mi">803392</span>  <span class="mi">19252</span>  <span class="mi">77112</span>    <span class="mi">0</span>    <span class="mi">0</span>     <span class="mi">0</span>     <span class="mi">0</span>   <span class="mi">26</span>   <span class="mi">36</span>  <span class="mi">0</span>  <span class="mi">0</span> <span class="mi">100</span>  <span class="mi">0</span>  <span class="mi">0</span>
 </span></code></pre></td></tr></table></div></figure>
 其中各个参数介绍如下，主要参考[这篇文章](http://www.cnblogs.com/ggjucheng/archive/2012/01/05/2312625.html):
-
-* **r**：表示运行队列(就是说多少个进程真的分配到CPU)，当这个值超过了CPU数目，就会出现CPU瓶颈了。这个也和top的负载有关系，一般负载超过了3就比较高，超过了5就高，超过了10就不正常了，服务器的状态很危险。top的负载类似每秒的运行队列。如果运行队列过大，表示你的CPU很繁忙，一般会造成CPU使用率很高。
-* **b**：表示阻塞的进程
-* **swpd**：虚拟内存已使用的大小，如果大于0，表示你的机器物理内存不足了，如果不是程序内存泄露的原因，那么你该升级内存了或者把耗内存的任务迁移到其他机器。
-* **free**：空闲的物理内存的大小。
-* **buff**：Linux/Unix系统是用来存储，目录里面有什么内容，权限等的缓存。
-* **cache**： cache直接用来记忆我们打开的文件,给文件做缓冲，我本机大概占用300多M(这里是Linux/Unix的聪明之处，把空闲的物理内存的一部分拿来做文件和目录的缓存，是为了提高程序执行的性能，当程序使用内存时，buffer/cached会很快地被使用。)
-* **si**：每秒从磁盘读入虚拟内存的大小，如果这个值大于0，表示物理内存不够用或者内存泄露了，要查找耗内存进程解决掉。
-* **so**：每秒虚拟内存写入磁盘的大小，如果这个值大于0，同上。
-* **bi**：块设备每秒接收的块数量，这里的块设备是指系统上所有的磁盘和其他块设备，默认块大小是1024byte。
-* **bo**： 块设备每秒发送的块数量，例如我们读取文件，bo就要大于0。bi和bo一般都要接近0，不然就是IO过于频繁，需要调整。
-* **in**： 每秒CPU的中断次数，包括时间中断
-* **cs**： 每秒上下文切换次数，Context switching can happen for two reasons. First one is the genuine processor switches, guided by the kernel scheduler. Second one is due to interrupts caused by hard wares and other software applications. We will get back to interrupts in some time.例如我们调用系统函数，就要进行上下文切换，线程的切换，也要进程上下文切换，这个值要越小越好，太大了，要考虑调低线程或者进程的数目,例如在apache和nginx这种web服务器中，我们一般做性能测试时会进行几千并发甚至几万并发的测试，选择web服务器的进程可以由进程或者线程的峰值一直下调，压测，直到cs到一个比较小的值，这个进程和线程数就是比较合适的值了。系统调用也是，每次调用系统函数，我们的代码就会进入内核空间，导致上下文切换，这个是很耗资源，也要尽量避免频繁调用系统函数。上下文切换次数过多表示你的CPU大部分浪费在上下文切换，导致CPU干正经事的时间少了，CPU没有充分利用，是不可取的。
-* **us**：用户CPU时间，我曾经在一个做加密解密很频繁的服务器上，可以看到us接近100,r运行队列达到80(机器在做压力测试，性能表现不佳)。
-* **sy**：系统CPU时间，如果太高，表示系统调用时间长，例如是IO操作频繁。
-* **id**：空闲 CPU时间，一般来说，id + us + sy = 100,一般我认为id是空闲CPU使用率，us是用户CPU使用率，sy是系统CPU使用率。
-* **wt**：等待IO CPU时间。
+<li> <strong>r</strong>：表示运行队列(就是说多少个进程真的分配到CPU)，当这个值超过了CPU数目，就会出现CPU瓶颈了。这个也和top的负载有关系，一般负载超过了3就比较高，超过了5就高，超过了10就不正常了，服务器的状态很危险。top的负载类似每秒的运行队列。如果运行队列过大，表示你的CPU很繁忙，一般会造成CPU使用率很高。</li>
+<li> <strong>b</strong>：表示阻塞的进程</li>
+<li> <strong>swpd</strong>：虚拟内存已使用的大小，如果大于0，表示你的机器物理内存不足了，如果不是程序内存泄露的原因，那么你该升级内存了或者把耗内存的任务迁移到其他机器。</li>
+<li> <strong>free</strong>：空闲的物理内存的大小。</li>
+<li> <strong>buff</strong>：Linux/Unix系统是用来存储，目录里面有什么内容，权限等的缓存。</li>
+<li> <strong>cache</strong>： cache直接用来记忆我们打开的文件,给文件做缓冲，我本机大概占用300多M(这里是Linux/Unix的聪明之处，把空闲的物理内存的一部分拿来做文件和目录的缓存，是为了提高程序执行的性能，当程序使用内存时，buffer/cached会很快地被使用。)</li>
+<li> <strong>si</strong>：每秒从磁盘读入虚拟内存的大小，如果这个值大于0，表示物理内存不够用或者内存泄露了，要查找耗内存进程解决掉。</li>
+<li> <strong>so</strong>：每秒虚拟内存写入磁盘的大小，如果这个值大于0，同上。</li>
+<li> <strong>bi</strong>：块设备每秒接收的块数量，这里的块设备是指系统上所有的磁盘和其他块设备，默认块大小是1024byte。</li>
+<li> <strong>bo</strong>： 块设备每秒发送的块数量，例如我们读取文件，bo就要大于0。bi和bo一般都要接近0，不然就是IO过于频繁，需要调整。</li>
+<li> <strong>in</strong>： 每秒CPU的中断次数，包括时间中断</li>
+<li> <strong>cs</strong>： 每秒上下文切换次数，Context switching can happen for two reasons. First one is the genuine processor switches, guided by the kernel scheduler. Second one is due to interrupts caused by hard wares and other software applications. We will get back to interrupts in some time.例如我们调用系统函数，就要进行上下文切换，线程的切换，也要进程上下文切换，这个值要越小越好，太大了，要考虑调低线程或者进程的数目,例如在apache和nginx这种web服务器中，我们一般做性能测试时会进行几千并发甚至几万并发的测试，选择web服务器的进程可以由进程或者线程的峰值一直下调，压测，直到cs到一个比较小的值，这个进程和线程数就是比较合适的值了。系统调用也是，每次调用系统函数，我们的代码就会进入内核空间，导致上下文切换，这个是很耗资源，也要尽量避免频繁调用系统函数。上下文切换次数过多表示你的CPU大部分浪费在上下文切换，导致CPU干正经事的时间少了，CPU没有充分利用，是不可取的。</li>
+<li> <strong>us</strong>：用户CPU时间，我曾经在一个做加密解密很频繁的服务器上，可以看到us接近100,r运行队列达到80(机器在做压力测试，性能表现不佳)。</li>
+<li> <strong>sy</strong>：系统CPU时间，如果太高，表示系统调用时间长，例如是IO操作频繁。</li>
+<li> <strong>id</strong>：空闲 CPU时间，一般来说，id + us + sy = 100,一般我认为id是空闲CPU使用率，us是用户CPU使用率，sy是系统CPU使用率。</li>
+<li> <strong>wt</strong>：等待IO CPU时间。</li>
 
 &#8212;
 ####taskset
@@ -122,10 +122,9 @@ vmstat命令是最常见的Linux/Unix监控工具，可以展现给定时间间�
 我们可以使用pidstat命令查看每个进程详细的资源使用情况，其中当我们使用
 -w选项时，我们可以获得这个进程的 context switch详细情况，主要涉及到cswch/s，nvcswch/s，其中详细解释如下：
 
-* **cswch/s**: Total number of voluntary context switches the task made per second.  A voluntary context switch occurs when a task blocks because it requires a resource that is unavailable.
-* **nvcswch/s**: Total  number  of  non voluntary context switches the task made per second.  A involuntary context switch takes place when a task executes for the duration of its time slice and then is forced to relinquish the processor.
-
-* **mpstat**是MultiProcessor Statistics的缩写，是实时系统监控工具。其报告与CPU的一些统计信息，这些信息存放在/proc/stat文件中。在多CPUs系统里，其不但能查看所有CPU的平均状况信息，而且能够查看特定CPU的信息。
+<li> <strong>cswch/s</strong>: Total number of voluntary context switches the task made per second.  A voluntary context switch occurs when a task blocks because it requires a resource that is unavailable.</li>
+<li> <strong>nvcswch/s</strong>: Total  number  of  non voluntary context switches the task made per second.  A involuntary context switch takes place when a task executes for the duration of its time slice and then is forced to relinquish the processor.</li>
+<strong>mpstat</strong>是MultiProcessor Statistics的缩写，是实时系统监控工具。其报告与CPU的一些统计信息，这些信息存放在/proc/stat文件中。在多CPUs系统里，其不但能查看所有CPU的平均状况信息，而且能够查看特定CPU的信息。
 -P {|ALL} 表示监控哪个CPU， cpu在[0,cpu个数-1]中取值
 internal 相邻的两次采样的间隔时间
 count 采样的次数，count只能和delay一起使用
