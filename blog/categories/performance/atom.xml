@@ -4,7 +4,7 @@
   <title><![CDATA[Category: performance | 其实很简单]]></title>
   <link href="http://ywllx.github.com/blog/categories/performance/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2014-08-05T03:53:42-07:00</updated>
+  <updated>2014-08-05T03:58:07-07:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -48,12 +48,10 @@ Cpu6  :  0.0%us,  0.0%sy,  0.0%ni,100.0%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
 Cpu7  :  0.0%us,  0.0%sy,  0.0%ni,100.0%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st
 ``` 
 关于以上各列的意义，具体解释如下：
-* **us**: This shows the cpu workload caused by processes run by normal users. In Other words these are load caused by applications.
 
-* **sy**: This indicates load created by the system. Means these are things most of the times executed by the Linux kernel. This normally stays low, but becomes a little high for certain tasks where kernel is involved.
-
-* **ni**: This refers to the number of processes that are running with a modified nice value. If you are new to nice values then refer the below [article](http://www.slashroot.in/nice-and-renice-command-usage-examples-process-priority-linux).
- 
+<p>**us**: This shows the cpu workload caused by processes run by normal users. In Other words these are load caused by applications.
+<p> **sy**: This indicates load created by the system. Means these are things most of the times executed by the Linux kernel. This normally stays low, but becomes a little high for certain tasks where kernel is involved.
+<p>**ni**: This refers to the number of processes that are running with a modified nice value. If you are new to nice values then refer the below [article](http://www.slashroot.in/nice-and-renice-command-usage-examples-process-priority-linux).
 * **id**: This indicates the amount of time spent by CPU doing nothing. A higher id value means CPU is idle most of the times
 * **wa**: The amount of time, your cpu is waiting for I/O operations to complete.
 * **ha**: This refers to hardware interrupts. This becomes high when you have a higher disk usage, or higher network usage etc.
