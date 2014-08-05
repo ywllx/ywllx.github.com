@@ -4,7 +4,7 @@
   <title><![CDATA[其实很简单]]></title>
   <link href="http://ywllx.github.com/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2014-08-05T05:20:29-07:00</updated>
+  <updated>2014-08-05T05:25:18-07:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -63,7 +63,7 @@
 
 <li><strong>us</strong>: This shows the cpu workload caused by processes run by normal users. In Other words these are load caused by applications.</li>
 <li><strong>sy</strong>: This indicates load created by the system. Means these are things most of the times executed by the Linux kernel. This normally stays low, but becomes a little high for certain tasks where kernel is involved.</li>
-<li><strong>ni</strong>: This refers to the number of processes that are running with a modified nice value. If you are new to nice values then refer the below [article](http://www.slashroot.in/nice-and-renice-command-usage-examples-process-priority-linux).</li>
+<li><strong>ni</strong>: This refers to the number of processes that are running with a modified nice value. If you are new to nice values then refer the below <a herf='http://www.slashroot.in/nice-and-renice-command-usage-examples-process-priority-linux'>article </a>.</li>
 <li><strong>id</strong>: This indicates the amount of time spent by CPU doing nothing. A higher id value means CPU is idle most of the times.</li>
 <li><strong>wa</strong>: The amount of time, your cpu is waiting for I/O operations to complete.</li>
 <li><strong>ha</strong>: This refers to hardware interrupts. This becomes high when you have a higher disk usage, or higher network usage etc.</li>
