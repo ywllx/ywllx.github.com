@@ -4,7 +4,7 @@
   <title><![CDATA[其实很简单]]></title>
   <link href="http://ywllx.github.com/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2014-11-16T07:38:04-08:00</updated>
+  <updated>2014-11-16T07:44:25-08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -194,9 +194,9 @@
 <p>cancel()Stop the timer, and cancel the execution of the timer’s action. This will only work if the timer is still in its waiting stage.</p>
 
 <h4>参考地址</h4>
-<a href='http://blog.csdn.net/jerk_zhang/article/details/20216569'>深入学习python （六） 用sched来定时执行任务</a>
-<a href='https://docs.python.org/2/library/sched.html'>sched — Event scheduler</a>
-<< python cookbook 中文版>>
+<p><a href='http://blog.csdn.net/jerk_zhang/article/details/20216569'>深入学习python（六）用sched来定时执行任务</a></p>
+<p><a href='https://docs.python.org/2/library/sched.html'>sched — Event scheduler</a></p>
+<p><< python cookbook 中文版>></p>
 
 ]]></content>
   </entry>
