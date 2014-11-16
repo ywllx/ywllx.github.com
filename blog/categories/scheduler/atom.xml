@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: scheduler | 其实很简单]]></title>
+  <link href="http://ywllx.github.com/blog/categories/scheduler/atom.xml" rel="self"/>
+  <link href="http://ywllx.github.com/"/>
+  <updated>2014-11-16T07:38:04-08:00</updated>
+  <id>http://ywllx.github.com/</id>
+  <author>
+    <name><![CDATA[Fred Yan]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[python定时执行任务]]></title>
+    <link href="http://ywllx.github.com/blog/2014/11/16/python-scheduling-events/"/>
+    <updated>2014-11-16T06:57:00-08:00</updated>
+    <id>http://ywllx.github.com/blog/2014/11/16/python-scheduling-events</id>
+    <content type="html"><![CDATA[<hr>
+
+
+<p>我祈祷拥有一颗透明的心灵，和会流泪的眼睛，给我再去相信的勇气，越过谎言去拥抱你，每当我找不到存在的意义，每当我迷失在黑夜里，夜空中最亮的星，请指引我靠近你！
+<p>同样一首歌词开启这篇博客，这次主要介绍如何利用python语言定时执行任务。
+<!--more-->
+</hr>
+
+<hr>
+<h4>time.sleep函数</h4>
+<p>每隔一段时间反复执行某个命令，最先想到的解决方法是time.sleep函数，下面是一个简单脚本实例：</P>
+```python
+#!/usr/bin/env python
+
+import time, os, sys
+def main(cmd, inc=10):
+    while True:
+        os.system(cmd)
+        time.sleep(inc)
+
+if __name__ == '__main__':
+    numargs = len(sys.argv) - 1
+    if numargs < 1 or numargs > 2:
+        print "Usage: " + sys.argv[0] + " command [seconds_delay]"
+        sys.exit(1)
+    cmd = sys.argv[1]
+    if numargs < 2:
+        main(cmd)
+    else:
+        inc = int(sys.argv[2])
+        print inc
+        main(cmd, inc)
+```
+<p>本段脚本代码创建了一个叫做main的函数，还有一个有 if __main__ == '__main__':限定的主体部分，保证脚本只有在当为主脚本运行时才会被执行。主体部分检查命令行的参数，并调用main函数，这是很好的脚本编写结构，同时也使得它的功能可以被其它脚本通过模块导入调用。</p>
+
+<h4>sched模块</h4>
+<p>通过标准库的sched模块用来在未来某个时刻执行某些特点任务。首先为了理解这个函数简单应用可以看下面这个例子：</p>
+```python
+#!/usr/bin/env python
+
+import time
+import sched
+
+schedule = sched.scheduler ( time.time, time.sleep )
+
+def func(string1,float1):
+    print "now is",time.time()," | output=",string1,float1
+
+print time.time()
+schedule.enter(2,0,func,("test1",time.time()))
+schedule.enter(2,0,func,("test1",time.time()))
+schedule.enter(3,0,func,("test1",time.time()))
+schedule.enter(4,0,func,("test1",time.time()))
+schedule.run()
+print time.time()
+```
+<P>以下是在ubuntu14.04 server上执行结果:</p>               
+```c
+1416065726.84
+now is 1416065728.84  | output= test1 1416065726.84
+now is 1416065728.84  | output= test1 1416065726.84
+now is 1416065729.84  | output= test1 1416065726.84
+now is 1416065730.84  | output= test1 1416065726.84
+1416065730.84
+```
+<p>这里我们重点介绍下schedule.enter(delay, priority, action, arguments)函数，四个参数左右如下：</p>
+<li>第一个参数是一个整数或者float，代表多少秒后执行这个action任务。</li>
+<li>第二个参数priority是优先级，0代表优先级最高，1次之，2次次之…当两个任务是预定在同一个时刻执行时，根据优先级决定谁先执行.</li>
+<li>第三个参数就是你要执行的任务，可以简单的理解成你要执行的函数的函数名。</li>
+<li>第四个参数是你要传入的这个定时执行的action为函数名的函数的参数，<strong>是一个元组</strong>，最好是用"()"括号来包起来，包起来肯定是不会出错的。其次，当你只传入一个参数时，用括号包起来后，一定要记住再打上一个逗号。即：schedule.enter(delay, priority, action, (argument1,))    如果不打逗号，你传入一个字符串，它会以为你传入的是一个个字符，且每个字符的地位等于一个参数。另外如果没有参数要传入，就直接传入空括号即可，即：schedule.enter(delay, priority, action, ())</li>
+<p>如果我们第一个由time.sleep()编写的脚本改由sched模块来实现如下所示：</p>
+```python
+#!/usr/bin/env python
+import time, os, sys, sched
+
+schedule = sched.scheduler(time.time, time.sleep)
+def perform_command(cmd, inc):
+    schedule.enter(inc, 0, perform_command, (cmd, inc)) #re-scheduler
+    os.system(cmd)
+def main(cmd, inc=10):
+    schedule.enter(0, 0, perform_command, (cmd, inc)) # 0==right now
+    schedule.run()
+
+if __name__ == '__main__':
+    numargs = len(sys.argv) - 1
+    if numargs < 1 or numargs > 2:
+        print "Usage: " + sys.argv[0] + " command [seconds_delay]"
+        sys.exit(1)
+    cmd = sys.argv[1]
+    if numargs < 2:
+        main(cmd)
+    else:
+        inc = int(sys.argv[2])
+        main(cmd, inc)
+```
+<p>总之一旦有了一个sched的实例s，可以通过调用s.enter来安排某件时间的发生时间，或者调用s.enterabs，以某个给定的绝对时间作为事件启动时间。 还可以通过事件标识符event作为参数，传入s.cancel函数取消这个事件。总之完成一系列安排之后，可以调用s.run()。</p>
+
+<h4>Timer对象</h4>
+<p>In multi-threaded environments, the scheduler class has limitations with respect to thread-safety, inability to insert a new task before the one currently pending in a running scheduler, and holding up the main thread until the event queue is empty. Instead, the preferred approach is to use the threading.Timer class instead.</p>
+
+<p>Timer ObjectsThis class represents an action that should be run only after a certain amount of time has passed — a timer. Timer is a subclass of Thread and as such also functions as an example of creating custom threads.</p>
+<p>Timers are started, as with threads, by calling their start() method. The timer can be stopped (before its action has begun) by calling the cancel() method. The interval the timer will wait before executing its action may not be exactly the same as the interval specified by the user. For example:</p>
+```python
+def hello():
+    print "hello, world"
+
+t = Timer(30.0, hello)t.start() # after 30 seconds, "hello, world" will be printed
+```
+<p>class threading.Timer(interval, function, args=[], kwargs={})Create a timer that will run function with arguments args and keyword arguments kwargs, after interval seconds have passed.</p>
+<p>cancel()Stop the timer, and cancel the execution of the timer’s action. This will only work if the timer is still in its waiting stage.</p>
+
+<h4>参考地址</h4>
+<a href='http://blog.csdn.net/jerk_zhang/article/details/20216569'>深入学习python （六） 用sched来定时执行任务</a>
+<a href='https://docs.python.org/2/library/sched.html'>sched — Event scheduler</a>
+<< python cookbook 中文版>>
+
+]]></content>
+  </entry>
+  
+</feed>
