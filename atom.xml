@@ -4,7 +4,7 @@
   <title><![CDATA[其实很简单]]></title>
   <link href="http://ywllx.github.com/atom.xml" rel="self"/>
   <link href="http://ywllx.github.com/"/>
-  <updated>2014-11-16T07:44:25-08:00</updated>
+  <updated>2015-01-01T15:46:36+08:00</updated>
   <id>http://ywllx.github.com/</id>
   <author>
     <name><![CDATA[Fred Yan]]></name>
@@ -14,9 +14,58 @@
 
   
   <entry>
+    <title type="html"><![CDATA[C++ primer function]]></title>
+    <link href="http://ywllx.github.com/blog/2014/12/31/c-plus-plus-primer-function/"/>
+    <updated>2014-12-31T23:16:00+08:00</updated>
+    <id>http://ywllx.github.com/blog/2014/12/31/c-plus-plus-primer-function</id>
+    <content type="html"><![CDATA[<hr>
+
+
+<p>不知道不明了不想要,为什么我的心,明明是想靠近,却孤单到黎明;不知道不明了不想要,为什么我的心,那爱情的绮丽,总是在孤单里,再把我的最好的爱给你。喜欢一个人，她却不喜欢你，的确是一件很痛苦的事情啊！其实觉得挺可笑的，根本未曾拥有，何来失去，也许正如对她说的，我努力过，坚持过，无论结果如何，不需要后悔了！</p>
+
+
+<p>最近一直在借助C++ primer这本书，打算全面复习下C++的基础知识，这篇博客主要是这本书上摘录下来的介绍C++函数的一些觉得有用的知识点，自己看看</p>
+
+
+<p></hr></p>
+
+<hr>
+
+
+<p><em>1，函数的形参为函数提供了已命名的局部存储空间，是一个变量，作用域为整个函数。实参出现在函数调用中，是一个表达式，进行函数调用时，由传递给函数的实参对形参进行初始化。
+</em>2，函数的形参表可以为空，但不能省略
+<em>3，C++是一种静态强类型语言，对于每次的函数调用，编译时都会检验其实参，对于每一个实参，其类型都必须与对应的形参类型相同，或具有可被转换为该形参类型的类型。
+</em>4，形参的初始化与变量的初始化一样，如果形参具有非引用类型，则复制实参的值，如果形参为引用类型，则它只是实参的别名。
+<em>5，函数的形参是指针时，此时将复制实参指针，如果函数将新指针赋值给形参，主调函数使用的实参指针的值没有改变，如果函数形参是非const类型的指针，则函数可以通过指针实现赋值，改变指针所指向对象的值（实参指针不会改变，但指向的值改变）
+</em>6，使用引用形参，函数可以直接访问实参对象，无需复制它，尤其是使用const引用可以避免复制（例如const string &amp;s1）
+<em>7，应该将不需要修改的引用形参定义为const引用，普通的非const引用形参在使用时不灵活，既不能用const对象初始化，也不能使用直接传入的字面值或产生右值的表达式实参初始化。
+</em>8，函数千万不要返回局部对象的引用和指针，因为一旦函数结束，局部对象将会被释放
+<em>9，如果有一个形参具有默认实参，那么它后面所有的形参都必须有默认实参，默认实参只能用来替换函数调用缺少的尾部实参。
+</em>10，static局部对象，当定义静态局部对象的函数结束时，静态局部对象不会撤销
+<em>11，inline函数应该在头文件中定义，在头文件中加入或者修改inline函数时，使用了该头文件的所有源文件都必须重新编译。
+</em>12，类的函数原型必须在类中定义，但是，函数体既可以在类中定义也可以在类外定义。编译器隐式地将在类内定义的成员函数当作inline函数。
+<em>13，每个成员函数都有一个额外的，隐含的形参this，在调用成员函数时，形参this初始化为调用函数的对象的地址
+</em>14，在类成员函数声明的形参表后面的const改变了隐含的this形参的类型，在调用对象成员函数时，隐含的this形参将是一个指向对象的const类指针，用这种方式使用的const的函数称为常量成员函数，由于this是指向const对象的指针，const成员函数不能修改调用该函数的对象。
+<em>15，const对象，指向const对象的指针或引用只能用于调用其const成员函数，如果尝试用它们来调用非const成员函数，则是错误的。
+</em>16，类必须编写一个成员那就是构造函数，通过构造函数来初始化其数据成员。
+<em>17，构造函数是特殊的成员函数，和类同名，没有返回类型，一个类可以有多个构造函数，每个构造函数必须有与其它构造函数不同数目或类型的形参。
+</em>18，构造函数必须在类中声明，但是可以在类中或者类外定义。如果没有为一个类显示定义任何构造函数，编译器将自动为这个类生成默认的构造函数。
+<em>19，编译器创建的默认构造函数称为合成的默认构造函数（synthesized default constructor），对于含有内置类型或复合类型成员的类，通常应该定义他们自己的默认构造函数初始化这些成员。
+</em>20，Sales_item(): units_sold(0), revenue(0.0) { }，构造函数的初始化列表示例，每个成员后面是在圆括号里的初始值，多个成员的初始化值用逗号分隔。
+<em>21，函数重载匹配的三种结果：(1),找到最佳匹配，(2)，找不到形参与实参匹配的函数原型，这样编译器将报错，(3)，存在多个与实参匹配的类型，但没有一个明显的最佳选择，这时调用具有二义性
+</em>22，重载确定三步骤：(1)，候选函数，必须与被调用函数同名，且在调用点上，声明可见，(2)，选择可行函数，可行函数必须满足两个条件：第一，函数的形参与该调用的实参个数相同，第二，每一个实参的类型必须与对应形参类型匹配，或者隐式地转换为对应的形参类型。（如果函数具有默认实参，则调用该函数时，所用的实参可能比实际参数要的少，默认实参也是实参，在函数匹配过程中，它的处理方式与其他实参一样）(3)，寻找最佳匹配，(4)，含有多个形参的重载确定，(1)，其每个实参的匹配不劣于其它可行函数需要的匹配。(2)，至少有一个实参的匹配优于其他可行函数提供的匹配。（实际应用过程中，应尽量避免强制转换，否则意味着设计的形参不合理。
+<em>23，在使用枚举类型形参的重载函数时，由于不同枚举类型的枚举常量值不同，在函数重载确定过程中，不同的枚举类型会具有完全不同的行为。其枚举成员决定了它们提升的类型，而所提升的类型依赖于机器。
+</em>24，仅当形参是引用或指针时，形参是否为const才对重载有影响。
+<em>25，函数指针是指向函数而非对象的指针，指向某个特定的类型，函数类型由其返回类型以及形参表确定，而与函数名无关
+</em>26，函数指针只能通过同类型的函数或函数指针或0值常量表达式进行初始化或赋值。
+*27，如果指向函数的指针没有初始化，或者具有0值，则该指针不能在函数调用中使用，只有当指针已经初始化，或被赋值为指向某个函数，方能安全地用来调用函数。</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[python定时执行任务]]></title>
     <link href="http://ywllx.github.com/blog/2014/11/16/python-scheduling-events/"/>
-    <updated>2014-11-16T06:57:00-08:00</updated>
+    <updated>2014-11-16T06:57:00+08:00</updated>
     <id>http://ywllx.github.com/blog/2014/11/16/python-scheduling-events</id>
     <content type="html"><![CDATA[<hr>
 
@@ -204,7 +253,7 @@
   <entry>
     <title type="html"><![CDATA[Liunx CPU 性能分析]]></title>
     <link href="http://ywllx.github.com/blog/2014/08/04/linux-cpu-performance/"/>
-    <updated>2014-08-04T18:07:00-07:00</updated>
+    <updated>2014-08-04T18:07:00+08:00</updated>
     <id>http://ywllx.github.com/blog/2014/08/04/linux-cpu-performance</id>
     <content type="html"><![CDATA[<hr>
 
@@ -343,7 +392,7 @@ count 采样的次数，count只能和delay一起使用
   <entry>
     <title type="html"><![CDATA[送给我自己]]></title>
     <link href="http://ywllx.github.com/blog/2013/09/04/for-myself/"/>
-    <updated>2013-09-04T10:09:00-07:00</updated>
+    <updated>2013-09-04T10:09:00+08:00</updated>
     <id>http://ywllx.github.com/blog/2013/09/04/for-myself</id>
     <content type="html"><![CDATA[<p>这是很久以前写的一篇文章了，当时标题就是送给我自己，发表在以前我的一个腾讯的空间里，查看了下时间是2007年9月份，而现在已是2013年的9月份，如今把他翻出来，不打算做任何改动，当作自己一种回忆吧。</p>
 
@@ -433,7 +482,7 @@ count 采样的次数，count只能和delay一起使用
   <entry>
     <title type="html"><![CDATA[深入比较排序算法]]></title>
     <link href="http://ywllx.github.com/blog/2013/07/30/sort-algorithms-part2/"/>
-    <updated>2013-07-30T00:09:00-07:00</updated>
+    <updated>2013-07-30T00:09:00+08:00</updated>
     <id>http://ywllx.github.com/blog/2013/07/30/sort-algorithms-part2</id>
     <content type="html"><![CDATA[<p>上篇博客介绍了四种比较排序算法的基本内容，这次就那四种排序算法扩展开，介绍一些有意思的内容，首先我们将简单证明下比较排序算法的下界为O(nlogn)。也许你很奇怪，为什么我在这里一直强调比较排序算法，其实我在这里需要指出的这里我们介绍的排序算法都是利用比较信息来对数组排序的，并没有对数组有特殊要求，因此并没有利用数组的其它信息来进行排序，它所能达到的最快时间复杂度就是O(nlogn),如果我们对数组有了特殊要求，就有可能突破这个时间复杂度限制，例如计数排序算法。</p>
 
@@ -553,7 +602,7 @@ count 采样的次数，count只能和delay一起使用
   <entry>
     <title type="html"><![CDATA[比较排序算法基本简介]]></title>
     <link href="http://ywllx.github.com/blog/2013/07/29/sort-algorithms-part1/"/>
-    <updated>2013-07-29T22:48:00-07:00</updated>
+    <updated>2013-07-29T22:48:00+08:00</updated>
     <id>http://ywllx.github.com/blog/2013/07/29/sort-algorithms-part1</id>
     <content type="html"><![CDATA[<p>这篇博客和下篇博客主要就排序问题做个简单的总结，任何学习计算机的同学都知道，排序问题在计算机科学里面是研究的最广泛的一个问题，也是在计算机科学里应用最广泛的一个问题。这篇博客先简单介绍几种最基本的比较排序算法的基本内容，下篇博客则就这些内容做一些有意思的深入，需要指出的这两篇博客所有的内容都是参考算法导论这本书的内容来的。</p>
 
@@ -817,7 +866,7 @@ count 采样的次数，count只能和delay一起使用
   <entry>
     <title type="html"><![CDATA[梦一场]]></title>
     <link href="http://ywllx.github.com/blog/2013/07/01/its-a-dream/"/>
-    <updated>2013-07-01T00:51:00-07:00</updated>
+    <updated>2013-07-01T00:51:00+08:00</updated>
     <id>http://ywllx.github.com/blog/2013/07/01/its-a-dream</id>
     <content type="html"><![CDATA[<h4>First</h4>
 
@@ -883,7 +932,7 @@ count 采样的次数，count只能和delay一起使用
   <entry>
     <title type="html"><![CDATA[python文本处理]]></title>
     <link href="http://ywllx.github.com/blog/2013/06/28/python-text-processing/"/>
-    <updated>2013-06-28T11:45:00-07:00</updated>
+    <updated>2013-06-28T11:45:00+08:00</updated>
     <id>http://ywllx.github.com/blog/2013/06/28/python-text-processing</id>
     <content type="html"><![CDATA[<p>对于脚本语言来说，文本处理任务构成了一个很重要的组成部分。python提供用于文本处理最主要的工具就是字符串——不可改变的字符序列。python提供了很多基于字符串的基本处理方法，掌握这些方法对于处理文本是十分用于的，这里不再详述。我这里主要是总结《python cookbook》中关于文本处理的几个例子一些内容形成的一个博客。</p>
 
@@ -1092,7 +1141,7 @@ s4 = s.translate(table2, &#8216;abc123&#8217;) #先把s中的abc123去除了，�
   <entry>
     <title type="html"><![CDATA[C 指针总结]]></title>
     <link href="http://ywllx.github.com/blog/2013/06/25/c-pointer/"/>
-    <updated>2013-06-25T23:43:00-07:00</updated>
+    <updated>2013-06-25T23:43:00+08:00</updated>
     <id>http://ywllx.github.com/blog/2013/06/25/c-pointer</id>
     <content type="html"><![CDATA[<p>好久没更新过博客了，只能怪自己实在是懒，以后打算最好每星期能更新一次博客，写点自己学的东西，这次就想写点C指针的问题。关于这个，网上有个很详细的文章，叫做<a href="http://ishare.iask.sina.com.cn/f/12454328.html">C语言指针详解</a>。而我写这个，主要是看了一本书《算法精解—C语言描述》，里面第2章是专门讲C指针的，我觉得不错，摘了些我觉得有意思的内容。</p>
 
@@ -1229,7 +1278,7 @@ s4 = s.translate(table2, &#8216;abc123&#8217;) #先把s中的abc123去除了，�
   <entry>
     <title type="html"><![CDATA[利用octopress在github构建自己的博客]]></title>
     <link href="http://ywllx.github.com/blog/2013/03/11/how-to-build-blog-with-octopress-on-github/"/>
-    <updated>2013-03-11T22:26:00-07:00</updated>
+    <updated>2013-03-11T22:26:00+08:00</updated>
     <id>http://ywllx.github.com/blog/2013/03/11/how-to-build-blog-with-octopress-on-github</id>
     <content type="html"><![CDATA[<p>早就想着自己动手利用github搭建一个能自己控制的博客，上个周末，终于把想法变成行动了，google了一把之后，打开了<a href="http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html">一篇文章</a>，介绍如何利用github Pages和Jekyll搭建一个免费的，无限流量的Blog，这不正是我所需要的吗！但是对jekll并不熟，文章也没有详细介绍如何利用它。继续google，发现了octopress这个工具，而且网上对介绍如何利用它搭建博客的文章很多，于是参考这些文章，开始搭建自己的博客了。下面则主要是这个过程的一个简单记录。</p>
 
